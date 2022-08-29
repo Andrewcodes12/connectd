@@ -1,4 +1,3 @@
-from unicodedata import category
 from .db import db
 
 
@@ -18,7 +17,7 @@ class Event(db.Model):
     #many to one relationship with user
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     # relationship with reviews
-    reviews = db.relationship('UserReview', backref='event', lazy=True)
+    reviews = db.relationship('Review', backref='event', lazy=True)
 
 
     def to_dict(self):

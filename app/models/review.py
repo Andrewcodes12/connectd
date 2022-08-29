@@ -1,8 +1,8 @@
 from .db import db
 
 
-class UserReview(db.Model):
-    __tablename__ = 'user_reviews'
+class Review(db.Model):
+    __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, nullable=False)
@@ -26,4 +26,4 @@ class UserReview(db.Model):
         }
 
     def __repr__(self):
-        return '<UserReview %r>' % self.id
+        return '<review %r>' % self.id
