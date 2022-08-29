@@ -3,6 +3,8 @@ from .db import db
 
 
 class Event(db.Model):
+    __tablename__ = 'events'
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     event_description = db.Column(db.Text(), nullable=False)
@@ -15,6 +17,8 @@ class Event(db.Model):
     category = db.Column(db.String(255), nullable=False)
     #many to one relationship with user
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    # relationship with reviews
+    reviews = db.relationship('UserReview', backref='event', lazy=True)
 
 
     def to_dict(self):
