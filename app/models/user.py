@@ -10,6 +10,15 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(255), nullable=False)
+    last_name = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(255), nullable=False)
+    state = db.Column(db.String(255), nullable=False)
+    zipcode = db.Column(db.String(10), nullable=False)
+    user_image = db.Column(db.String(255), nullable=False, default='https://i.imgur.com/6hEbAJv.jpeg')
+    user_bio = db.Column(db.Text(), nullable=False, default='Here to meet like minded people and create memories.')
+    # one to many relatiopnship with events
+    events = db.relationship('Event', backref='user', lazy=True)
 
     @property
     def password(self):
@@ -26,5 +35,12 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'city': self.city,
+            'state': self.state,
+            'zipcode': self.zipcode,
+            'user_image': self.user_image,
+            'user_bio': self.user_bio,
         }
