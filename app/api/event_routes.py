@@ -55,5 +55,27 @@ def create_event():
 
     return jsonify(form.errors)
 
+# Update event
+@event_routes.route('/<int:id>', methods=['PUT'])
+def update_event(id):
+    """
+    Update event
+    """
+    form = new_event_form.EventForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    if form.validate_on_submit():
+        event = Event.query.get(id)
+        event.title = form.data['title']
+        event.event_description = form.data['event_description']
+        event.category = form.data['category']
+        event.event_city = form.data['event_city']
+        event.event_state = form.data['event_state']
+        event.event_zipcode = form.data['event_zipcode']
+        event.event_date = form.data['event_date']
+        event.event_imgs = form.data['event_imgs']
 
+        db.session.commit()
+        return event.to_dict()
+
+    return jsonify(form.errors)
