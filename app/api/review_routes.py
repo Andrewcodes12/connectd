@@ -95,3 +95,4 @@ def sort_reviews_date(id):
     """
     reviews = Review.query.filter_by(event_id=id).order_by(Review.created_at.desc())
     return jsonify([review.to_dict() for review in reviews])
+
