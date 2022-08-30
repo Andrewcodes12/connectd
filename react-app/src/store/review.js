@@ -27,10 +27,13 @@ const remove = (id) => ({
 
 
 export const loadReviews = (id) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${id}`);
-    if(response.ok) {
+    debugger
+    const response = await fetch(`api/reviews/${id}`);
+    if(response.ok){
         const reviews = await response.json();
         dispatch(load(reviews));
+    } else {
+        throw new Error('Something went wrong');
     }
 }
 
@@ -91,10 +94,10 @@ export const sortByDate = (id) => async (dispatch) => {
 }
 
 const initialState = {
-    reviews: {}
+    reviews: []
 }
 
-const reviewReducer = (state = initialState, action) => {
+export default function reviewReducer(state = initialState, action) {
     switch(action.type) {
         case LOAD_REVIEWS:
             return {
@@ -104,30 +107,19 @@ const reviewReducer = (state = initialState, action) => {
         case ADD_REVIEW:
             return {
                 ...state,
-                reviews: {
-                    ...state.reviews,
-                    [action.review.id]: action.review
-                }
+                reviews: [...state.reviews, action.review]
             }
         case UPDATE_REVIEW:
             return {
                 ...state,
-                reviews: {
-                    ...state.reviews,
-                    [action.review.id]: action.review
-                }
+                reviews: state.reviews.map(review => review.id === action.review.id ? action.review : review)
             }
         case DELETE_REVIEW:
-            const newReviews = {...state.reviews};
-            delete newReviews[action.id];
             return {
                 ...state,
-                reviews: newReviews
+                reviews: state.reviews.filter(review => review.id !== action.id)
             }
         default:
             return state;
     }
 }
-
-
-export default reviewReducer;

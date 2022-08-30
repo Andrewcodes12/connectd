@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+
+
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -37,6 +41,8 @@ const LoginForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
+
+
       <div>
         <label htmlFor='email'>Email</label>
         <input
@@ -59,6 +65,7 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+
   );
 };
 
