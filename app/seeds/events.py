@@ -4,7 +4,7 @@ from faker import Faker
 # Adds a demo user, you can add other users here if you want
 def seed_events():
     event1 = Event(
-        title= ' Racquetball', event_description= 'Looking for 1 more to play a game of racquetball with', event_imgs= 'https://i.imgur.com/6hEbAJv.jpeg', event_date= '2020-01-01', event_time= '12:00:00', event_city= 'Miami', event_state= 'FL', event_zipcode= '33140', category= 'Sports', user_id= 11
+        title= ' Racquetball', event_description= 'Looking for 1 more to play a game of racquetball with', event_imgs= 'https://i.imgur.com/6hEbAJv.jpeg', event_date= '2020-01-01', event_city= 'Miami', event_state= 'FL', event_zipcode= '33140', category= 'Sports', user_id= 11
     )
     fake = Faker()
     for _ in range(10):
@@ -13,7 +13,6 @@ def seed_events():
             event_description = fake.text(),
             event_imgs = fake.image_url(),
             event_date = fake.date_time_between(start_date="-30d", end_date="+30d"),
-            event_time = fake.time(),
             event_city = fake.city(),
             event_state = fake.state(),
             event_zipcode = fake.postcode(),
