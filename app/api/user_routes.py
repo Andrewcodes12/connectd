@@ -17,3 +17,12 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+# load a users events
+@user_routes.route('/<int:id>/events')
+# @login_required
+def user_events(id):
+    user = User.query.get(id)
+    return {'events': [event.to_dict() for event in user.events]}
+

@@ -93,12 +93,21 @@ def delete_event(id):
     return event.to_dict()
 
 
-
-# search for events by clicking on a category
+# Search for events by clicking a category
 @event_routes.route('/search/<string:category>', methods=['GET'])
 def search_events(category):
     """
     Search for events by category
     """
     events = Event.query.filter_by(category=category)
+    return jsonify([event.to_dict() for event in events])
+
+
+# search for events by typing in a title
+@event_routes.route('/search/title/<string:title>', methods=['GET'])
+def search_events_title(title):
+    """
+    Search for events by title
+    """
+    events = Event.query.filter_by(title=title)
     return jsonify([event.to_dict() for event in events])
