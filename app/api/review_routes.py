@@ -62,3 +62,16 @@ def update_review(id):
         return review.to_dict()
 
     return jsonify(form.errors)
+
+
+# Delete a review on a event
+@review_routes.route('/<int:id>', methods=['DELETE'])
+def delete_review(id):
+    """
+    Delete a review on a event
+    """
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+    return review.to_dict()
+    
