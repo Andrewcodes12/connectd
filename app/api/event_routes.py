@@ -79,3 +79,14 @@ def update_event(id):
         return event.to_dict()
 
     return jsonify(form.errors)
+
+# Delete event
+@event_routes.route('/<int:id>/delete', methods=['DELETE'])
+def delete_event(id):
+    """
+    Delete event
+    """
+    event = Event.query.get(id)
+    db.session.delete(event)
+    db.session.commit()
+    return event.to_dict()
