@@ -74,4 +74,24 @@ def delete_review(id):
     db.session.delete(review)
     db.session.commit()
     return review.to_dict()
-    
+
+
+
+# sort reviews on event by rating
+@review_routes.route('/<int:id>/sort/rating', methods=['GET'])
+def sort_reviews_rating(id):
+    """
+    Sort reviews on event by rating
+    """
+    reviews = Review.query.filter_by(event_id=id).order_by(Review.review_rating.desc())
+    return jsonify([review.to_dict() for review in reviews])
+
+
+# sort reviews on event by date
+@review_routes.route('/<int:id>/sort/date', methods=['GET'])
+def sort_reviews_date(id):
+    """
+    Sort reviews on event by date
+    """
+    reviews = Review.query.filter_by(event_id=id).order_by(Review.created_at.desc())
+    return jsonify([review.to_dict() for review in reviews])
