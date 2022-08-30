@@ -8,6 +8,7 @@ event_routes = Blueprint('events', __name__)
 
 
 # Get all events
+# ordered by newest first
 @event_routes.route('/', methods=['GET'])
 def get_events():
     """
@@ -90,3 +91,14 @@ def delete_event(id):
     db.session.delete(event)
     db.session.commit()
     return event.to_dict()
+
+
+
+# search for events by clicking on a category
+@event_routes.route('/search/<string:category>', methods=['GET'])
+def search_events(category):
+    """
+    Search for events by category
+    """
+    events = Event.query.filter_by(category=category)
+    return jsonify([event.to_dict() for event in events])
