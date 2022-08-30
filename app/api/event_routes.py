@@ -103,11 +103,14 @@ def search_events(category):
     return jsonify([event.to_dict() for event in events])
 
 
-# search for events by typing in a title
-@event_routes.route('/search/title/<string:title>', methods=['GET'])
-def search_events_title(title):
+
+# search for events by typing in a city
+@event_routes.route('/search/city/<string:city>', methods=['GET'])
+def search_events_city(city):
     """
-    Search for events by title
+    Search for events by city
     """
-    events = Event.query.filter_by(title=title)
+    events = Event.query.filter_by(event_city=city)
     return jsonify([event.to_dict() for event in events])
+
+
