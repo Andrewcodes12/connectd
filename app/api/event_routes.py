@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, Flask
 from flask_login import current_user, login_required
 from app.models import db, User, Event, Review
 from flask_sqlalchemy import SQLAlchemy
-from app.forms import new_event_form
+from app.forms import EventForm
 
 event_routes = Blueprint('events', __name__)
 
@@ -35,7 +35,7 @@ def create_event():
     """
     Create event
     """
-    form = new_event_form.EventForm()
+    form = EventForm.EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -62,7 +62,7 @@ def update_event(id):
     """
     Update event
     """
-    form = new_event_form.EventForm()
+    form = EventForm.EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -112,5 +112,3 @@ def search_events_city(city):
     """
     events = Event.query.filter_by(event_city=city)
     return jsonify([event.to_dict() for event in events])
-
-
