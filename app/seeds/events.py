@@ -3,6 +3,9 @@ from faker import Faker
 
 # Adds a demo user, you can add other users here if you want
 def seed_events():
+    event1 = Event(
+        title= ' Racquetball', event_description= 'Looking for 1 more to play a game of racquetball with', event_imgs= 'https://i.imgur.com/6hEbAJv.jpeg', event_date= '2020-01-01', event_time= '12:00:00', event_city= 'Miami', event_state= 'FL', event_zipcode= '33140', category= 'Sports', user_id= 11
+    )
     fake = Faker()
     for _ in range(10):
         event = Event(
@@ -18,7 +21,7 @@ def seed_events():
             user_id = fake.random_int(min=2, max=10)
         )
         db.session.add(event)
-
+    db.session.add(event1)
 
 
     db.session.commit()
