@@ -5,6 +5,9 @@ import {loadEvents} from '../../store/event';
 import {loadAllReviews} from '../../store/review';
 import {setUser} from '../../store/session';
 
+
+import './feed.css'
+
 function Feed() {
 const dispatch = useDispatch();
 const events = useSelector(state => state.events.events);
