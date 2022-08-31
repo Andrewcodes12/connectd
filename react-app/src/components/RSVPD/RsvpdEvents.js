@@ -1,4 +1,4 @@
-import './rsvdevents.css'
+import './rsvpdevents.css'
 
 function RsvpdEvents() {
   return (
