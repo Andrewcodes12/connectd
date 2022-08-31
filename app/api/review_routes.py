@@ -6,6 +6,13 @@ from app.forms import ReviewForm
 
 review_routes = Blueprint('reviews', __name__)
 
+# Get all reviews
+@review_routes.route('/', methods=['GET'])
+def get_all_reviews():
+    reviews = Review.query.all()
+    return jsonify([review.to_dict() for review in reviews])
+
+
 
 # Get all reviews for an event
 @review_routes.route('/<int:id>', methods=['GET'])
@@ -95,4 +102,3 @@ def sort_reviews_date(id):
     """
     reviews = Review.query.filter_by(event_id=id).order_by(Review.created_at.desc())
     return jsonify([review.to_dict() for review in reviews])
-
