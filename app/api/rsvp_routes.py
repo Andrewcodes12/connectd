@@ -5,11 +5,21 @@ from flask_sqlalchemy import SQLAlchemy
 
 rsvp_routes = Blueprint('rsvps', __name__)
 
+# get all rsvps
+@rsvp_routes.route('/', methods=['GET'])
+# @login_required
+def get_all_rsvps():
+    """
+    Get all rsvps
+    """
+    rsvps = Rsvp.query.all()
+    return jsonify([rsvp.to_dict() for rsvp in rsvps])
 
 
 # Get all rsvps on an event
 # ordered by newest first
 @rsvp_routes.route('/<int:id>', methods=['GET'])
+# @login_required
 def get_rsvps(id):
     """
     Get all rsvps on an event
@@ -20,6 +30,7 @@ def get_rsvps(id):
 
 # create rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['POST'])
+# @login_required
 def create_rsvp(id):
     """
     Create rsvp on an event
@@ -36,6 +47,7 @@ def create_rsvp(id):
 
 # delete rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
 def delete_rsvp(id):
     """
     Delete rsvp on an event
@@ -48,6 +60,7 @@ def delete_rsvp(id):
 
 # update rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['PUT'])
+# @login_required
 def update_rsvp(id):
     """
     Update rsvp on an event

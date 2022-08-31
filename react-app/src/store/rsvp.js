@@ -1,10 +1,15 @@
-const LOAD_RSVP = 'LOAD_RSVP';
+const LOAD_ALL = 'LOAD_ALL';
+const LOAD_RSVP_ON_EVENT = 'LOAD_RSVP';
 const CREATE = 'CREATE_RSVP';
 const DELETE = 'DELETE';
 
+export const load_all = (rsvp) => ({
+    type:LOAD_ALL,
+    rsvp
+})
 
-const load = (rsvp) => ({
-    type:LOAD_RSVP,
+const load_on_event = (rsvp) => ({
+    type:LOAD_RSVP_ON_EVENT,
     rsvp
 })
 
@@ -20,12 +25,22 @@ const deleted = (id) => ({
 })
 
 
-export const loadRsvps = (eventId) => async (dispatch) => {
+export const load_all_rsvp = () => async dispatch => {
+    const response = await fetch('/api/rsvps/');
+
+    if(response.ok){
+        const rsvps = await response.json();
+        dispatch(load_all(rsvps));
+    }
+}
+
+
+export const loadRsvpsOnEvent = (eventId) => async (dispatch) => {
     const response = await fetch(`/api/rsvps/${eventId}/`);
 
     if(response.ok){
         const rsvps = await response.json();
-        dispatch(load(rsvps));
+        dispatch(load_on_event(rsvps));
     }
 }
 
@@ -55,7 +70,12 @@ export const deleteRsvp = (id) => async (dispatch) => {
 
 const RsvpReducer = (state = [], action) => {
     switch(action.type){
-        case LOAD_RSVP:
+        case LOAD_ALL:
+            return {
+                ...state,
+                rsvps: action.rsvp
+            }
+        case LOAD_RSVP_ON_EVENT:
             return {
                 ...state,
                 rsvps: action.rsvp
