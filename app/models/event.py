@@ -18,6 +18,8 @@ class Event(db.Model):
     # relationship with reviews
     reviews = db.relationship('Review', backref='event', lazy=True)
 
+    #connect to rsvp table
+    rsvps = db.relationship('Rsvp', backref='event', lazy=True)
 
     def to_dict(self):
         return {

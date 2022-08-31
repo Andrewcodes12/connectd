@@ -17,8 +17,12 @@ class User(db.Model, UserMixin):
     zipcode = db.Column(db.String(10), nullable=False)
     user_image = db.Column(db.String(255), nullable=False, default='https://i.imgur.com/6hEbAJv.jpeg')
     user_bio = db.Column(db.Text(), nullable=False, default='Here to meet like minded people and create memories.')
+
     # one to many relatiopnship with events
     events = db.relationship('Event', backref='user', lazy=True)
+
+    # connect to rsvp table
+    rsvps = db.relationship('Rsvp', backref='user', lazy=True)
 
     @property
     def password(self):
