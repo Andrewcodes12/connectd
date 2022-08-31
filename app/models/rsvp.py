@@ -8,7 +8,7 @@ class Rsvp(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=False)
-    rsvp = db.Column(db.String(255), nullable=False)
+    rsvp = db.Column(db.Boolean(255), nullable=False)
 
     def to_dict(self):
         return {
