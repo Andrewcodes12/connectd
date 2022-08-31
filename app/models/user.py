@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     # one to many relatiopnship with events
     events = db.relationship('Event', backref='user', lazy=True)
 
-    # connect to rsvp table
+    # relationship to rsvp table
     rsvps = db.relationship('Rsvp', backref='user', lazy=True)
 
     @property

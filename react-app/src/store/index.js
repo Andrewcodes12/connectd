@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import EventReducer from './event';
 import ReviewReducer from './review';
+import RsvpReducer from './rsvp';
 
 const rootReducer = combineReducers({
   session,
   events: EventReducer,
-  reviews: ReviewReducer
+  reviews: ReviewReducer,
+  rsvps: RsvpReducer
 });
 
 
