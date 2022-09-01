@@ -5,20 +5,11 @@ img{
     border-radius: 16px;
 }
 
-.feed {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 65% 35%;
-    grid-gap: 16px;
-}
 
 
 .feed-events-container {
-    padding: 8px;
     display: grid;
-    margin: 0 auto;
-    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
-    grid-auto-rows: minmax(264px, auto);
+    padding: 24px;
+    grid-template-columns:repeat(3, minmax(0px, 1fr));
     grid-gap: 16px;
-
 }
