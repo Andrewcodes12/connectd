@@ -2,6 +2,8 @@ import './navbar.css';
 
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
+
+import Categories from '../Categories/Categories';
 import LogoutButton from '../auth/LogoutButton';
 
 const NavBar = () => {
@@ -18,6 +20,7 @@ const NavBar = () => {
 
 
   return (
+    <>
     <div className="navBar">
       <div className="logo">
         <div>
@@ -73,6 +76,8 @@ const NavBar = () => {
             </NavLink> */}
       </div>
     </div>
+    <Categories />
+    </>
   );
 }
 
