@@ -1,3 +1,4 @@
+import React from 'react';
 import './singleEvent.css';
 
 function SingleEvent() {

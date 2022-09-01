@@ -1,3 +1,4 @@
+import React from 'react';
 import './userProfile.css';
 
 function UserProfile() {
