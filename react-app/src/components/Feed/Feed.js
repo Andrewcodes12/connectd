@@ -23,25 +23,157 @@ useEffect(() => {
 } , [dispatch]);
 
 
-  return (
-    <>
-        <h1>Feed</h1>
-        {/* {rsvps.filter(rsvp => rsvp.event_id === 1).map(rsvp => (
-            <div key={rsvp.id}>
-                <h3>{rsvp.user_id}</h3>
-                display the title of the event
-                {events.filter(event => event.id === rsvp.event_id).map(event => (
-                    <div key={event.id}>
-                        <h3>{event.title}</h3>
-                        <p>{event.description}</p>
-                    </div>
-                ))}
-                </div>
-        ))} */}
+ const eventss = [
+    {
+        id: 1,
+        title: 'Event 1',
+        event_description: 'This is event 1',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 2,
+        title: 'Event 2',
+        event_description: 'This is event 2',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+]
 
-    </>
-  )
+
+  return (
+    <div className="feed">
+                    <div className="feed-events-container">
+                        {eventss.map(event => (
+                            <div className="feed-event" key={event.id}>
+                                <div className="feed-event-img">
+                                    <img src={event.event_imgs} alt="event-img" />
+                                    </div>
+                                    <div className="feed-event-info">
+                                        <h3>{event.title}</h3>
+                                        <p>{event.event_description}</p>
+                                        <p>{event.event_date}</p>
+                                        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+                                        <p>{event.category}</p>
+                                    </div>
+
+
+
+        </div>
+        ))}
+                    </div>
+        </div>
+
+
+  );
 }
+
 
 
 export default Feed

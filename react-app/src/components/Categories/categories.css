@@ -10,7 +10,6 @@ a:hover{
 }
 
 
-
 a:active{
     color: rgb(0, 0, 0);
     text-decoration: underline;
@@ -36,4 +35,10 @@ a:active{
     position: relative;
     margin-top: 3px;
     color: #717171;
+}
+
+a .categories_text:hover{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
 }
