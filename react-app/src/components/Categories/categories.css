@@ -1,0 +1,39 @@
+a{
+    text-decoration: none;
+    color: #717171;
+}
+
+a:hover{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+a:active{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+
+
+.categories_div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.categories_div_inner{
+  text-align: center;
+  color: #717171;
+}
+
+
+.categories_text{
+    display: block;
+    position: relative;
+    margin-top: 3px;
+    color: #717171;
+}
