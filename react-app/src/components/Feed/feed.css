@@ -13,3 +13,11 @@ img{
     grid-template-columns:repeat(3, minmax(0px, 1fr));
     grid-gap: 16px;
 }
+
+
+.feed-event-info{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
