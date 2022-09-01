@@ -26,7 +26,7 @@ useEffect(() => {
   return (
     <>
         <h1>Feed</h1>
-        {rsvps.filter(rsvp => rsvp.event_id === 1).map(rsvp => (
+        {/* {rsvps.filter(rsvp => rsvp.event_id === 1).map(rsvp => (
             <div key={rsvp.id}>
                 <h3>{rsvp.user_id}</h3>
                 display the title of the event
@@ -37,10 +37,11 @@ useEffect(() => {
                     </div>
                 ))}
                 </div>
-        ))}
+        ))} */}
 
     </>
   )
 }
+
 
 export default Feed
