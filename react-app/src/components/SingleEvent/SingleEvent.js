@@ -3,7 +3,8 @@ import {useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents, loadEventById } from '../../store/event';
+import { loadEvents } from '../../store/event';
+
 
 import './singleEvent.css';
 

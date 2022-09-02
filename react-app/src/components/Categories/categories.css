@@ -15,6 +15,10 @@ a:active{
     text-decoration: underline;
 }
 
+.active{
+    text-decoration: underline;
+
+}
 
 .categories_div{
     display: flex;
@@ -34,7 +38,7 @@ a:active{
     display: block;
     position: relative;
     margin-top: 3px;
-    color: #717171;
+    color: #000000;
 }
 
 a .categories_text:hover{

@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEvents } from '../../store/event';
 
 import './eventByCategory.css'
-
-
+import Categories from '../Categories/Categories';
 
 function EventByCategory() {
     const eventss = useSelector(state => state.events);
@@ -20,6 +19,7 @@ function EventByCategory() {
 
   return (
     <>
+    <Categories />
     {eventss.map(event => (
         event.category === category ? (
             <>
