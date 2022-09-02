@@ -144,6 +144,81 @@ useEffect(() => {
         event_zipcode: '94103',
         category: 'Sports',
     },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
+    {
+        id: 3,
+        title: 'Event 3',
+        event_description: 'This is event 3',
+        event_imgs: [
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        ],
+        event_date: '2020-01-01',
+        event_city: 'San Francisco',
+        event_state: 'CA',
+        event_zipcode: '94103',
+        category: 'Sports',
+    },
 ]
 
 
@@ -156,11 +231,11 @@ useEffect(() => {
                                     <img src={event.event_imgs} alt="event-img" />
                                     </div>
                                     <div className="feed-event-info">
-                                        <h3>{event.title}</h3>
-                                        <p>{event.event_description}</p>
-                                        <p>{event.event_date}</p>
-                                        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-                                        <p>{event.category}</p>
+                                        <h3 className="event-title">{event.title}</h3>
+                                        <p className="event-description">{event.event_description}</p>
+                                        <p className="event-date">{event.event_date}</p>
+                                        <p className="event-location">{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+                                        <p className="event-category">{event.category}</p>
                                     </div>
 
 

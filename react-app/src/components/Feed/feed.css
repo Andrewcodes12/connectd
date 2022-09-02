@@ -6,6 +6,8 @@ img{
 }
 
 
+
+
 .feed-events-container{
     display: grid;
     padding: 20px;
@@ -13,15 +15,56 @@ img{
     grid-gap: 20px;
 }
 
-.feed-event-info{
-    display:block;
-    margin-top: 50px;
-}
-
-
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 800px) {
     .feed-events-container{
         display: flex;
         flex-wrap: wrap;
     }
+}
+@media screen and (max-width: 1200px) {
+    .feed-events-container{
+        grid-template-columns: repeat(3, minmax(100px,1fr));
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .feed-events-container{
+        grid-template-columns: repeat(2, minmax(100px,1fr));
+    }
+}
+
+.feed-event {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.feed-event-info{
+    display:block;
+    margin-top: 50px;
+    margin-left: 5px;
+}
+
+
+.event-title{
+    margin-top: -50px;
+}
+
+.event-description{
+    margin-top: -20px;
+    color: #717171;
+}
+
+.event-date{
+    margin-top: -15px;
+    color: #717171;
+}
+
+.event-location{
+    margin-top: -15px;
+    color: #717171;
+}
+
+.event-category{
+    margin-top: -10px;
+    font-weight: bold;
 }
