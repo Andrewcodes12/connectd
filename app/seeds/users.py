@@ -4,11 +4,25 @@ from faker import Faker
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     Demo = User(
-        username='Demo', email='demo@demo.com', password='password',
+        username='Demo', email='demo@demo.com', hashed_password='password',
         first_name='Demo', last_name='User', city='Miami', state='FL',
         zipcode='33140', user_image='https://i.imgur.com/6hEbAJv.jpeg',
         user_bio='This is a demo account, feel free to edit this bio or the profile picture.'
     )
+    Dummy = User(
+        username='Dummy User', email='dummy@demo.com', hashed_password='password',
+        first_name='Dummy', last_name='User', city='Miami', state='FL',
+        zipcode='33140', user_image='https://i.imgur.com/u25mtMk.jpeg',
+        user_bio='This is a demo account, feel free to edit this bio or the profile picture.'
+    )
+    Test = User(
+        username='Test User', email='test@demo.com', hashed_password='password',
+        first_name='Test', last_name='User', city='Miami', state='FL',
+        zipcode='33140', user_image='https://i.imgur.com/maJ867Y.jpeg',
+        user_bio='This is a demo account, feel free to edit this bio or the profile picture.'
+    )
+
+
     fake = Faker()
     for _ in range(10):
         user = User(
@@ -24,7 +38,10 @@ def seed_users():
             hashed_password = 'password'
         )
         db.session.add(user)
+
     db.session.add(Demo)
+    db.session.add(Dummy)
+    db.session.add(Test)
 
     db.session.commit()
 

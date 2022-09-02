@@ -10,8 +10,8 @@ def seed_reviews():
             updated_at = fake.date_time_between(start_date="-30d", end_date="+30d"),
             review_body = fake.text(),
             review_rating = fake.random_int(min=1, max=5),
-            user_id = fake.random_int(min=2, max=10),
-            event_id = fake.random_int(min=2, max=10)
+            user_id = fake.random_int(min=1, max=13),
+            event_id = fake.random_int(min=1, max=13)
         )
         db.session.add(review)
     db.session.commit()
