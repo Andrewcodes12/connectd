@@ -20,6 +20,7 @@ import Feed from './components/Feed/Feed';
 
 
 import { authenticate } from './store/session';
+import EventByCategory from './components/EventByCategory/EventByCategory';
 
 // DUMMY DATA
 // const eventss = [
@@ -254,6 +255,9 @@ function App() {
           </Route>
           <Route path='/about' exact={true}>
             <About />
+          </Route>
+          <Route path='/events/search/:category' exact={true}>
+            <EventByCategory />
           </Route>
           <Route path='/events/:eventsId' exact={true}>
             <SingleEvent />
