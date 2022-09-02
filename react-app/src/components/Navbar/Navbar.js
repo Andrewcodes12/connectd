@@ -3,7 +3,6 @@ import './navbar.css';
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Categories from '../Categories/Categories';
 import LogoutButton from '../auth/LogoutButton';
 
 const NavBar = () => {
@@ -76,7 +75,6 @@ const NavBar = () => {
             </NavLink> */}
       </div>
     </div>
-    <Categories />
     </>
   );
 }

@@ -1,29 +1,24 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {NavLink,Switch,Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 import {loadEvents} from '../../store/event';
-import {loadAllReviews} from '../../store/review';
-import {load_all_rsvp} from '../../store/rsvp';
-import {setUser} from '../../store/session';
-import SingleEvent from '../SingleEvent/SingleEvent';
+
 
 
 import './feed.css'
 
 function Feed({eventss}) {
-const dispatch = useDispatch();
-const events = useSelector(state => state.events.events);
-const reviews = useSelector(state => state.reviews.reviews);
-const rsvps = useSelector(state => state.rsvps.rsvps);
-const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+    const events = useSelector(state => state.events);
+    const user = useSelector(state => state.session.user);
 
-useEffect(() => {
-    dispatch(loadEvents());
-    dispatch(loadAllReviews());
-    dispatch(load_all_rsvp());
-} , [dispatch]);
+    useEffect(() => {
+        dispatch(loadEvents());
+    } , []);
+
+    console.log(events)
 
 
 
@@ -31,7 +26,7 @@ useEffect(() => {
   return (
     <div className="feed">
                     <div className="feed-events-container">
-                        {eventss.map(event => (
+                        {events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`}>
                                 <div className="feed-event-img">
@@ -45,15 +40,10 @@ useEffect(() => {
                                         <p className="event-category">{event.category}</p>
                                     </div>
                                 </NavLink>
-
-
-
-        </div>
-        ))}
+                            </div>
+                        ))}
                     </div>
         </div>
-
-
   );
 }
 

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navbar/Navbar';
+import Categories from './components/Categories/Categories';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import About from './components/About/About';
 import AddEvent from './components/AddEvent/AddEvent';
@@ -238,9 +239,11 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+
       <Switch>
 
         <Route path='/' exact={true} >
+            <Categories />
             <Feed eventss={eventss}/>
           </Route>
           <Route path='/login' exact={true}>

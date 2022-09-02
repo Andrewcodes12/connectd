@@ -126,40 +126,19 @@ export const loadEventsByCity = (city) => async (dispatch) => {
 const EventReducer = (state = [], action) => {
     switch(action.type){
         case LOAD:
-            return {
-                ...state,
-                events: action.events
-            }
+            return action.events;
         case LOAD_BY_ID:
-            return {
-                ...state,
-                event: action.event
-            }
+            return action.event;
         case CREATE:
-            return {
-                ...state,
-                events: [...state.events, action.event]
-            }
+            return [...state, action.event];
         case UPDATE:
-            return {
-                ...state,
-                events: state.events.map(event => event.id === action.event.id ? action.event : event)
-            }
+            return state.map(event => event.id === action.event.id ? action.event : event);
         case DELETE:
-            return {
-                ...state,
-                events: state.events.filter(event => event.id !== action.id)
-            }
+            return state.filter(event => event.id !== action.id);
         case LOAD_BY_CATEGORY:
-            return {
-                ...state,
-                events: action.events
-            }
+            return action.events;
         case LOAD_BY_CITY:
-            return {
-                ...state,
-                events: action.events
-            }
+            return action.events;
         default:
             return state;
     }
