@@ -18,9 +18,6 @@ function Feed({eventss}) {
         dispatch(loadEvents());
     } , []);
 
-    console.log(events)
-
-
 
 
   return (

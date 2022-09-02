@@ -1,25 +1,41 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 
+import { loadEvents, loadEventById } from '../../store/event';
 
 import './singleEvent.css';
 
 
 
-function SingleEvent({events}) {
+function SingleEvent() {
+  const eventss = useSelector(state => state.events);
+  const dispatch = useDispatch();
   const {eventsId} = useParams();
 
-  const event = events.find(event => event.id === parseInt(eventsId));
+  useEffect(() => {
+    dispatch(loadEvents());
+  } , []);
+
 
   return (
     <>
-      <h1>{event.title}</h1>
-      <img src={event.event_imgs} alt="event-img" />
-      <p>{event.event_description}</p>
-      <p>{event.event_date}</p>
-      <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-      <p>{event.category}</p>
+    {eventss.map(event => (
+      event.id === parseInt(eventsId) ? (
+        <>
+        <h1>{event.title}</h1>
+        <img src={event.event_imgs} alt="event-img" />
+        <p>{event.event_description}</p>
+        <p>{event.event_date}</p>
+        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+        <p>{event.category}</p>
+      </>
+      ) :
+      <>
+
+      </>
+    ))}
     </>
   )
 }
