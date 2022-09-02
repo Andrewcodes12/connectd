@@ -70,7 +70,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 4,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -85,7 +85,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 5,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -100,7 +100,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 6,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -115,7 +115,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 7,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -130,7 +130,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 8,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -145,7 +145,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 9,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -160,7 +160,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 10,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -175,7 +175,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 11,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -190,7 +190,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 12,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
@@ -205,7 +205,7 @@ useEffect(() => {
         category: 'Sports',
     },
     {
-        id: 3,
+        id: 13,
         title: 'Event 3',
         event_description: 'This is event 3',
         event_imgs: [
