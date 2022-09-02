@@ -20,6 +20,7 @@ class Event(db.Model):
     # relationship to rsvp table
     rsvps = db.relationship('Rsvp', backref='event', lazy=True)
 
+
     def to_dict(self):
         return {
             'id': self.id,
