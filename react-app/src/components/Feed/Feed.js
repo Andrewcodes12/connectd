@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {NavLink} from 'react-router-dom';
+
 
 import {loadEvents} from '../../store/event';
 import {loadAllReviews} from '../../store/review';
@@ -227,6 +229,7 @@ useEffect(() => {
                     <div className="feed-events-container">
                         {eventss.map(event => (
                             <div className="feed-event" key={event.id}>
+                                <NavLink to={`/events/${event.id}`}>
                                 <div className="feed-event-img">
                                     <img src={event.event_imgs} alt="event-img" />
                                     </div>
@@ -237,6 +240,7 @@ useEffect(() => {
                                         <p className="event-location">{event.event_city}, {event.event_state} {event.event_zipcode}</p>
                                         <p className="event-category">{event.category}</p>
                                     </div>
+                                </NavLink>
 
 
 

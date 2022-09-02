@@ -7,6 +7,14 @@ img{
     border-radius: 16px;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .feed-events-container{
     display: grid;
     padding: 20px;
@@ -35,7 +43,7 @@ img{
 .feed-event {
     cursor: pointer;
     margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
 }
 
 .feed-event-info{
@@ -62,9 +70,11 @@ img{
 .event-location{
     margin-top: -15px;
     color: #717171;
+
 }
 
 .event-category{
     margin-top: -10px;
     font-weight: bold;
+
 }
