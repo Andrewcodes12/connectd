@@ -1,12 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Roboto&family=Yanone+Kaffeesatz:wght@300;500&display=swap');
+
 img{
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
 }
-
-
-
 
 .feed-events-container{
     display: grid;
@@ -36,6 +35,7 @@ img{
 .feed-event {
     cursor: pointer;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;;
 }
 
 .feed-event-info{
