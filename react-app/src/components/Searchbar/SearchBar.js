@@ -2,7 +2,11 @@ import './searchBar.css'
 
 function SearchBar() {
   return (
-    <div>SearchBar</div>
+    <>
+    
+
+
+    </>
   )
 }
 
