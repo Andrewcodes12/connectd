@@ -25,9 +25,9 @@ function Feed({eventss}) {
                     <div className="feed-events-container">
                         {events.map(event => (
                             <div className="feed-event" key={event.id}>
-                                <NavLink to={`/events/${event.id}`}>
+                                <NavLink to={`/events/${event.id}`} className="event-link">
                                 <div className="feed-event-img">
-                                    <img src={event.event_imgs} alt="event-img" />
+                                    <img src={event.event_imgs} alt="event-img" className='feed-event-img'/>
                                     </div>
                                     <div className="feed-event-info">
                                         <h3 className="event-title">{event.title}</h3>

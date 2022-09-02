@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Roboto&family=Yanone+Kaffeesatz:wght@300;500&display=swap');
 
 img{
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     object-fit: cover;
     border-radius: 16px;
 }
@@ -20,7 +20,6 @@ a:hover {
     padding: 20px;
     grid-template-columns: repeat(4, minmax(100px,1fr));
     grid-gap: 20px;
-    margin: 10px 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -43,8 +42,9 @@ a:hover {
 
 .feed-event {
     cursor: pointer;
-    margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
+    padding:0;
+    margin:0
 }
 
 .feed-event-info{
@@ -59,23 +59,30 @@ a:hover {
 }
 
 .event-description{
-    margin-top: -20px;
+    margin-top: -15px;
     color: #717171;
 }
 
 .event-date{
-    margin-top: -15px;
+    margin-top: -10px;
     color: #717171;
 }
 
 .event-location{
-    margin-top: -15px;
+    margin-top: -10px;
     color: #717171;
 
 }
 
 .event-category{
-    margin-top: -10px;
+    margin-top: -5px;
     font-weight: bold;
 
+}
+
+.feed-event-img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
 }
