@@ -14,9 +14,12 @@ function SearchBar() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(loadEventsByCity(city));
+    let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
+    dispatch(loadEventsByCity(capitalizeFirstletter));
     setCity('');
   };
+
+
 
 
 
@@ -31,6 +34,7 @@ function SearchBar() {
         />
         <button type="submit">Search</button>
       </form>
+
 
 
     </>
