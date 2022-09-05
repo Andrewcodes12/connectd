@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 
 import LogoutButton from '../auth/LogoutButton';
+import SearchBar from '../Searchbar/SearchBar';
 
 const NavBar = () => {
 
@@ -21,6 +22,7 @@ const NavBar = () => {
   return (
     <>
     <div className="navBar">
+
       <div className="logo">
         <div>
           <NavLink to='/'>
@@ -30,7 +32,7 @@ const NavBar = () => {
       </div>
       <div className="navSearch">
         <i className="fas fa-search"></i>
-          <input className="search" type="text" placeholder="Search By City"/>
+          <SearchBar />
       </div>
       <div className="rightNav">
         <NavLink to='/'>

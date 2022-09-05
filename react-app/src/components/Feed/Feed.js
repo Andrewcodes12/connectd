@@ -6,7 +6,6 @@ import {NavLink} from 'react-router-dom';
 import {loadEvents} from '../../store/event';
 
 
-
 import './feed.css'
 
 function Feed({eventss}) {

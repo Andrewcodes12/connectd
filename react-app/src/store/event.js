@@ -111,7 +111,7 @@ export const loadEventsByCategory = (category) => async (dispatch) => {
 }
 
 export const loadEventsByCity = (city) => async (dispatch) => {
-    const response = await fetch(`/api/events/search/city/${city}/`);
+    const response = await fetch(`/api/events/search/city/${city}`);
 
     if(response.ok){
         const events = await response.json();
