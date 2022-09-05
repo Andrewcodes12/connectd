@@ -4,12 +4,14 @@ import session from './session'
 import EventReducer from './event';
 import ReviewReducer from './review';
 import RsvpReducer from './rsvp';
+import UserReducer from './user';
 
 const rootReducer = combineReducers({
   session,
   events: EventReducer,
   reviews: ReviewReducer,
-  rsvps: RsvpReducer
+  rsvps: RsvpReducer,
+  users: UserReducer
 });
 
 
