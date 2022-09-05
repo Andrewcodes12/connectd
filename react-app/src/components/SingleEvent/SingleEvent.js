@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, NavLink} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -13,10 +13,12 @@ import './singleEvent.css';
 function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
-  console.log(users)
 
   const dispatch = useDispatch();
+
+
   const {eventsId} = useParams();
+
 
   useEffect(() => {
     dispatch(loadEvents());
@@ -26,7 +28,7 @@ function SingleEvent() {
 
   return (
     <>
-    {events.map(event => (
+    {events && events.map(event => (
       event.id === parseInt(eventsId) ? (
         <>
         <h1>{event.title}</h1>
@@ -36,12 +38,14 @@ function SingleEvent() {
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
 
-        {users.map(user => (
+        {users && users.map(user => (
           user.id === event.user_id ? (
-            <div className="user-event-container">
-            <h4>{user.username}</h4>
-            <img src={user.user_image} alt="profile-img" />
-            </div>
+            <NavLink to={`/users/${user.id}`}>
+              <div className="user-event-container">
+              <h4 className="user-event-name">{user.username}</h4>
+              <img src={user.user_image} alt="profile-img" className="user-event-pic"/>
+              </div>
+            </NavLink>
           ) : null
         ))}
 

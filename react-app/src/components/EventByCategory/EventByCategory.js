@@ -20,7 +20,7 @@ function EventByCategory() {
   return (
     <>
     <Categories />
-    {events.map(event => (
+    {events && events.map(event => (
         event.category === category ? (
             <>
             <NavLink to={`/events/${event.id}`} className="event-link">
