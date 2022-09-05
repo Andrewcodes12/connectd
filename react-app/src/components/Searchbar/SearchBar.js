@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 import React,{useState} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { loadEventsByCity } from '../../store/event';
 import './searchBar.css'
@@ -10,11 +10,13 @@ import './searchBar.css'
 function SearchBar() {
   const [city, setCity] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
+    history.push(`/events/search/city/${capitalizeFirstletter}/`)
     dispatch(loadEventsByCity(capitalizeFirstletter));
     setCity('');
   };
