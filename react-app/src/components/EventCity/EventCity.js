@@ -14,12 +14,12 @@ function EventCity() {
 
     useEffect(() => {
         dispatch(loadEventsByCity());
-    },[]);
+    },[dispatch]);
 
   return (
     <div className="feed">
                     <div className="feed-events-container">
-                        {events.map(event => (
+                        {events && events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`} className="event-link">
                                 <div className="feed-event-img">
