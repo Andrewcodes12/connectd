@@ -14,17 +14,11 @@ function SearchBar() {
 
 
   const handleSubmit = async (e) => {
-    if(city){
-
-      e.preventDefault();
-      let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
-      history.push(`/events/search/city/${capitalizeFirstletter}/`)
-      dispatch(loadEventsByCity(capitalizeFirstletter));
-      setCity('');
-    } else {
-      e.preventDefault();
-      alert('Please enter a city')
-    }
+    e.preventDefault();
+    let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
+    history.push(`/events/search/city/${capitalizeFirstletter}/`)
+    dispatch(loadEventsByCity(capitalizeFirstletter));
+    setCity('');
   };
 
 
