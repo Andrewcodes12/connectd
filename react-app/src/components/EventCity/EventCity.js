@@ -10,7 +10,6 @@ import {loadEventsByCity} from '../../store/event';
 function EventCity() {
 
     const events = useSelector(state => state.events);
-    console.log(events)
 
     // useEffect(() => {
     //     dispatch(loadEventsByCity());
@@ -18,8 +17,8 @@ function EventCity() {
 
   return (
     <div className="feed">
-                    <div className="feed-events-container">
-                        {events && events.map(event => (
+                    < div className="feed-events-container">
+                        {events && events.length > 0 ? events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`} className="event-link">
                                     <div className="feed-event-img">
@@ -34,7 +33,7 @@ function EventCity() {
                                     </div>
                                 </NavLink>
                             </div>
-                        ))}
+                        )) : <h1>No Events Found Please Try Another City (Miami, San Francisco, New York)</h1>}
                     </div>
         </div>
   )
