@@ -10,19 +10,19 @@ function AddEvent() {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const [photoUrl, setPhotoUrl] = useState('')
+  const [event_imgs, setImgs] = useState('')
   const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [date, setDate] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [zip, setZip] = useState('')
+  const [event_description, setDescription] = useState('')
+  const [event_date, setDate] = useState('')
+  const [event_city, setCity] = useState('')
+  const [event_state, setState] = useState('')
+  const [event_zipcode, setZip] = useState('')
   const [category, setCategory] = useState('')
   const [errors, setErrors] = useState([])
 
 
   const resetFields = () => {
-    setPhotoUrl('')
+    setImgs('')
     setTitle('')
     setDescription('')
     setDate('')
@@ -35,40 +35,42 @@ function AddEvent() {
   const validateEvent = () => {
     const errors = []
 
-    if (!photoUrl) errors.push('Please provide a photo')
+    if (!event_imgs) errors.push('Please provide a photo')
     if (!title) errors.push('Please provide a title')
-    if (!description) errors.push('Please provide a description')
-    if (!date) errors.push('Please provide a date')
-    if (!city) errors.push('Please provide a city')
-    if (!state) errors.push('Please provide a state')
-    if (!zip) errors.push('Please provide a zip code')
+    if (!event_description) errors.push('Please provide a description')
+    if (!event_date) errors.push('Please provide a date')
+    if (!event_city) errors.push('Please provide a city')
+    if (!event_state) errors.push('Please provide a state')
+    if (!event_zipcode) errors.push('Please provide a zip code')
     if (!category) errors.push('Please provide a category')
 
     setErrors(errors)
     return errors
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) =>  {
     e.preventDefault()
 
     const errors = validateEvent()
 
-    if (!errors.length){
-      const newEvent = {
-        title: title,
-        event_description:description,
-        category,
-        event_city:city,
-        event_state:state,
-        event_zip: zip,
-        event_date:date,
-        event_imgs: photoUrl,
-        user_id:1
-      }
+    if(!errors.length){
+    const event = {
+      event_imgs,
+      title,
+      event_description,
+      event_date,
+      event_city,
+      event_state,
+      event_zipcode,
+      category
+    }
 
-      dispatch(createEvent(newEvent))
-      resetFields()
-      history.push('/')
+    dispatch(createEvent(event))
+    resetFields()
+    history.push('/')
+    
+    }  else {
+      setErrors(['Failed to create event. Please try again.'])
     }
   }
 
@@ -84,8 +86,8 @@ function AddEvent() {
           <label>Photo Url</label>
           <input
             type='text'
-            value={photoUrl}
-            onChange={(e) => setPhotoUrl(e.target.value)}
+            value={event_imgs}
+            onChange={(e) => setImgs(e.target.value)}
             required
           />
         </div>
@@ -102,7 +104,7 @@ function AddEvent() {
           <label>Description</label>
           <input
             type='text'
-            value={description}
+            value={event_description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
@@ -110,7 +112,7 @@ function AddEvent() {
         <div>
           <label>Date</label>
           <DatePicker
-            value={date}
+            value={event_date}
             onChange={setDate}
             format='y-MM-dd'
             required
@@ -120,7 +122,7 @@ function AddEvent() {
           <label>City</label>
           <input
             type='text'
-            value={city}
+            value={event_city}
             onChange={(e) => setCity(e.target.value)}
             required
           />
@@ -129,7 +131,7 @@ function AddEvent() {
           <label>State</label>
           <input
             type='text'
-            value={state}
+            value={event_state}
             onChange={(e) => setState(e.target.value)}
             required
           />
@@ -138,7 +140,7 @@ function AddEvent() {
           <label>Zip</label>
           <input
             type='text'
-            value={zip}
+            value={event_zipcode}
             onChange={(e) => setZip(e.target.value)}
             required
           />

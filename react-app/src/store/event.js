@@ -91,7 +91,7 @@ export const updateEvent = (event) => async (dispatch) => {
 
 
 export const deleteEventById = (id) => async (dispatch) => {
-    const response = await fetch(`/api/events/${id}/delete/`, {
+    const response = await fetch(`/api/events/${id}/delete`, {
         method: 'DELETE'
     });
 
@@ -139,6 +139,20 @@ const EventReducer = (state = [], action) => {
             return action.events;
         case LOAD_BY_CITY:
             return action.events;
+        // case LOAD:
+        //     return {...state, events: action.events};
+        // case LOAD_BY_ID:
+        //     return {...state, event: action.event};
+        // case CREATE:
+        //     return {...state, events: [...state.events, action.event]};
+        // case UPDATE:
+        //     return {...state, events: state.events.map(event => event.id === action.event.id ? action.event : event)};
+        // case DELETE:
+        //     return {...state, events: state.events.filter(event => event.id !== action.id)};
+        // case LOAD_BY_CATEGORY:
+        //     return {...state, events: action.events};
+        // case LOAD_BY_CITY:
+        //     return {...state, events: action.events};
         default:
             return state;
     }
