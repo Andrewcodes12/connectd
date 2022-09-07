@@ -69,9 +69,7 @@ export const createEvent = (event) => async (dispatch) => {
     });
 
     if(response.ok){
-        console.log("before dispatch")
         const event = await response.json();
-        console.log(event)
         dispatch(create(event));
     }
 }

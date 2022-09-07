@@ -8,7 +8,7 @@ import { deleteEventById } from '../../store/event';
 
 import './feed.css'
 
-function Feed({eventss}) {
+function Feed() {
     const dispatch = useDispatch();
     const events = useSelector(state => state.events);
     const user = useSelector(state => state.session.user);
