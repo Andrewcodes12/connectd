@@ -29,13 +29,15 @@ def get_event(id):
     return jsonify(event.to_dict())
 
 
-# Create event
+# create new event
+@event_routes.route('/', methods=['POST'])
+# @login_required
 @event_routes.route('/', methods=['POST'])
 def create_event():
     """
     Create event
     """
-    form = EventForm.EventForm()
+    form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -55,6 +57,7 @@ def create_event():
         return event.to_dict()
 
     return jsonify(form.errors)
+
 
 # Update event
 @event_routes.route('/<int:id>', methods=['PUT'])

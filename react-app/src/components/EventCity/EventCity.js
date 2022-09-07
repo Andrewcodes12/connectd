@@ -17,7 +17,7 @@ function EventCity() {
 
   return (
     <div className="feed">
-                    < div className="feed-events-container">
+                    <div className="feed-events-container">
                         {events && events.length > 0 ? events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`} className="event-link">

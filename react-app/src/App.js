@@ -8,20 +8,20 @@ import NavBar from './components/Navbar/Navbar';
 import Categories from './components/Categories/Categories';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import About from './components/About/About';
-import AddEvent from './components/AddEvent/AddEvent';
 import SingleEvent from './components/SingleEvent/SingleEvent';
 import UserProfile from './components/UserProfile/UserProfile';
 import RSVPD from './components/RSVPD/RsvpdEvents';
 import DirectMessage from './components/DirectMessage/DirectMessage';
 import Footer from './components/Footer/Footer';
+import EventByCategory from './components/EventByCategory/EventByCategory';
+import EventCity from './components/EventCity/EventCity';
+import AddEvent from './components/AddEvent/AddEvent';
 
 
 import Feed from './components/Feed/Feed';
 
 
 import { authenticate } from './store/session';
-import EventByCategory from './components/EventByCategory/EventByCategory';
-import EventCity from './components/EventCity/EventCity';
 
 // DUMMY DATA
 // const eventss = [
@@ -243,7 +243,6 @@ function App() {
       <NavBar />
 
       <Switch>
-
         <Route path='/' exact={true} >
             <Categories />
             <Feed />
@@ -269,17 +268,17 @@ function App() {
           <Route path='/users/:userId' exact={true}>
             <UserProfile />
           </Route>
-          <ProtectedRoute path='/events/new' exact={true}>
-            <AddEvent />
-          </ProtectedRoute>
+          <Route path='/events/new' exact={true}>
+            <AddEvent/>
+          </Route>
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />
           </ProtectedRoute>
           <ProtectedRoute path='/messages' exact={true}>
             <DirectMessage />
           </ProtectedRoute>
-
       </Switch>
+
     </BrowserRouter>
   );
 }

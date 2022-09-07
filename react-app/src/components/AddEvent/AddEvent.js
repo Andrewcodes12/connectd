@@ -1,9 +1,10 @@
-import React from 'react';
-import './addEvent.css'
+import React from 'react'
 
 function AddEvent() {
   return (
-    <div>AddEvent</div>
+    <>
+        <h1>guguygyghkhkh</h1>
+    </>
   )
 }
 
