@@ -38,7 +38,7 @@ const NavBar = () => {
         <NavLink to='/'>
           <i className="fas fa-home" id="home"></i>
         </NavLink>
-        <NavLink to='/events/new'>
+        <NavLink to='/new/events'>
           <i className="fas fa-upload" id="upload"></i>
         </NavLink>
         {/* <NavLink to='/profile' >

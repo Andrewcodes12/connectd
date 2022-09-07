@@ -60,7 +60,7 @@ export const loadEventById = (id) => async (dispatch) => {
 }
 
 export const createEvent = (event) => async (dispatch) => {
-    const response = await fetch('/api/events/', {
+    const response = await fetch('/api/events/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

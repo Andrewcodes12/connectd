@@ -265,11 +265,11 @@ function App() {
           <Route path='/events/:eventsId' exact={true}>
             <SingleEvent />
           </Route>
+          <Route path='/new/events' exact={true}>
+            <AddEvent />
+          </Route>
           <Route path='/users/:userId' exact={true}>
             <UserProfile />
-          </Route>
-          <Route path='/events/new' exact={true}>
-            <AddEvent/>
           </Route>
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />

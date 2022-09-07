@@ -30,9 +30,8 @@ def get_event(id):
 
 
 # create new event
-@event_routes.route('/', methods=['POST'])
+@event_routes.route('/new', methods=['POST'])
 # @login_required
-@event_routes.route('/', methods=['POST'])
 def create_event():
     """
     Create event
