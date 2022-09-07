@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 
 import {createEvent} from '../../store/event'
 
-import DatePicker from 'react-date-picker'
+
 
 function AddEvent() {
   const dispatch = useDispatch()
@@ -62,13 +62,14 @@ function AddEvent() {
       event_city,
       event_state,
       event_zipcode,
-      category
+      category,
+      user_id:1
     }
 
     dispatch(createEvent(event))
     resetFields()
     history.push('/')
-    
+
     }  else {
       setErrors(['Failed to create event. Please try again.'])
     }
@@ -111,10 +112,10 @@ function AddEvent() {
         </div>
         <div>
           <label>Date</label>
-          <DatePicker
+          <input
+            type='text'
             value={event_date}
-            onChange={setDate}
-            format='y-MM-dd'
+            onChange={(e) => setDate(e.target.value)}
             required
           />
         </div>
@@ -154,11 +155,11 @@ function AddEvent() {
           >
             <option value=''>--Please choose an option--</option>
             <option selected value='Sports'>Sports</option>
-            <option value='Video Games'>Video Games</option>
+            <option value='VideoGames'>Video Games</option>
             <option value='Clubbing'>Clubbing</option>
             <option value='Boating'>Boating</option>
-            <option value='Board Games'>Board Games</option>
-            <option value='Study Groups'>Study Groups</option>
+            <option value='BoardGames'>Board Games</option>
+            <option value='StudyGroups'>Study Groups</option>
             <option value='Other'>Other</option>
           </select>
         </div>

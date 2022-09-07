@@ -17,9 +17,9 @@ function Feed({eventss}) {
         dispatch(loadEvents());
     } , []);
 
-    const deleteEvent = (id) => {
-        dispatch(deleteEventById(id));
-    }
+    // const deleteEvent = (id) => {
+    //     dispatch(deleteEventById(id));
+    // }
 
   return (
     <div className="feed">
@@ -38,7 +38,7 @@ function Feed({eventss}) {
                                         <p className="event-category">{event.category}</p>
                                     </div>
                                 </NavLink>
-                                <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+                                {/* <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button> */}
                             </div>
                         ))}
                     </div>
