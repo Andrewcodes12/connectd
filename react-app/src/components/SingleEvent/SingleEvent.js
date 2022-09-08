@@ -10,6 +10,8 @@ import { loadReviewsByEvent } from '../../store/review';
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
 import EditReviews from '../EditReviews/EditReviews';
+import { deleteReviewById } from '../../store/review';
+
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
@@ -32,6 +34,10 @@ function SingleEvent() {
   const deleteEvent = (id) => {
     dispatch(deleteEventById(id));
     history.push('/');
+  }
+
+  const deleteReview = (id) => {
+    dispatch(deleteReviewById(id));
   }
 
   return (
@@ -80,8 +86,13 @@ function SingleEvent() {
                 <p>{review.created_at}</p>
                 <p>{review.review_rating}</p>
 
-                <div className='edit-event-reviews'>
-                <EditReviews review={review} />
+                <div className="edit-delete-container">
+                  <div className='edit-reviews'>
+                  <EditReviews review={review} />
+                  </div>
+                  <div className="delete-review">
+                    <button onClick={() => deleteReview(review.id)}><i className="fas fa-trash-alt"> </i></button>
+                  </div>
                 </div>
 
                 {users && users.map(user => (

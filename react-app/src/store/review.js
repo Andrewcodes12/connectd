@@ -92,7 +92,7 @@ export const updateReview = (review) => async (dispatch) => {
 }
 
 export const deleteReviewById = (id) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${id}/`, {
+    const response = await fetch(`/api/reviews/${id}`, {
         method:'DELETE'
     });
 
