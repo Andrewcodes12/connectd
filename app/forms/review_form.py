@@ -1,6 +1,6 @@
 from email.policy import default
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, TextAreaField, IntegerField, SelectField, BooleanField, DateTimeField
 from wtforms.fields.core import IntegerField, DateField
 from wtforms.validators import DataRequired, Email, ValidationError
 import datetime
@@ -8,7 +8,7 @@ import datetime
 class ReviewForm(FlaskForm):
     created_at = DateField('created_at', validators=[DataRequired()], default=datetime.datetime.now())
     updated_at = DateField('updated_at', validators=[DataRequired()], default=datetime.datetime.now())
-    review_body = StringField('review_body', validators=[DataRequired()])
+    review_body = TextAreaField('review_body', validators=[DataRequired()])
     review_rating = IntegerField('review_rating', validators=[DataRequired()], default=0)
     user_id = IntegerField('user_id', validators=[DataRequired()])
 
