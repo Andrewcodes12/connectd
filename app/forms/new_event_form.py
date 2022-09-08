@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 class EventForm(FlaskForm):
     title = StringField('Event Title', validators=[DataRequired()])
     event_description = TextAreaField('Description', validators=[DataRequired()])
-    category = SelectField('Category', choices=[('', 'Select Category'), ('VideoGames', 'Video Games'), ('Sports', 'Sports'), ('Clubbing', 'Clubbing'), ('Boating', 'Boating'), ('Board Games', 'Board Games'), ('Study Groups', 'Study Groups'), ('Other', 'Other')], validators=[DataRequired()])
+    category = SelectField('Category', choices=[('', 'Select Category'), ('VideoGames', 'Video Games'), ('Sports', 'Sports'), ('Clubbing', 'Clubbing'), ('Boating', 'Boating'), ('BoardGames', 'Board Games'), ('StudyGroups', 'Study Groups'), ('Other', 'Other')], validators=[DataRequired()])
     event_city = StringField('City', validators=[DataRequired()])
     event_state = StringField('State', validators=[DataRequired()])
     event_zipcode = IntegerField('Zipcode', validators=[DataRequired()])
