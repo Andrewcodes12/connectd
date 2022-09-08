@@ -17,9 +17,11 @@ function SingleEvent() {
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews.reviews);
 
+  const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
 
   const dispatch = useDispatch();
   const history = useHistory();
+
   const {eventsId} = useParams();
 
   useEffect(() => {
@@ -44,6 +46,11 @@ function SingleEvent() {
         <p>{event.event_date}</p>
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
+
+        <div className="share-event">
+          <p>Share this event with friends</p>
+          <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
+        </div>
 
         <div className="edit-delete-container">
           <div className="edit-event">
@@ -89,6 +96,7 @@ function SingleEvent() {
       <>
       </>
   ))}
+
     </>
   )
 }
