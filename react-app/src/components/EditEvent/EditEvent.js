@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {NavLink, useParams} from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useState} from 'react';
+import { useDispatch} from 'react-redux';
 
 
 import { updateEvent } from '../../store/event';
@@ -21,7 +20,7 @@ function EditEvent({event}) {
   const [isClicked, setIsClicked] = useState(false);
 
   const dispatch = useDispatch();
-  const {eventsId} = useParams();
+
 
   const handleSubmit =  (e) => {
     e.preventDefault();
@@ -40,7 +39,7 @@ function EditEvent({event}) {
     }
 
     dispatch(updateEvent(event));
-    setIsClicked(true);
+    setIsClicked(false);
   }
 
 

@@ -85,9 +85,7 @@ export const updateEvent = (event) => async (dispatch) => {
     });
     console.log(response)
     if(response.ok){
-        console.log("this")
         const event = await response.json();
-        console.log(event)
         dispatch(update(event));
     }
 }
