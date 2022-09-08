@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink, useParams} from 'react-router-dom';
+import {NavLink, useParams,useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents,updateEvent } from '../../store/event';
+import { loadEvents,deleteEventById } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 
 import './singleEvent.css';
@@ -18,6 +18,7 @@ function SingleEvent() {
 
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const {eventsId} = useParams();
 
   useEffect(() => {
@@ -25,6 +26,10 @@ function SingleEvent() {
     dispatch(loadUserInfo());
   } , []);
 
+    const deleteEvent = (id) => {
+        dispatch(deleteEventById(id));
+        history.push('/');
+    }
 
   return (
     <>
@@ -41,7 +46,10 @@ function SingleEvent() {
         <div className="edit-post">
           <EditEvent event={event} />
         </div>
-        
+        <div>
+          <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+        </div>
+
         <NavLink to={`/users/${event.user_id}`} className="event-link">
           {users && users.map(user => (
             user.id === event.user_id ? (
