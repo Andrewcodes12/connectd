@@ -1,8 +1,13 @@
 const LOAD_USER = 'session/LOAD_USER';
-
+const EDIT_USER = 'session/EDIT_USER';
 
 const loadUsers = (user) => ({
     type: LOAD_USER,
+    user
+})
+
+const editUser = (user) => ({
+    type: EDIT_USER,
     user
 })
 
@@ -15,6 +20,24 @@ export const loadUserInfo = () => async (dispatch) => {
         dispatch(loadUsers(user));
     }
 }
+
+export const editUserInfo = (user) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user.id}/edit`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    console.log(response)
+    if (response.ok) {
+        const user = await response.json();
+        console.log(user)
+        dispatch(editUser(user));
+    }
+}
+
+
 
 
 export default function UserReducer(state = [], action){

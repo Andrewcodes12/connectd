@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadEvents } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
+import EdituserProfile from '../EditUserProfile/EdituserProfile';
 
 
 function UserProfile() {
@@ -30,7 +31,8 @@ function UserProfile() {
         <img src={user.user_image} alt="user-img" />
         <p>{user.user_bio}</p>
         <p>{user.city}, {user.state} {user.zipcode}</p>
-
+          <EdituserProfile user={user}/>
+          
           {events && events.map(event => (
             user.id === event.user_id ? (
               <div className="user-event-container">
