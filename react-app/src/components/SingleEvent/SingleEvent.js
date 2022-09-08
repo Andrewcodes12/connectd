@@ -1,18 +1,20 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents } from '../../store/event';
+import { loadEvents,updateEvent } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 
 import './singleEvent.css';
+import EditEvent from '../EditEvent/EditEvent';
 
 
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
+
 
 
   const dispatch = useDispatch();
@@ -36,6 +38,10 @@ function SingleEvent() {
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
 
+        <div className="edit-post">
+          <EditEvent event={event} />
+        </div>
+        
         <NavLink to={`/users/${event.user_id}`} className="event-link">
           {users && users.map(user => (
             user.id === event.user_id ? (

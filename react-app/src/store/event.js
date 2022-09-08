@@ -70,25 +70,29 @@ export const createEvent = (event) => async (dispatch) => {
 
     if(response.ok){
         const event = await response.json();
-        console.log(event)
         dispatch(create(event));
     }
 }
 
 export const updateEvent = (event) => async (dispatch) => {
-    const response = await fetch(`/api/events/${event.id}/`, {
+    const response = await fetch(`/api/events/${event.id}/edit`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify(event)
     });
-
+    console.log(response)
     if(response.ok){
+        console.log("this")
         const event = await response.json();
+        console.log(event)
         dispatch(update(event));
     }
 }
+
+
 
 
 export const deleteEventById = (id) => async (dispatch) => {

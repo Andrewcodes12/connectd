@@ -59,16 +59,16 @@ def create_event():
 
 
 # Update event
-@event_routes.route('/<int:id>', methods=['PUT'])
+@event_routes.route('/<int:id>/edit', methods=['PUT'])
 def update_event(id):
     """
     Update event
     """
-    form = EventForm.EventForm()
+    event = Event.query.get(id)
+    form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        event = Event.query.get(id)
         event.title = form.data['title']
         event.event_description = form.data['event_description']
         event.category = form.data['category']
