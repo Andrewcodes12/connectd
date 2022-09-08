@@ -25,7 +25,7 @@ def get_reviews(id):
 
 
 # add a review to an event
-@review_routes.route('/<int:id>', methods=['POST'])
+@review_routes.route('/new', methods=['POST'])
 def create_review(id):
     """
     Add a review to an event
@@ -50,7 +50,7 @@ def create_review(id):
 
 
 # Update a review on a event
-@review_routes.route('/<int:id>', methods=['PUT'])
+@review_routes.route('/edit/<int:id>', methods=['PUT'])
 def update_review(id):
     """
     Update a review on a event

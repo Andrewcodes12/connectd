@@ -65,21 +65,23 @@ export const loadReviewsByEvent = (id) => async (dispatch) => {
     }
 }
 
-export const addReview = (review) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${review.id}/`, {
+export const addReview = (event) => async (dispatch) => {
+    console.log(event)
+    const response = await fetch(`/api/reviews/new`, {
         method:'POST',
-        body:JSON.stringify(review)
+        body:JSON.stringify(event)
     });
-
+    console.log(response)
     if(response.ok){
         const newReview = await response.json();
+        console.log(newReview)
         dispatch(add(newReview));
     }
 }
 
 
 export const updateReview = (review) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${review.id}`, {
+    const response = await fetch(`/api/reviews/edit/${review.id}`, {
         method:'PUT',
         body:JSON.stringify(review)
     });

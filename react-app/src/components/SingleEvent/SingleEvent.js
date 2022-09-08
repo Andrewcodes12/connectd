@@ -11,6 +11,7 @@ import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
 import EditReviews from '../EditReviews/EditReviews';
 import { deleteReviewById } from '../../store/review';
+import AddReviews from '../AddReviews/AddReviews';
 
 
 function SingleEvent() {
@@ -77,6 +78,10 @@ function SingleEvent() {
           ))}
         </NavLink>
 
+        <div className='add-review'>
+          <h4>Leave A Review</h4>
+          <AddReviews event={event} />
+        </div>
 
         <h4>Reviews</h4>
           {reviews && reviews.map(review => (
