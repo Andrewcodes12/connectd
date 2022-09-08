@@ -26,10 +26,10 @@ function SingleEvent() {
     dispatch(loadUserInfo());
   } , []);
 
-    const deleteEvent = (id) => {
-        dispatch(deleteEventById(id));
-        history.push('/');
-    }
+  const deleteEvent = (id) => {
+    dispatch(deleteEventById(id));
+    history.push('/');
+  }
 
   return (
     <>
@@ -43,11 +43,13 @@ function SingleEvent() {
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
 
-        <div className="edit-post">
-          <EditEvent event={event} />
-        </div>
-        <div>
-          <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+        <div className="edit-delete-container">
+          <div className="edit-event">
+            <EditEvent event={event} />
+          </div>
+          <div className="delete-event">
+            <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+          </div>
         </div>
 
         <NavLink to={`/users/${event.user_id}`} className="event-link">
