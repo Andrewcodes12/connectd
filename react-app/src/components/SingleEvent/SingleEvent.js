@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadEvents,deleteEventById } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
+import { loadReviewsByEvent } from '../../store/review';
 
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
@@ -14,7 +15,7 @@ import EditEvent from '../EditEvent/EditEvent';
 function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
-
+  const reviews = useSelector(state => state.reviews.reviews);
 
 
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function SingleEvent() {
   useEffect(() => {
     dispatch(loadEvents());
     dispatch(loadUserInfo());
+    dispatch(loadReviewsByEvent(eventsId));
   } , []);
 
   const deleteEvent = (id) => {
@@ -62,6 +64,26 @@ function SingleEvent() {
             ) : null
           ))}
         </NavLink>
+
+
+        <h4>Reviews</h4>
+          {reviews && reviews.map(review => (
+            review.event_id === event.id ? (
+              <div className="review-container">
+                <p>{review.review_body}</p>
+                <p>{review.created_at}</p>
+                <p>{review.review_rating}</p>
+                {users && users.map(user => (
+                  user.id === review.user_id ? (
+                    <>
+                      <p>{user.username}</p>
+                      <img src={user.user_image} alt="profile-img" />
+                    </>
+                  ) : null
+                  ))}
+              </div>
+            ) : null
+          ))}
       </>
       ) :
       <>

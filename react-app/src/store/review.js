@@ -57,7 +57,7 @@ export const loadAllReviews = () => async (dispatch) => {
 
 
 export const loadReviewsByEvent = (id) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/11/`);
+    const response = await fetch(`/api/reviews/${id}`);
 
     if(response.ok){
         const reviews = await response.json();
