@@ -9,13 +9,12 @@ import { loadReviewsByEvent } from '../../store/review';
 
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
-
-
+import EditReviews from '../EditReviews/EditReviews';
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
-  const reviews = useSelector(state => state.reviews.reviews);
+  const reviews = useSelector(state => state.reviews);
 
   const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
 
@@ -48,7 +47,7 @@ function SingleEvent() {
         <p>{event.category}</p>
 
         <div className="share-event">
-          <p>Share this event with friends</p>
+          <span strong>Share this event with friends!</span>
           <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
         </div>
 
@@ -80,6 +79,11 @@ function SingleEvent() {
                 <p>{review.review_body}</p>
                 <p>{review.created_at}</p>
                 <p>{review.review_rating}</p>
+
+                <div className='edit-event-reviews'>
+                <EditReviews review={review} />
+                </div>
+
                 {users && users.map(user => (
                   user.id === review.user_id ? (
                     <>

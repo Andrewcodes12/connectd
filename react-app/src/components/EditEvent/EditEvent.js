@@ -22,7 +22,7 @@ function EditEvent({event}) {
   const dispatch = useDispatch();
 
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const event = {

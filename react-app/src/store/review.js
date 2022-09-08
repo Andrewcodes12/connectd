@@ -79,13 +79,14 @@ export const addReview = (review) => async (dispatch) => {
 
 
 export const updateReview = (review) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${review.id}/`, {
+    const response = await fetch(`/api/reviews/${review.id}`, {
         method:'PUT',
         body:JSON.stringify(review)
     });
 
     if(response.ok){
         const updatedReview = await response.json();
+        console.log(updatedReview)
         dispatch(update(updatedReview));
     }
 }
@@ -124,40 +125,19 @@ export const sortReviewsByDate = (event) => async (dispatch) => {
 const ReviewReducer = (state = [], action) => {
     switch(action.type){
         case LOAD:
-            return {
-                ...state,
-                reviews: action.reviews
-            }
+            return action.reviews;
         case LOAD_BY_EVENT:
-            return {
-                ...state,
-                reviews: action.reviews
-            }
+            return action.reviews;
         case ADD:
-            return {
-                ...state,
-                reviews: [...state.reviews, action.review]
-            }
+            return [...state, action.review];
         case UPDATE:
-            return {
-                ...state,
-                reviews: state.reviews.map(review => review.id === action.review.id ? action.review : review)
-            }
+            return state.map(review => review.id === action.review.id ? action.review : review);
         case DELETE:
-            return {
-                ...state,
-                reviews: state.reviews.filter(review => review.id !== action.id)
-            }
+            return state.filter(review => review.id !== action.id);
         case SORT_BY_RATING:
-            return {
-                ...state,
-                reviews: action.reviews
-            }
+            return action.reviews;
         case SORT_BY_DATE:
-            return {
-                ...state,
-                reviews: action.reviews
-            }
+            return action.reviews;
         default:
             return state;
     }
