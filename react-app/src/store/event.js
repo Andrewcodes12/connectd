@@ -83,7 +83,7 @@ export const updateEvent = (event) => async (dispatch) => {
         },
         body: JSON.stringify(event)
     });
-    console.log(response)
+
     if(response.ok){
         const event = await response.json();
         dispatch(update(event));

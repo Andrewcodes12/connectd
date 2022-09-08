@@ -29,7 +29,7 @@ export const editUserInfo = (user) => async (dispatch) => {
         },
         body: JSON.stringify(user)
     });
-    console.log(response)
+ 
     if (response.ok) {
         const user = await response.json();
         console.log(user)
@@ -43,6 +43,8 @@ export const editUserInfo = (user) => async (dispatch) => {
 export default function UserReducer(state = [], action){
     switch (action.type) {
         case LOAD_USER:
+            return action.user;
+        case EDIT_USER:
             return action.user;
         default:
             return state;

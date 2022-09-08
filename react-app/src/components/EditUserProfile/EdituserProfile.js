@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
@@ -41,7 +41,7 @@ function EdituserProfile({user}) {
 
         dispatch(editUserInfo(user));
         setIsClicked(false);
-        history.push(`/users/${user.id}`)
+        window.location.reload();
     }
 
 
