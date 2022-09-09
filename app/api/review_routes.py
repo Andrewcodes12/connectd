@@ -40,7 +40,9 @@ def create_review(id):
             review_rating=form.data['review_rating'],
             # user_id=current_user.id,
             user_id=form.data['user_id'],
-            event_id=id
+            event_id=id,
+            created_at=form.data['created_at'],
+            updated_at=form.data['updated_at']
         )
         db.session.add(review)
         db.session.commit()

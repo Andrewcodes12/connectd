@@ -20,12 +20,13 @@ function SingleEvent() {
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
 
-  let now = new Date();
+  let now = new Date().toISOString().slice(0, 10);
+  console.log(now)
   const {eventsId} = useParams();
 
   const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
-  const [created_at, setCreatedAt] = useState(null)
-  const [updated_at, setUpdatedAt] = useState(null)
+  const [created_at, setCreatedAt] = useState(new Date().toISOString().slice(0, 10))
+  const [updated_at, setUpdatedAt] = useState(new Date().toISOString().slice(0, 10))
   const [review_body, setReviewBody] = useState('')
   const [review_rating, setRating] = useState(0)
   const [user_id, setUserId] = useState(reviews.user_id)
@@ -74,8 +75,8 @@ const handleSubmit = (e) => {
 
     if(!errors.length){
         const review = {
-            created_at: '2023-12-12',
-            updated_at: '2023-12-12',
+            created_at: now,
+            updated_at: now,
             review_body,
             review_rating,
             user_id:1,
