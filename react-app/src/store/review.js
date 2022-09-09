@@ -65,17 +65,20 @@ export const loadReviewsByEvent = (id) => async (dispatch) => {
     }
 }
 
-export const addReview = (event) => async (dispatch) => {
-    console.log(event)
-    const response = await fetch(`/api/reviews/new`, {
-        method:'POST',
-        body:JSON.stringify(event)
-    });
-    console.log(response)
+export const AddReview = (event) => async (dispatch) => {
+
+    const response = await fetch(`/api/reviews/${event.event_id}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(event)
+    })
+
     if(response.ok){
-        const newReview = await response.json();
-        console.log(newReview)
-        dispatch(add(newReview));
+        const review = await response.json();
+        console.log(review)
+        dispatch(add(review));
     }
 }
 
@@ -88,7 +91,6 @@ export const updateReview = (review) => async (dispatch) => {
 
     if(response.ok){
         const updatedReview = await response.json();
-        console.log(updatedReview)
         dispatch(update(updatedReview));
     }
 }

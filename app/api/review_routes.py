@@ -24,21 +24,21 @@ def get_reviews(id):
     return jsonify([review.to_dict() for review in reviews])
 
 
-# add a review to an event
-@review_routes.route('/new', methods=['POST'])
+# Create a review
+@review_routes.route('/<int:id>/', methods=['POST'])
+# @login_required
 def create_review(id):
     """
-    Add a review to an event
+    Create a review
     """
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         review = Review(
-            created_at = form.data['created_at'],
-            updated_at = form.data['updated_at'],
             review_body=form.data['review_body'],
             review_rating=form.data['review_rating'],
+            # user_id=current_user.id,
             user_id=form.data['user_id'],
             event_id=id
         )
@@ -47,6 +47,7 @@ def create_review(id):
         return review.to_dict()
 
     return jsonify(form.errors)
+
 
 
 # Update a review on a event
