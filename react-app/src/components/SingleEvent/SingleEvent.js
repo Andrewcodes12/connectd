@@ -20,7 +20,6 @@ function SingleEvent() {
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
 
-  let now = new Date().toISOString().slice(0, 10);
   const {eventsId} = useParams();
 
   const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
@@ -44,8 +43,6 @@ function SingleEvent() {
   const deleteReview = (id) => {
     dispatch(deleteReviewById(id));
   }
-
-
 
 
   return (
@@ -102,7 +99,7 @@ function SingleEvent() {
 
                 <div className="edit-delete-container">
                   <div className='edit-reviews'>
-                  <EditReviews review={review} />
+                  {/* <EditReviews review={review} /> */}
                   </div>
                   <div className="delete-review">
                     <button onClick={() => deleteReview(review.id)}><i className="fas fa-trash-alt"> </i></button>

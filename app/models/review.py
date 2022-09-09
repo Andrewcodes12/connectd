@@ -7,8 +7,9 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
-    review_body = db.Column(db.Text(), nullable=False)
+    review_body = db.Column(db.Text, nullable=False)
     review_rating = db.Column(db.Integer, nullable=False)
+    
     # one to many relationship with user
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     # one to many relationship with event

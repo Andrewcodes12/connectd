@@ -63,11 +63,13 @@ def update_review(id):
 
     if form.validate_on_submit():
         review = Review.query.get(id)
-        review.created_at = form.data['created_at']
-        review.updated_at = form.data['updated_at']
         review.review_body = form.data['review_body']
         review.review_rating = form.data['review_rating']
         review.user_id = form.data['user_id']
+        review.event_id = form.data['event_id']
+        review.created_at = form.data['created_at']
+        review.updated_at = form.data['updated_at']
+
         db.session.commit()
         return review.to_dict()
 

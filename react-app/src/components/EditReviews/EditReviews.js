@@ -2,37 +2,32 @@ import React, {useState} from 'react';
 import { useDispatch} from 'react-redux';
 
 
-
 import { updateReview } from '../../store/review';
 
+
 function EditReviews({review}) {
+    let now = new Date().toISOString().slice(0, 10);
 
-    const now = new Date();
-
-    const [reviewID, setReviewID] = useState(review.id);
-    const [review_body, setReviewBody] = useState(review.review_body);
-    const [review_rating, setReviewRating] = useState(review.review_rating);
-    const [user_id, setReviewUserId] = useState(review.user_id);
-    const [event_id, setReviewEventId] = useState(review.event_id);
-    const [created_at, setReviewCreatedAt] = useState(review.created_at);
-    const [updated_at, setReviewUpdatedAt] = useState(review.updated_at);
-    const [isClicked, setIsClicked] = useState(false);
-
-
+    const [created_at, setCreatedAt] = useState(now)
+    const [updated_at, setUpdatedAt] = useState(now)
+    const [review_body, setReviewBody] = useState(review.review_body)
+    const [review_rating, setRating] = useState(review.review_rating)
+    const [review_id, setReviewId] = useState(review.id)
+    const [user_id, setUserId] = useState(review.user_id)
+    const [isClicked, setIsClicked] = useState(false)
 
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         const review = {
-            id: reviewID,
+            created_at: now,
+            updated_at: now,
             review_body,
             review_rating,
-            user_id,
-            event_id,
-            created_at,
-            updated_at: now
+            review_id,
+            user_id:1,
         }
 
         dispatch(updateReview(review));
@@ -55,12 +50,14 @@ function EditReviews({review}) {
             <input
                 type="number"
                 value={review_rating}
-                onChange={(e) => setReviewRating(e.target.value)}
+                onChange={(e) => setRating(e.target.value)}
                 required
             />
             <button type="submit">Submit</button>
         </form>
     ) : null}
+
+
     </>
   )
 }

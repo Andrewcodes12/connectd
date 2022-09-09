@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {NavLink, useParams,useHistory} from 'react-router-dom';
+import React, { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -8,7 +7,7 @@ import { AddReview } from '../../store/review';
 
 function AddReviews({event}) {
     let now = new Date().toISOString().slice(0, 10);
-    
+
     const [created_at, setCreatedAt] = useState(now)
     const [updated_at, setUpdatedAt] = useState(now)
     const [review_body, setReviewBody] = useState('')
@@ -19,7 +18,7 @@ function AddReviews({event}) {
     const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
-    const history = useHistory();
+
 
     const resetFields = () => {
         setCreatedAt(now)
@@ -77,7 +76,6 @@ function AddReviews({event}) {
                       onChange={(e) => setRating(e.target.value)}
                   >
                       <option value='0'>Select a rating</option>
-                      <option value='0'>0</option>
                       <option value='1'>1</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
