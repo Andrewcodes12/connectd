@@ -10,10 +10,11 @@ import { loadReviewsByEvent } from '../../store/review';
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
 import EditReviews from '../EditReviews/EditReviews';
-
+import AddReviews from '../AddReviews/AddReviews';
+import Maps from '../Map/Map';
 
 import { deleteReviewById } from '../../store/review';
-import AddReviews from '../AddReviews/AddReviews';
+
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
@@ -73,6 +74,9 @@ function SingleEvent() {
           </div>
         </div>
 
+        <div className="map">
+          <Maps event={event}/>
+        </div>
 
         <NavLink to={`/users/${event.user_id}`} className="event-link">
           {users && users.map(user => (
