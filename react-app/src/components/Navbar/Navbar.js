@@ -47,7 +47,7 @@ const NavBar = () => {
         <div className="profile" onClick={toggle}>
           <i className="far fa-user-circle" id="profile" ></i>
         </div>
-        <div className="modal" style={{display: modal ? 'block' : 'none'}}>
+        {/* <div className="modal" style={{display: modal ? 'block' : 'none'}}>
           <div className="modal-content">
             <div className="modal-header">
               <span className="close" onClick={close}>&times;</span>
@@ -70,11 +70,11 @@ const NavBar = () => {
               <button type="button" className="btn btn-danger" onClick={close}>Close</button>
             </div>
           </div>
-        </div>
+        </div> */}
 
-            {/* <NavLink to='/logout'>
+            <NavLink to='/logout'>
               <LogoutButton />
-            </NavLink> */}
+            </NavLink>
       </div>
     </div>
     </>

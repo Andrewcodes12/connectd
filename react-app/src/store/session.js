@@ -43,11 +43,12 @@ export const login = (email, password) => async (dispatch) => {
     })
   });
 
-
   if (response.ok) {
     const data = await response.json();
+
     dispatch(setUser(data))
-    return null;
+    window.location.href = '/';
+
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -99,14 +100,14 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-const initialState = { user: null };
+const initialState = [];
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+      return action.user;
     case REMOVE_USER:
-      return { user: null }
+      return initialState;
     default:
       return state;
   }

@@ -21,6 +21,10 @@ const LoginForm = () => {
       setErrors(data);
     }
 
+    if(!errors.length){
+      return <Redirect to='/' />
+    }
+
   };
 
   const updateEmail = (e) => {
@@ -77,7 +81,6 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
-        {user && <Redirect to='/' />}
       </div>
     </form>
 
