@@ -10,6 +10,7 @@ event_routes = Blueprint('events', __name__)
 # Get all events
 # ordered by newest first
 @event_routes.route('/', methods=['GET'])
+@login_required
 def get_events():
     """
     Get all events

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEvents,deleteEventById } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
+import { deleteReviewById } from '../../store/review';
+
 
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
@@ -14,12 +16,11 @@ import AddReviews from '../AddReviews/AddReviews';
 import Maps from '../Map/Map';
 import RsvpdEvents from '../RSVPD/RsvpdEvents';
 
-import { deleteReviewById } from '../../store/review';
 
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
-  const users = useSelector(state => state.users.users);
+  const users = useSelector(state => state.session.user);
   const reviews = useSelector(state => state.reviews);
 
   const {eventsId} = useParams();

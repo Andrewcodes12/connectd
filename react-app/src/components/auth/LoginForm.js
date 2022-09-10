@@ -20,6 +20,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+
   };
 
   const updateEmail = (e) => {
@@ -34,6 +35,19 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+
+  const demoLogin = async () => {
+    const demoEmail = 'demo@demo.com'
+    const demoPassword = 'password'
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+
+    return dispatch(
+      login('demo@demo.com', 'password')
+    );
+  }
+
+
   return (
     <form onSubmit={onLogin}>
       <div>
@@ -42,7 +56,7 @@ const LoginForm = () => {
         ))}
       </div>
 
-
+          <button type="button" onClick={demoLogin}>Demo Login</button>
       <div>
         <label htmlFor='email'>Email</label>
         <input
@@ -63,6 +77,7 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+        {user && <Redirect to='/' />}
       </div>
     </form>
 

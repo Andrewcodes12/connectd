@@ -45,10 +45,10 @@ function App() {
       <NavBar />
 
       <Switch>
-        <Route path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
             <Categories />
             <Feed />
-          </Route>
+          </ProtectedRoute>
           <Route path='/login' exact={true}>
             <LoginForm />
           </Route>

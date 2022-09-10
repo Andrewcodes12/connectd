@@ -36,7 +36,8 @@ def create_rsvp(id):
     Create rsvp on an event
     """
     rsvp = Rsvp(
-        user_id=current_user.id,
+        # user_id=current_user.id,
+        user_id=1,
         event_id=id,
         rsvp= True
     )
