@@ -28,45 +28,34 @@ function RsvpdEvents({event}) {
     dispatch(deleteRsvp());
   } , []);
 
-  const deleteARsvp = (id) => {
-    dispatch(deleteRsvp(id));
-    setRsvpd(!rsvpd);
-  }
+  const rsvps = Object.values(rsvp);
 
-  const handleRsvp = (e) => {
+
+  const rsvpdEvents = rsvps.filter(rsvp => rsvp.user_id === sessionUser.id)
+
+  const rsvpdEvent = rsvpdEvents.find(rsvp => rsvp.event_id === event.id)
+
+
+
+  const handleRsvp =  (e) => {
     e.preventDefault();
-    dispatch(createRsvp(parseInt(eventsId)));
-    setRsvpd(!rsvpd)
-  }
-
-
-
-  // display rsvp button if you are not the host
-  // display the users who have rsvp'd
-  // if you are not the host display the rsvp button
-  const rsvpButton = () => {
-    if (sessionUser.id !== event.user_id) {
-      return (
-        <>
-        <h4>RSVP</h4>
-        <button onClick={handleRsvp}>RSVP</button>
-        </>
-      )
-    }else if (sessionUser.id === event.user_id){
-      return (
-        <>
-        <h4>You cannot RSVP to your own event.</h4>
-        </>
-      )
-    } else {
-      return (
-        <>
-        <h4>RSVP</h4>
-        <button onClick={deleteARsvp}>RSVP</button>
-        </>
-      )
+    const rsvp = {
+      user_id: sessionUser.id,
+      event_id: event.id
     }
+
+    dispatch(createRsvp(rsvp.event_id));
+    setRsvpd(true)
   }
+
+  const handleUnRsvp =  (e) => {
+    e.preventDefault();
+    dispatch(deleteRsvp(event.id));
+    setRsvpd(false)
+    rsvp.length--
+  }
+
+  // allow user to only rsvp once and not rsvp on their own event
 
 
 
@@ -75,8 +64,20 @@ function RsvpdEvents({event}) {
 
   return (
     <>
-    {rsvpd ? null : rsvpButton()}
-    {rsvp.length} <span>People attending this event</span>
+        <div className='rsvpdevents__container__rsvp'>
+          {rsvpd ? (
+            <>
+              <button onClick={handleUnRsvp}>Un-RSVP</button>
+              <span>{rsvp.length} people are attending</span>
+            </>
+          ) : (
+            <>
+              <button onClick={handleRsvp}>RSVP</button>
+              <span>{rsvp.length} people are attending</span>
+            </>
+          )}
+        </div>
+
     </>
   )
 }
