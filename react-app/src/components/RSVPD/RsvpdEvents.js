@@ -11,8 +11,11 @@ import './rsvpdevents.css'
 
 
 function RsvpdEvents({event}) {
-  const rsvp = useSelector(state => state.rsvp);
-  const users = useSelector(state => state.session.users);
+  const [rsvpd , setRsvpd] = useState(false)
+
+  const rsvp = useSelector(state => state.rsvps);
+  const sessionUser = useSelector(state => state.session);
+  const users = useSelector(state => state.users.users);
 
   const {eventsId} = useParams();
 
@@ -27,45 +30,56 @@ function RsvpdEvents({event}) {
 
   const deleteARsvp = (id) => {
     dispatch(deleteRsvp(id));
+    setRsvpd(!rsvpd);
   }
 
   const handleRsvp = (e) => {
     e.preventDefault();
-
-    // const rsvp = {
-    //   event_id: parseInt(eventsId),
-    //   user_id: 1,
-    //   rsvp: true
-    // }
     dispatch(createRsvp(parseInt(eventsId)));
+    setRsvpd(!rsvpd)
   }
 
 
 
-// function to check if user has rsvp'd to event
-  const checkRsvp = () => {
-    let rsvp = false;
-    rsvp.forEach(rsvp => {
-      users.forEach(user => {
-        if (rsvp.user_id === user.id) {
-          rsvp = true;
-        }
-      }
-    )
-    })
-    return rsvp;
+  // display rsvp button if you are not the host
+  // display the users who have rsvp'd
+  // if you are not the host display the rsvp button
+  const rsvpButton = () => {
+    if (sessionUser.id !== event.user_id) {
+      return (
+        <>
+        <h4>RSVP</h4>
+        <button onClick={handleRsvp}>RSVP</button>
+        </>
+      )
+    }else if (sessionUser.id === event.user_id){
+      return (
+        <>
+        <h4>You cannot RSVP to your own event.</h4>
+        </>
+      )
+    } else {
+      return (
+        <>
+        <h4>RSVP</h4>
+        <button onClick={deleteARsvp}>RSVP</button>
+        </>
+      )
+    }
   }
+
+
 
 
 
 
   return (
-    <div>
-      <h1>RSVP</h1>
-      {}
-      <button onClick={handleRsvp}>RSVP</button>
-    </div>
+    <>
+    {rsvpd ? null : rsvpButton()}
+    {rsvp.length} <span>People attending this event</span>
+    </>
   )
 }
+
 
 export default RsvpdEvents

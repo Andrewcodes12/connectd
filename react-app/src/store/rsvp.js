@@ -59,7 +59,7 @@ export const createRsvp = (event) => async (dispatch) => {
 
 
 export const deleteRsvp = (id) => async (dispatch) => {
-    const response = await fetch(`/api/rsvps/${id}/`, {
+    const response = await fetch(`/api/rsvps/${id}`, {
         method: 'DELETE'
     });
 
