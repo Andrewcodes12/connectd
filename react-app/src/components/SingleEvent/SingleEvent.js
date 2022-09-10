@@ -9,9 +9,10 @@ import { loadReviewsByEvent } from '../../store/review';
 
 import './singleEvent.css';
 import EditEvent from '../EditEvent/EditEvent';
-import EditReviews from '../EditReviews/EditReviews';
+// import EditReviews from '../EditReviews/EditReviews';
 import AddReviews from '../AddReviews/AddReviews';
 import Maps from '../Map/Map';
+import RsvpdEvents from '../RSVPD/RsvpdEvents';
 
 import { deleteReviewById } from '../../store/review';
 
@@ -57,6 +58,10 @@ function SingleEvent() {
         <p>{event.event_date}</p>
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
+
+        <div className="Rsvp">
+          <RsvpdEvents event={event}/>
+        </div>
 
         <div className="share-event">
           <span strong>Share this event with friends!</span>
