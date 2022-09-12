@@ -20,8 +20,9 @@ import RsvpdEvents from '../RSVPD/RsvpdEvents';
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
-  const users = useSelector(state => state.session.user);
+  const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
+  console.log(reviews)
 
   const {eventsId} = useParams();
 
@@ -85,6 +86,9 @@ function SingleEvent() {
         </div>
 
         <NavLink to={`/users/${event.user_id}`} className="event-link">
+          <div className="event-creator">
+            <h4>Event Host</h4>
+          </div>
           {users && users.map(user => (
             user.id === event.user_id ? (
               <div className="user-event-container">
@@ -118,10 +122,12 @@ function SingleEvent() {
 
                 {users && users.map(user => (
                   user.id === review.user_id ? (
-                    <>
-                      <p>{user.username}</p>
-                      <img src={user.user_image} alt="profile-img" />
-                    </>
+                    <div className="user-review-container">
+                      <NavLink to={`/users/${user.id}`} className="review-link">
+                        <p className="user-review-username">{user.username}</p>
+                        <img src={user.user_image} alt="profile-img" className="user-review-image"/>
+                      </NavLink>
+                    </div>
                   ) : null
                   ))}
               </div>

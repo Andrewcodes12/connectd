@@ -55,8 +55,6 @@ function RsvpdEvents({event}) {
     rsvp.length--
   }
 
-  // allow user to only rsvp once and not rsvp on their own event
-
 
 function handleRsvpp(){
   if(sessionUser.id !== event.user_id){
@@ -64,31 +62,42 @@ function handleRsvpp(){
     return (
       <div className='rsvp-button'>
         <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
-        {rsvp.length} <span>people are attending this event.</span>
+        {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
+        : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+        : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
       </div>
     )
   } else {
     return (
       <div className='rsvp-button'>
-        <button onClick={handleUnRsvp} className='rsvp-button'>UNRSVP</button>
-        {rsvp.length} <span>people are attending this event.</span>
+        <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
+        {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
+        : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+        : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
       </div>
     )
   }
-} else {
+ }else if (sessionUser.id === parseInt(rsvp.user_id)){
   return (
-    <div className="rsvp-length">
-      {rsvp.length} <span>people are attending your event.</span>
+    <div className='rsvp-button'>
+      <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
+      {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
+      : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+      : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
     </div>
   )
+ }else {
+  return (
+    <div className="rsvp-length">
+      {rsvp.length} <span className="rsvp-span">people are attending your event.</span>
+    </div>
+  )}
 }
-}
-
 
 
   return (
     <>
-      {handleRsvpp()}
+    {rsvp && handleRsvpp()}
     </>
   )
 }
