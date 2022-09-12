@@ -36,7 +36,8 @@ def create_rsvp(id):
     Create rsvp on an event
     """
     rsvp = Rsvp(
-        user_id=current_user.id,
+        # user_id=current_user.id,
+        user_id=1,
         event_id=id,
         rsvp= True
     )
@@ -52,7 +53,11 @@ def delete_rsvp(id):
     """
     Delete rsvp on an event
     """
-    rsvp = Rsvp.query.get(id)
+    # rsvp = Rsvp.query.get(id)
+    # db.session.delete(rsvp)
+    # db.session.commit()
+
+    rsvp = Rsvp.query.filter_by(event_id=id).first()
     db.session.delete(rsvp)
     db.session.commit()
     return rsvp.to_dict()
