@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from app.models import db, User, Event, Review
 from flask_sqlalchemy import SQLAlchemy
 from app.forms import EventForm
+from app.models.rsvp import Rsvp
 
 event_routes = Blueprint('events', __name__)
 
@@ -91,6 +92,12 @@ def delete_event(id):
     Delete event
     """
     event = Event.query.get(id)
+    rsvp = Rsvp.query.filter(Rsvp.event_id == id).all()
+    review = Review.query.filter(Review.event_id == id).all()
+    for rsvp in rsvp:
+        db.session.delete(rsvp)
+    for review in review:
+        db.session.delete(review)
     db.session.delete(event)
     db.session.commit()
     return event.to_dict()
