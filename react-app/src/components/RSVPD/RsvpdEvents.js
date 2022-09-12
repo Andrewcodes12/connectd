@@ -58,26 +58,37 @@ function RsvpdEvents({event}) {
   // allow user to only rsvp once and not rsvp on their own event
 
 
-
+function handleRsvpp(){
+  if(sessionUser.id !== event.user_id){
+    if(rsvpd === false){
+    return (
+      <div className='rsvp-button'>
+        <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
+        {rsvp.length} <span>people are attending this event.</span>
+      </div>
+    )
+  } else {
+    return (
+      <div className='rsvp-button'>
+        <button onClick={handleUnRsvp} className='rsvp-button'>UNRSVP</button>
+        {rsvp.length} <span>people are attending this event.</span>
+      </div>
+    )
+  }
+} else {
+  return (
+    <div className="rsvp-length">
+      {rsvp.length} <span>people are attending your event.</span>
+    </div>
+  )
+}
+}
 
 
 
   return (
     <>
-        <div className='rsvpdevents__container__rsvp'>
-          {rsvpd ? (
-            <>
-              <button onClick={handleUnRsvp}>Un-RSVP</button>
-              <span>{rsvp.length} people are attending</span>
-            </>
-          ) : (
-            <>
-              <button onClick={handleRsvp}>RSVP</button>
-              <span>{rsvp.length} people are attending</span>
-            </>
-          )}
-        </div>
-
+      {handleRsvpp()}
     </>
   )
 }
