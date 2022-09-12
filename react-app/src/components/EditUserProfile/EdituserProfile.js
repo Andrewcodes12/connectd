@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+
 
 import { editUserInfo } from '../../store/user';
 
 function EdituserProfile({user}) {
-    const [userId, setUserId] = useState(user.id);
+    const [userId] = useState(user.id);
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [hashedPassword, setHashedPassword] = useState(user.hashedPassword);
@@ -19,7 +19,6 @@ function EdituserProfile({user}) {
     const [isClicked, setIsClicked] = useState(false);
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
 
     const handleSubmit =  (e) => {

@@ -7,7 +7,7 @@ import { updateEvent } from '../../store/event';
 
 
 function EditEvent({event}) {
-  const [eventID, setEventID] = useState(event.id);
+  const [eventID] = useState(event.id);
   const [title, setTitle] = useState(event.title);
   const [event_imgs, setEventImgs] = useState(event.event_imgs);
   const [event_description, setEventDescription] = useState(event.event_description);
@@ -16,7 +16,7 @@ function EditEvent({event}) {
   const [event_state, setEventState] = useState(event.event_state);
   const [event_zipcode, setEventZip] = useState(event.event_zipcode);
   const [category, setEventCategory] = useState(event.category);
-  const [user_id, setEventUserId] = useState(event.user_id);
+  const [user_id] = useState(event.user_id);
   const [isClicked, setIsClicked] = useState(false);
 
   const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import './feed.css'
 function Feed() {
     const dispatch = useDispatch();
     const events = useSelector(state => state.events);
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(loadEvents());

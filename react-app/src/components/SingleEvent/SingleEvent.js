@@ -22,7 +22,7 @@ function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
-  console.log(reviews)
+
 
   const {eventsId} = useParams();
 
@@ -66,7 +66,7 @@ function SingleEvent() {
         </div>
 
         <div className="share-event">
-          <span strong>Share this event with friends!</span>
+          <span> <strong>Share this event with friends!</strong></span>
           <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
         </div>
 
