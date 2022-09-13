@@ -70,7 +70,6 @@ export const createEvent = (event) => async (dispatch) => {
 
     if(response.ok){
         const event = await response.json();
-        console.log(event)
         dispatch(create(event));
     }
 }

@@ -70,7 +70,8 @@ function EditEvent({event}) {
           required
         />
         <input
-          type="text"
+          type="date"
+          format="YYYY-MM-DD"
           value={event_date}
           onChange={(e) => setEventDate(e.target.value)}
           required

@@ -115,7 +115,8 @@ function AddEvent() {
         <div>
           <label>Date</label>
           <input
-            type='text'
+            type="date"
+            format="YYYY-MM-DD"
             value={event_date}
             onChange={(e) => setDate(e.target.value)}
             required
