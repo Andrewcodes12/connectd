@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
@@ -9,6 +9,8 @@ import {loadEvents, filterEventsByDate} from '../../store/event';
 import './feed.css'
 
 function Feed() {
+    const [isClicked, setIsClicked] = useState(false);
+
     const dispatch = useDispatch();
     const events = useSelector(state => state.events);
     // const user = useSelector(state => state.session.user);
@@ -20,12 +22,26 @@ function Feed() {
     const handleFilterByDate = async (e) => {
         e.preventDefault();
         dispatch(filterEventsByDate());
+        setIsClicked(true);
     }
+
+    const handleRemoveFilterByDate = async (e) => {
+        e.preventDefault();
+        dispatch(loadEvents());
+        setIsClicked(false);
+    }
+
+
 
 
   return (
     <div className="feed">
-                    <button onClick={handleFilterByDate}>Filter by Date</button>
+                <div className="event-filter-buttons">
+                    {isClicked ? <button className="event-filter-button" onClick={handleRemoveFilterByDate}>Remove Filter</button>
+                    : <button className="event-filter-button" onClick={handleFilterByDate}>Filter by Date</button>
+                    }
+                </div>
+
                     <div className="feed-events-container">
                         {events && events.map(event => (
                             <div className="feed-event" key={event.id}>

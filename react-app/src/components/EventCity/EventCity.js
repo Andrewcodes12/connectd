@@ -33,7 +33,11 @@ function EventCity() {
                                     </div>
                                 </NavLink>
                             </div>
-                        )) : <h1>No Events Found Please Try Another City (Miami, San Francisco, New York)</h1>}
+                        )) :
+                        <div className="search-error">
+                            <h1 className="search-error-message">Please try searching by city.</h1>
+                        </div>
+                        }
                     </div>
         </div>
   )
