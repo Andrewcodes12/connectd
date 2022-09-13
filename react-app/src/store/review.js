@@ -76,7 +76,6 @@ export const AddReview = (event) => async (dispatch) => {
 
     if(response.ok){
         const review = await response.json();
-        console.log(review)
         dispatch(add(review));
     }
 }
@@ -91,7 +90,6 @@ export const updateReview = (review) => async (dispatch) => {
 
     if(response.ok){
         const updatedReview = await response.json();
-        console.log(updatedReview)
         dispatch(update(updatedReview));
     }
 }
@@ -129,10 +127,12 @@ export const sortReviewsByRatingAsc = (event) => async (dispatch) => {
 
 
 export const sortReviewsByDate = (event) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${event.id}/sort/date/`);
+    console.log(event)
+    const response = await fetch(`/api/reviews/${event}/sort/date`);
 
     if(response.ok){
         const reviews = await response.json();
+        console.log(reviews)
         dispatch(sortReviewByDate(reviews));
     }
 }
