@@ -3,7 +3,7 @@ import {NavLink, useParams,useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents,deleteEventById } from '../../store/event';
+import { loadEvents,deleteEventById,loadEventsByCity } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
 import { deleteReviewById, sortReviewsByRating, sortReviewsByRatingAsc,sortReviewsByDate  } from '../../store/review';
@@ -78,6 +78,11 @@ function sliceTimeOffDate(){
   return slicedDate;
 }
 
+function makeCityDynamic(city){
+  const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+  dispatch(loadEventsByCity(cityRegex));
+  return cityRegex;
+}
 
   return (
     <>
@@ -88,7 +93,10 @@ function sliceTimeOffDate(){
         <img src={event.event_imgs} alt="event-img" />
         <p>{event.event_description}</p>
         <p>{sliceTimeOffDate}</p>
-        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+          <NavLink to={`/events/search/city/${makeCityDynamic(event.event_city)}/`}>
+            <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+          </NavLink>
+        <p>{event.event_address}</p>
         <p>{event.category}</p>
 
         <div className="Rsvp">
