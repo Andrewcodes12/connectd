@@ -73,6 +73,10 @@ const removeSort = async (e) => {
     setIsClicked(false);
 }
 
+function sliceTimeOffDate(){
+  let slicedDate = events.event_date.slice(0,10);
+  return slicedDate;
+}
 
 
   return (
@@ -83,7 +87,7 @@ const removeSort = async (e) => {
         <h1>{event.title}</h1>
         <img src={event.event_imgs} alt="event-img" />
         <p>{event.event_description}</p>
-        <p>{event.event_date}</p>
+        <p>{sliceTimeOffDate}</p>
         <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
         <p>{event.category}</p>
 
