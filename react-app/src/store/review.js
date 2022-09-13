@@ -108,13 +108,24 @@ export const deleteReviewById = (id) => async (dispatch) => {
 
 
 export const sortReviewsByRating = (event) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${event.id}/sort/rating/`);
+    console.log(event)
+    const response = await fetch(`/api/reviews/${event}/sort/rating`);
 
     if(response.ok){
         const reviews = await response.json();
         dispatch(sortReviewByrating(reviews));
     }
 }
+export const sortReviewsByRatingAsc = (event) => async (dispatch) => {
+    console.log(event)
+    const response = await fetch(`/api/reviews/${event}/sort/rating/asc`);
+
+    if(response.ok){
+        const reviews = await response.json();
+        dispatch(sortReviewByrating(reviews));
+    }
+}
+
 
 
 export const sortReviewsByDate = (event) => async (dispatch) => {

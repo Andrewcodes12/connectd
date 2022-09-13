@@ -89,7 +89,7 @@ def delete_review(id):
 
 
 
-# sort reviews on event by rating
+# sort reviews on event by highest rating
 @review_routes.route('/<int:id>/sort/rating', methods=['GET'])
 def sort_reviews_rating(id):
     """
@@ -98,6 +98,15 @@ def sort_reviews_rating(id):
     reviews = Review.query.filter_by(event_id=id).order_by(Review.review_rating.desc())
     return jsonify([review.to_dict() for review in reviews])
 
+
+# sort reviews on event by lowest rating
+@review_routes.route('/<int:id>/sort/rating/asc', methods=['GET'])
+def sort_reviews_rating_asc(id):
+    """
+    Sort reviews on event by rating
+    """
+    reviews = Review.query.filter_by(event_id=id).order_by(Review.review_rating.asc())
+    return jsonify([review.to_dict() for review in reviews])
 
 # sort reviews on event by date
 @review_routes.route('/<int:id>/sort/date', methods=['GET'])

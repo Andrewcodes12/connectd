@@ -29,7 +29,6 @@ function UserProfile() {
 
   return (
     <>
-    <button onClick={handleFilterByDate}>Filter by Date</button>
     {users && users.map(user => (
       user.id === parseInt(userId) ? (
         <>
@@ -37,8 +36,12 @@ function UserProfile() {
         <img src={user.user_image} alt="user-img" />
         <p>{user.user_bio}</p>
         <p>{user.city}, {user.state} {user.zipcode}</p>
+
           <EdituserProfile user={user}/>
 
+         <div className='user-filter-event-by-date'>
+          <button onClick={handleFilterByDate}>Filter by Date</button>
+         </div>
           {events && events.map(event => (
             user.id === event.user_id ? (
               <NavLink to={`/events/${event.id}`}>

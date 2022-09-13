@@ -25,8 +25,8 @@ function Feed() {
 
   return (
     <div className="feed">
-                    <div className="feed-events-container">
                     <button onClick={handleFilterByDate}>Filter by Date</button>
+                    <div className="feed-events-container">
                         {events && events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`} className="event-link">

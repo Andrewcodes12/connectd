@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEvents,deleteEventById } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
-import { deleteReviewById } from '../../store/review';
+import { deleteReviewById, sortReviewsByRating, sortReviewsByRatingAsc  } from '../../store/review';
 
 
 import './singleEvent.css';
@@ -48,6 +48,15 @@ function SingleEvent() {
     dispatch(deleteReviewById(id));
   }
 
+  const sortByHigestRating = async (e) => {
+    e.preventDefault();
+    dispatch(sortReviewsByRating(eventsId));
+}
+
+const sortByLowestRating = async (e) => {
+    e.preventDefault();
+    dispatch(sortReviewsByRatingAsc(eventsId));
+}
 
   return (
     <>
@@ -104,6 +113,10 @@ function SingleEvent() {
         </div>
 
         <h4>Reviews</h4>
+          <div className="review-sort">
+            <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
+            <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
+          </div>
           {reviews && reviews.map(review => (
             review.event_id === event.id ? (
               <div className="review-container">
