@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, Flask
 from flask_login import current_user, login_required
-from app.models import db, User, Rsvp
+from app.models import db, User, Rsvp,Event
 from flask_sqlalchemy import SQLAlchemy
 
 rsvp_routes = Blueprint('rsvps', __name__)
@@ -75,3 +75,6 @@ def update_rsvp(id):
     rsvp.event_id = request.json['event_id']
     db.session.commit()
     return rsvp.to_dict()
+
+
+

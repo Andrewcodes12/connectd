@@ -69,6 +69,7 @@ export const deleteRsvp = (id) => async (dispatch) => {
 }
 
 
+
 const RsvpReducer = (state = [], action) => {
     switch(action.type){
         case LOAD_ALL:

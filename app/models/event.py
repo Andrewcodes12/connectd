@@ -13,6 +13,7 @@ class Event(db.Model):
     event_state = db.Column(db.String(255), nullable=False)
     event_zipcode = db.Column(db.String(10), nullable=False)
     category = db.Column(db.String(255), nullable=False)
+
     #many to one relationship with user
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     # relationship with reviews

@@ -134,7 +134,23 @@ export const filterEventsByDate = () => async (dispatch) => {
     }
 }
 
+export const sortByRsvpPopular = () => async (dispatch) => {
+    const response = await fetch('/api/events/sort');
 
+    if(response.ok){
+        const events = await response.json();
+        dispatch(load(events));
+    }
+}
+
+export const sortByRsvpLeastPopular = () => async (dispatch) => {
+    const response = await fetch('/api/events/sort/least');
+
+    if(response.ok){
+        const events = await response.json();
+        dispatch(load(events));
+    }
+}
 
 
 

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 
-import {loadEvents, filterEventsByDate} from '../../store/event';
+import {loadEvents, filterEventsByDate, sortByRsvpPopular, sortByRsvpLeastPopular} from '../../store/event';
 
 
 import './feed.css'
@@ -25,6 +25,18 @@ function Feed() {
         setIsClicked(true);
     }
 
+    const handleSortByRsvpPopular = async (e) => {
+        e.preventDefault();
+        dispatch(sortByRsvpPopular());
+        setIsClicked(true);
+    }
+
+    const handleSortByRsvpLeastPopular = async (e) => {
+        e.preventDefault();
+        dispatch(sortByRsvpLeastPopular());
+        setIsClicked(true);
+    }
+
     const handleRemoveFilterByDate = async (e) => {
         e.preventDefault();
         dispatch(loadEvents());
@@ -41,7 +53,12 @@ function Feed() {
     <div className="feed">
                 <div className="event-filter-buttons">
                     {isClicked ? <button className="event-filter-button" onClick={handleRemoveFilterByDate}>Remove Filter</button>
-                    : <button className="event-filter-button" onClick={handleFilterByDate}>Filter by Date</button>
+                    :
+                    <div>
+                    <button className="event-filter-button" onClick={handleFilterByDate}>Filter by Date</button>
+                    <button className="event-filter-button" onClick={handleSortByRsvpPopular}>Most popular events</button>
+                    <button className="event-filter-button" onClick={handleSortByRsvpLeastPopular}>Least popular events</button>
+                    </div>
                     }
                 </div>
 

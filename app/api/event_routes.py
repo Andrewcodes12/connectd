@@ -134,3 +134,24 @@ def filter_events_date():
     """
     events = Event.query.order_by(Event.event_date)
     return jsonify([event.to_dict() for event in events])
+
+
+# sort events by how many times event_id is in rsvps table
+@event_routes.route('/sort', methods=['GET'])
+# @login_required
+def sort_events():
+    """
+    Sort events by how many times event_id is in rsvps table
+    """
+    events = Event.query.join(Rsvp).group_by(Event.id).order_by(db.func.count(Rsvp.event_id).desc())
+    return jsonify([event.to_dict() for event in events])
+
+
+@event_routes.route('/sort/least', methods=['GET'])
+# @login_required
+def sort_events_least_popular():
+    """
+    Sort events by how many times event_id is in rsvps table
+    """
+    events = Event.query.join(Rsvp).group_by(Event.id).order_by(db.func.count(Rsvp.event_id).asc())
+    return jsonify([event.to_dict() for event in events])
