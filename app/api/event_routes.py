@@ -123,3 +123,13 @@ def search_events_city(city):
     """
     events = Event.query.filter_by(event_city=city)
     return jsonify([event.to_dict() for event in events])
+
+
+# filter all events by date
+@event_routes.route('/filter/date', methods=['GET'])
+def filter_events_date():
+    """
+    Filter events by date
+    """
+    events = Event.query.order_by(Event.event_date)
+    return jsonify([event.to_dict() for event in events])

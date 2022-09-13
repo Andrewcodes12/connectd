@@ -17,9 +17,9 @@ function SearchBar() {
     e.preventDefault();
 
     if(city){
-    // regex to eliminate space between words and make 1st letter of word capita
+    // regex to eliminate space between words and make 1st letter of word capital and match partially typed city
     const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
-    // let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
+
     history.push(`/events/search/city/${cityRegex}/`)
     dispatch(loadEventsByCity(cityRegex));
     setCity('');

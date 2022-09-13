@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 
-import {loadEvents} from '../../store/event';
+import {loadEvents, filterEventsByDate} from '../../store/event';
 
 
 import './feed.css'
@@ -17,10 +17,16 @@ function Feed() {
         dispatch(loadEvents());
     } , []);
 
+    const handleFilterByDate = async (e) => {
+        e.preventDefault();
+        dispatch(filterEventsByDate());
+    }
+
 
   return (
     <div className="feed">
                     <div className="feed-events-container">
+                    <button onClick={handleFilterByDate}>Filter by Date</button>
                         {events && events.map(event => (
                             <div className="feed-event" key={event.id}>
                                 <NavLink to={`/events/${event.id}`} className="event-link">

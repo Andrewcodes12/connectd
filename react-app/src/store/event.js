@@ -124,6 +124,18 @@ export const loadEventsByCity = (city) => async (dispatch) => {
 
 }
 
+// filter all events by date
+export const filterEventsByDate = () => async (dispatch) => {
+    const resonse = await fetch('/api/events/filter/date');
+
+    if(resonse.ok){
+        const events = await resonse.json();
+        console.log(events)
+        dispatch(load(events));
+    }
+}
+
+
 
 
 

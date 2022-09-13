@@ -3,7 +3,7 @@ import {NavLink, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents } from '../../store/event';
+import { loadEvents, filterEventsByDate } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import EdituserProfile from '../EditUserProfile/EdituserProfile';
 
@@ -19,9 +19,13 @@ function UserProfile() {
   useEffect(() => {
     dispatch(loadEvents());
     dispatch(loadUserInfo());
-
   } , []);
 
+
+  const handleFilterByDate = async (e) => {
+    e.preventDefault();
+    dispatch(filterEventsByDate());
+}
 
   return (
     <>
