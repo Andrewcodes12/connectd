@@ -115,7 +115,6 @@ export const sortReviewsByRating = (event) => async (dispatch) => {
     }
 }
 export const sortReviewsByRatingAsc = (event) => async (dispatch) => {
-    console.log(event)
     const response = await fetch(`/api/reviews/${event}/sort/rating/asc`);
 
     if(response.ok){
@@ -127,12 +126,10 @@ export const sortReviewsByRatingAsc = (event) => async (dispatch) => {
 
 
 export const sortReviewsByDate = (event) => async (dispatch) => {
-    console.log(event)
     const response = await fetch(`/api/reviews/${event}/sort/date`);
 
     if(response.ok){
         const reviews = await response.json();
-        console.log(reviews)
         dispatch(sortReviewByDate(reviews));
     }
 }
