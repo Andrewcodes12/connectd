@@ -54,7 +54,7 @@ function Feed() {
                 <div className="event-filter-buttons">
                     {isClicked ? <button className="event-filter-button" onClick={handleRemoveFilterByDate}>Remove Filter</button>
                     :
-                    <div>
+                    <div className='event-filter-buttons'>
                     <button className="event-filter-button" onClick={handleFilterByDate}>Filter by Date</button>
                     <button className="event-filter-button" onClick={handleSortByRsvpPopular}>Most popular events</button>
                     <button className="event-filter-button" onClick={handleSortByRsvpLeastPopular}>Least popular events</button>
