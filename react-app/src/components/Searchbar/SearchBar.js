@@ -14,13 +14,14 @@ function SearchBar() {
 
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if(city){
-
-    e.preventDefault();
-    let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
-    history.push(`/events/search/city/${capitalizeFirstletter}/`)
-    dispatch(loadEventsByCity(capitalizeFirstletter));
+    // regex to eliminate space between words and make 1st letter of word capita
+    const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+    // let capitalizeFirstletter = city[0].toUpperCase().trim() + city.slice(1).trim().toLowerCase();
+    history.push(`/events/search/city/${cityRegex}/`)
+    dispatch(loadEventsByCity(cityRegex));
     setCity('');
 
     } else {

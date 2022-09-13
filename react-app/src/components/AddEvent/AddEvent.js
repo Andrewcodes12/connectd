@@ -8,7 +8,6 @@ import {createEvent} from '../../store/event'
 
 function AddEvent() {
   const user = useSelector(state => state.session)
-  console.log(user)
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -65,7 +64,8 @@ function AddEvent() {
       event_state,
       event_zipcode,
       category,
-      user_id: user.id
+      // user_id: user.id,
+      user_id:1
     }
 
     dispatch(createEvent(event))
