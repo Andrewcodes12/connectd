@@ -29,6 +29,7 @@ function UserProfile() {
 
   return (
     <>
+    <button onClick={handleFilterByDate}>Filter by Date</button>
     {users && users.map(user => (
       user.id === parseInt(userId) ? (
         <>
