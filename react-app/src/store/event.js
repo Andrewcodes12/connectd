@@ -114,6 +114,7 @@ export const loadEventsByCategory = (category) => async (dispatch) => {
 }
 
 export const loadEventsByCity = (city) => async (dispatch) => {
+    console.log(city)
     const response = await fetch(`/api/events/search/city/${city}`);
 
     if(response.ok){
@@ -123,7 +124,6 @@ export const loadEventsByCity = (city) => async (dispatch) => {
 
 }
 
-// filter all events by date
 export const filterEventsByDate = () => async (dispatch) => {
     const resonse = await fetch('/api/events/filter/date');
 

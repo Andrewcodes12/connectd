@@ -17,11 +17,11 @@ function SearchBar() {
     e.preventDefault();
 
     if(city){
-    // regex to eliminate space between words and make 1st letter of word capital 
-    const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+    // regex to eliminate space between words and make 1st letter of word capital
+    // const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
 
-    history.push(`/events/search/city/${cityRegex}/`)
-    dispatch(loadEventsByCity(cityRegex));
+    history.push(`/events/search/city/${city}/`)
+    dispatch(loadEventsByCity(city));
     setCity('');
 
     } else {

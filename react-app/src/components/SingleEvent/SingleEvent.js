@@ -15,6 +15,7 @@ import EditEvent from '../EditEvent/EditEvent';
 import AddReviews from '../AddReviews/AddReviews';
 import Maps from '../Map/Map';
 import RsvpdEvents from '../RSVPD/RsvpdEvents';
+import EventCity from '../EventCity/EventCity';
 
 
 
@@ -78,11 +79,11 @@ function sliceTimeOffDate(){
   return slicedDate;
 }
 
-function makeCityDynamic(city){
-  const cityRegex = city.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
-  dispatch(loadEventsByCity(cityRegex));
-  return cityRegex;
+function goToCityPage(cities){
+  dispatch(loadEventsByCity(cities));
+  history.push(`/events/search/city/${cities}`);
 }
+
 
   return (
     <>
@@ -93,9 +94,8 @@ function makeCityDynamic(city){
         <img src={event.event_imgs} alt="event-img" />
         <p>{event.event_description}</p>
         <p>{sliceTimeOffDate}</p>
-          <NavLink to={`/events/search/city/${makeCityDynamic(event.event_city)}/`}>
-            <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-          </NavLink>
+        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+        <button className="events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
         <p>{event.event_address}</p>
         <p>{event.category}</p>
 
