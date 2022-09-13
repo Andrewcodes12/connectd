@@ -23,10 +23,11 @@ function SingleEvent() {
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
 
+  const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
+  const [isClicked, setIsClicked] = useState(false);
 
   const {eventsId} = useParams();
 
-  const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -51,17 +52,27 @@ function SingleEvent() {
   const sortByHigestRating = async (e) => {
     e.preventDefault();
     dispatch(sortReviewsByRating(eventsId));
+    setIsClicked(true);
 }
 
 const sortByLowestRating = async (e) => {
     e.preventDefault();
     dispatch(sortReviewsByRatingAsc(eventsId));
+    setIsClicked(true);
 }
 
 const sortByDate = async (e) => {
     e.preventDefault();
     dispatch(sortReviewsByDate(eventsId));
+    setIsClicked(true);
 }
+
+const removeSort = async (e) => {
+    e.preventDefault();
+    dispatch(loadReviewsByEvent(eventsId));
+    setIsClicked(false);
+}
+
 
 
   return (
@@ -120,9 +131,15 @@ const sortByDate = async (e) => {
 
         <h4>Reviews</h4>
           <div className="review-sort">
-            <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
-            <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
-            <button onClick={sortByDate}>Sort reviews by date</button>
+              {isClicked ? (
+                <button onClick={removeSort}>Remove filter</button>
+              ) : (
+                <div className="single-event-filter-buttons">
+                <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
+                <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
+                <button onClick={sortByDate}>Sort by Date</button>
+                </div>
+              )}
           </div>
           {reviews && reviews.map(review => (
             review.event_id === event.id ? (
