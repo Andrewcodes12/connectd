@@ -2,15 +2,21 @@ import './navbar.css';
 
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from '../Searchbar/SearchBar';
 
-const NavBar = () => {
 
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
-  // const close = () => setModal(false);
+const NavBar = () => {
+  const sessionUser = useSelector(state => state.session);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuOpen = () => {
+    setMenuOpen(!menuOpen);
+  }
+
 
   return (
     <>
@@ -37,33 +43,23 @@ const NavBar = () => {
         {/* <NavLink to='/profile' >
           <i className="far fa-user-circle" id="profile" ></i>
         </NavLink> */}
-        <div className="profile" onClick={toggle}>
-          <i className="far fa-user-circle" id="profile" ></i>
+        <div className="profile">
+            <i className="far fa-user-circle" id="profile" onClick={handleMenuOpen}></i>
+
+            {menuOpen &&
+              <div className="user-menu-items">
+                <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>My Profile</NavLink></li>
+                {!sessionUser ?
+                <li><NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Login</NavLink></li>
+                : <li><LogoutButton /></li>}
+                <li><NavLink to='/sign-up' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Sign Up</NavLink></li>
+              </div>
+            }
         </div>
-        {/* <div className="modal" style={{display: modal ? 'block' : 'none'}}>
-          <div className="modal-content">
-            <div className="modal-header">
-              <span className="close" onClick={close}>&times;</span>
-              <h2>Login</h2>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="form-group">
-                  <label htmlFor="username">Username</label>
-                  <input type="text" className="form-control" id="username" placeholder="Username" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <input type="password" className="form-control" id="password" placeholder="Password" />
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-danger" onClick={close}>Close</button>
-            </div>
-          </div>
-        </div> */}
+
+
+
+
 
             <NavLink to='/logout'>
               <LogoutButton />

@@ -29,11 +29,20 @@ export const editUserInfo = (user) => async (dispatch) => {
         },
         body: JSON.stringify(user)
     });
- 
+
     if (response.ok) {
         const user = await response.json();
         console.log(user)
         dispatch(editUser(user));
+    }
+}
+
+export const userProfile = (user) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user.id}/profile`);
+
+    if (response.ok) {
+        const user = await response.json();
+        dispatch(loadUsers(user));
     }
 }
 

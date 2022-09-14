@@ -16,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import EventByCategory from './components/EventByCategory/EventByCategory';
 import EventCity from './components/EventCity/EventCity';
 import AddEvent from './components/AddEvent/AddEvent';
+import LoggedUserProfile from './components/LoggedUserProfile/LoggedUserProfile';
 
 
 import Feed from './components/Feed/Feed';
@@ -72,6 +73,9 @@ function App() {
           </Route>
           <Route path='/users/:userId' exact={true}>
             <UserProfile />
+          </Route>
+          <Route path='/users/:userId/profile' exact={true}>
+            <LoggedUserProfile />
           </Route>
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User
+from app.models import db, User, Rsvp, Event
 from app.forms import edit_user_form
 
 user_routes = Blueprint('users', __name__)
@@ -49,3 +49,13 @@ def edit_user(id):
         db.session.commit()
         return user.to_dict()
     return jsonify(form.errors)
+
+
+# load a users profile and all of their events and the events they are rsvp'd to
+@user_routes.route('/<int:id>/profile')
+# @login_required
+def user_profile(id):
+    user = User.query.get(id)
+    events = [event.to_dict() for event in user.events]
+    rsvps = [rsvp.to_dict() for rsvp in user.rsvps]
+    return {'user': user.to_dict(), 'events': events, 'rsvps': rsvps}
