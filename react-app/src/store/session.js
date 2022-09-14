@@ -45,9 +45,8 @@ export const login = (email, password) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-
     dispatch(setUser(data))
-    window.location.href = '/';
+    return null;
 
   } else if (response.status < 500) {
     const data = await response.json();
@@ -55,7 +54,7 @@ export const login = (email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return ['An error occurred. Please try again..']
   }
 
 }
@@ -100,7 +99,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-const initialState = [null];
+const initialState = {user: null};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
