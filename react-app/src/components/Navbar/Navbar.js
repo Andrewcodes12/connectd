@@ -12,9 +12,16 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   const handleMenuOpen = () => {
     setMenuOpen(!menuOpen);
+  }
+
+  const isUserLoggedIn = () => {
+    if (sessionUser) {
+      setIsLogged(true);
+    }
   }
 
 
@@ -48,11 +55,17 @@ const NavBar = () => {
 
             {menuOpen &&
               <div className="user-menu-items">
-                <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>My Profile</NavLink></li>
-                {!sessionUser ?
-                <li><NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Login</NavLink></li>
-                : <li><LogoutButton /></li>}
-                <li><NavLink to='/sign-up' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Sign Up</NavLink></li>
+                {isLogged  ?
+                <>
+                  <li><NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Login</NavLink></li>
+                  <li><NavLink to='/sign-up' style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>Sign Up</NavLink></li>
+                </>
+                :
+                <>
+                  <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>My Profile</NavLink></li>
+                  <li><LogoutButton /></li>
+                </>
+                }
               </div>
             }
         </div>

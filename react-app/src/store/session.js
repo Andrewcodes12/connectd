@@ -100,7 +100,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-const initialState = [];
+const initialState = [null];
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
