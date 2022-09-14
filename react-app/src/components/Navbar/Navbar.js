@@ -11,6 +11,7 @@ import SearchBar from '../Searchbar/SearchBar';
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session);
 
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
 
@@ -66,7 +67,7 @@ const NavBar = () => {
               <div className="user-menu-items">
                 {isLogged ?
                 <>
-                  <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen}>My Profile</NavLink></li>
+                  <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen} >My Profile</NavLink></li>
                   <li><LogoutButton /></li>
                 </>
                 :

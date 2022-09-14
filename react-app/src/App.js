@@ -77,7 +77,7 @@ function App() {
             <UserProfile />
           </Route>
           <Route path='/users/:userId/profile' exact={true}>
-            <LoggedUserProfile sessionUser={sessionUser} events={events}/>
+            <LoggedUserProfile sessionUser={sessionUser}/>
           </Route>
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />

@@ -8,7 +8,7 @@ import {loadEvents} from '../../store/event';
 
 function LoggedUserProfile({sessionUser}) {
   const user = useSelector(state => state.users);
-  const events = useSelector(state => state.events);
+
 
   const [loading , setLoading] = useState(false);
 
@@ -16,7 +16,6 @@ function LoggedUserProfile({sessionUser}) {
   const {userId} = useParams();
 
   useEffect(() => {
-    dispatch(loadEvents());
     dispatch(userProfile(userId));
   }, [dispatch]);
 
@@ -25,7 +24,6 @@ function LoggedUserProfile({sessionUser}) {
     let slicedDate = user.events.event_date.slice(0,10);
     return slicedDate;
   }
-
 
 
   return (
@@ -48,7 +46,7 @@ function LoggedUserProfile({sessionUser}) {
         <div className='user-profile-events-container'>
           <h2 className='user-profile-events-header'>Events I'm Hosting</h2>
           <div className='user-profile-events'>
-              {user.events && user.events.length > 0 ? user.events.map(event => (
+              {user.eventsHosting && user.eventsHosting.length > 0 ? user.eventsHosting.map(event => (
                 <><div className='user-profile-event' key={event.id}>
                   <NavLink to={`/events/${event.id}`} className='user-profile-event-link'>
                     <div className='user-profile-event-img'>
@@ -65,9 +63,9 @@ function LoggedUserProfile({sessionUser}) {
                 </div><div className="user-rsvp-events-container">
                     <h2 className="user-rsvp-events-header">Events I'm Attending</h2>
                     <div className="user-rsvp-events">
-                      {user.events && user.events.length > 0 ? user.events.map(event => (
+                      {user.eventsAttending && user.eventsAttending.length > 0 ? user.eventsAttending.map(event => (
                         <div className="user-rsvp-event" key={event.id}>
-                          <NavLink to={`/events/${event.event_id}`} className="user-rsvp-event-link">
+                          <NavLink to={`/events/${event.id}`} className="user-rsvp-event-link">
                             <div className="user-rsvp-event-img">
                               <img src={event.event_imgs} alt="event-img" className="user-rsvp-event-img" />
                             </div>

@@ -51,11 +51,14 @@ def edit_user(id):
     return jsonify(form.errors)
 
 
-# load a users profile and all of their events and the events they are rsvp'd to
+# load user profile thast shows all the events they are attending and hosting. match the rsvp.event_id to the event.id to get the event info
+#query the rsvp table for the user id and then match the event id to the event table to get the event info also get the events that the user is hosting
 @user_routes.route('/<int:id>/profile')
-# @login_required
 def user_profile(id):
+
     user = User.query.get(id)
-    events = [event.to_dict() for event in user.events]
-    rsvps = [rsvp.to_dict() for rsvp in user.rsvps]
-    return {'user': user.to_dict(), 'events': events, 'rsvps': rsvps}
+    rsvps = Rsvp.query.filter(Rsvp.user_id == id).all()
+    eventsAttending = [Event.query.get(rsvp.event_id) for rsvp in rsvps]
+    eventsHosting = Event.query.filter(Event.user_id == id).all()
+    return {'eventsAttending': [event.to_dict() for event in eventsAttending], 'eventsHosting': [event.to_dict() for event in eventsHosting]}
+
