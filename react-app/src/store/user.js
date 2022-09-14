@@ -38,7 +38,7 @@ export const editUserInfo = (user) => async (dispatch) => {
 }
 
 export const userProfile = (user) => async (dispatch) => {
-    const response = await fetch(`/api/users/${user.id}/profile`);
+    const response = await fetch(`/api/users/${user}/profile`);
 
     if (response.ok) {
         const user = await response.json();
