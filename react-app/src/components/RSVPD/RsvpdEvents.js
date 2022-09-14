@@ -111,7 +111,6 @@ function handleRsvpp(){
       }
     </div>
     }
-    {sessionUser.id === event.user_id ? handleRsvpp() : null}
     </>
   )
 }
