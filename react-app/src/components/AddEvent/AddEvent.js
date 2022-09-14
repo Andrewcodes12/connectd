@@ -64,8 +64,8 @@ function AddEvent() {
       event_state: event_state.replace(/\s+/g, ' ').trim().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))),
       event_zipcode,
       category,
-      // user_id: user.id,
-      user_id:1
+      user_id: user.id,
+      // user_id:1
     }
 
     dispatch(createEvent(event))

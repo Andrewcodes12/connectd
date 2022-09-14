@@ -24,7 +24,7 @@ function LoggedUserProfile({sessionUser}) {
     let slicedDate = user.events.event_date.slice(0,10);
     return slicedDate;
   }
-
+  console.log(user.eventsHosting)
 
   return (
     <>
@@ -60,7 +60,8 @@ function LoggedUserProfile({sessionUser}) {
                       <p className='user-profile-event-category'>{event.category}</p>
                     </div>
                   </NavLink>
-                </div><div className="user-rsvp-events-container">
+                </div>
+                <div className="user-rsvp-events-container">
                     <h2 className="user-rsvp-events-header">Events I'm Attending</h2>
                     <div className="user-rsvp-events">
                       {user.eventsAttending && user.eventsAttending.length > 0 ? user.eventsAttending.map(event => (
@@ -83,9 +84,7 @@ function LoggedUserProfile({sessionUser}) {
                       </div>}
                     </div>
                   </div></>
-            )) : <div className='user-profile-search-error'>
-                  <h1 className='user-profile-search-error-message'>You are not hosting any events.</h1>
-                </div>
+            )) : null
             }
           </div>
         </div>

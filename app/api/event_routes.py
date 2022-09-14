@@ -51,8 +51,8 @@ def create_event():
             event_zipcode=form.data['event_zipcode'],
             event_date=form.data['event_date'],
             event_imgs=form.data['event_imgs'],
-            # user_id=current_user.id,
-            user_id=1
+            user_id=current_user.id,
+            # user_id=1
         )
         db.session.add(event)
         db.session.commit()
