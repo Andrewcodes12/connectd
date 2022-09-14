@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -25,9 +25,11 @@ import Feed from './components/Feed/Feed';
 import { authenticate } from './store/session';
 
 
-
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session);
+  const events = useSelector(state => state.events);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -75,7 +77,7 @@ function App() {
             <UserProfile />
           </Route>
           <Route path='/users/:userId/profile' exact={true}>
-            <LoggedUserProfile />
+            <LoggedUserProfile sessionUser={sessionUser} events={events}/>
           </Route>
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />
