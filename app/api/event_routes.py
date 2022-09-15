@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, Flask
 from flask_login import current_user, login_required
+from app.aws_s3 import allowed_file, get_unique_filename, upload_file_to_s3
 from app.models import db, User, Event, Review
 from flask_sqlalchemy import SQLAlchemy
 from app.forms import EventForm
@@ -32,33 +33,78 @@ def get_event(id):
 
 
 # create new event
-@event_routes.route('/new', methods=['POST'])
+# @event_routes.route('/new', methods=['POST'])
+# # @login_required
+# def create_event():
+#     """
+#     Create event
+#     """
+#     form = EventForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+
+#     if form.validate_on_submit():
+#         event = Event(
+#             title=form.data['title'],
+#             event_description=form.data['event_description'],
+#             category=form.data['category'],
+#             event_city=form.data['event_city'],
+#             event_state=form.data['event_state'],
+#             event_zipcode=form.data['event_zipcode'],
+#             event_date=form.data['event_date'],
+#             event_imgs=form.data['event_imgs'],
+#             user_id=current_user.id,
+#             # user_id=1
+#         )
+#         db.session.add(event)
+#         db.session.commit()
+#         return event.to_dict()
+
+#     return jsonify(form.errors)
+
+@event_routes.route("/new", methods=["POST"])
 # @login_required
 def create_event():
-    """
-    Create event
-    """
-    form = EventForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    print("create event")
+    print(request.files)
+    if "event_imgs" not in request.files:
+        return {"errors": "image required"}, 400
 
-    if form.validate_on_submit():
-        event = Event(
-            title=form.data['title'],
-            event_description=form.data['event_description'],
-            category=form.data['category'],
-            event_city=form.data['event_city'],
-            event_state=form.data['event_state'],
-            event_zipcode=form.data['event_zipcode'],
-            event_date=form.data['event_date'],
-            event_imgs=form.data['event_imgs'],
-            user_id=current_user.id,
-            # user_id=1
-        )
-        db.session.add(event)
-        db.session.commit()
-        return event.to_dict()
+    print("create event 2")
+    image = request.files["event_imgs"]
+    print("image",image)
 
-    return jsonify(form.errors)
+    print("create event 3")
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    print("image.filename",image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    print("upload",upload)
+    print("create event 4")
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    print("create event 5")
+
+    url = upload["url"]
+
+    print("create event 6")
+    # flask_login allows us to get the current user from the request
+    new_event = Event(user=current_user, event_imgs=url, title=request.form['title'], event_description=request.form['event_description'], category=request.form['category'], event_city=request.form['event_city'], event_state=request.form['event_state'], event_zipcode=request.form['event_zipcode'], event_date=request.form['event_date'])
+    print("event 7")
+    db.session.add(new_event)
+    print("event 8")
+    db.session.commit()
+    print("commit")
+    return {"url": url}
 
 
 # Update event
