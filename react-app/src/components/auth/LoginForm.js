@@ -41,13 +41,13 @@ const LoginForm = () => {
 
 
   const demoLogin = async () => {
-    const demoEmail = 'demo@demo.com'
+    const demoEmail = 'andrew@demo.com'
     const demoPassword = 'password'
     setEmail(demoEmail);
     setPassword(demoPassword);
 
     return dispatch(
-      login('demo@demo.com', 'password')
+      login('andrew@demo.com','password')
     );
   }
 

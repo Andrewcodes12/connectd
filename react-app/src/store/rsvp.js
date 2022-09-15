@@ -46,7 +46,6 @@ export const loadRsvpsOnEvent = (eventId) => async (dispatch) => {
 
 
 export const createRsvp = (event) => async (dispatch) => {
-    console.log('event id', event)
     const response = await fetch(`/api/rsvps/${event}`, {
         method: 'POST'
     });

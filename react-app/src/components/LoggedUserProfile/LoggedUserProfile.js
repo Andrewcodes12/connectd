@@ -3,7 +3,7 @@ import {NavLink, useParams,useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { userProfile } from '../../store/user';
-import {loadEvents} from '../../store/event';
+import {deleteRsvp} from '../../store/rsvp';
 
 
 function LoggedUserProfile({sessionUser}) {
@@ -13,6 +13,7 @@ function LoggedUserProfile({sessionUser}) {
   const [loading , setLoading] = useState(false);
 
   const dispatch = useDispatch();
+
   const {userId} = useParams();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function LoggedUserProfile({sessionUser}) {
     let slicedDate = user.events.event_date.slice(0,10);
     return slicedDate;
   }
-  console.log(user.eventsHosting)
+
 
   return (
     <>
