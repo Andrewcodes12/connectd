@@ -32,7 +32,6 @@ export const editUserInfo = (user) => async (dispatch) => {
 
     if (response.ok) {
         const user = await response.json();
-        console.log(user)
         dispatch(editUser(user));
     }
 }

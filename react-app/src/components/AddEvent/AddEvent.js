@@ -179,7 +179,6 @@ import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
-import {createEvent} from '../../store/event'
 
 
 const AddEvent = () => {

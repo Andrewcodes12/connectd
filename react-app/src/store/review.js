@@ -82,7 +82,6 @@ export const AddReview = (event) => async (dispatch) => {
 
 
 export const updateReview = (review) => async (dispatch) => {
-    console.log(review)
     const response = await fetch(`/api/reviews/edit/${review.review_id}`, {
         method:'PUT',
         body:JSON.stringify(review)
@@ -106,7 +105,6 @@ export const deleteReviewById = (id) => async (dispatch) => {
 
 
 export const sortReviewsByRating = (event) => async (dispatch) => {
-    console.log(event)
     const response = await fetch(`/api/reviews/${event}/sort/rating`);
 
     if(response.ok){

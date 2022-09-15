@@ -64,27 +64,18 @@ def get_event(id):
 @event_routes.route("/new", methods=["POST"])
 # @login_required
 def create_event():
-    print("create event")
-    print(request.files)
     if "event_imgs" not in request.files:
         return {"errors": "image required"}, 400
 
-    print("create event 2")
     image = request.files["event_imgs"]
-    print("image",image)
 
-    print("create event 3")
     if not allowed_file(image.filename):
         return {"errors": "file type not permitted"}, 400
 
     image.filename = get_unique_filename(image.filename)
 
-    print("image.filename",image.filename)
 
     upload = upload_file_to_s3(image)
-
-    print("upload",upload)
-    print("create event 4")
 
     if "url" not in upload:
         # if the dictionary doesn't have a url key
@@ -92,18 +83,13 @@ def create_event():
         # so we send back that error message
         return upload, 400
 
-    print("create event 5")
 
     url = upload["url"]
 
-    print("create event 6")
     # flask_login allows us to get the current user from the request
     new_event = Event(user=current_user, event_imgs=url, title=request.form['title'], event_description=request.form['event_description'], category=request.form['category'], event_city=request.form['event_city'], event_state=request.form['event_state'], event_zipcode=request.form['event_zipcode'], event_date=request.form['event_date'])
-    print("event 7")
     db.session.add(new_event)
-    print("event 8")
     db.session.commit()
-    print("commit")
     return {"url": url}
 
 

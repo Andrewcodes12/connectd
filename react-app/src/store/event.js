@@ -60,7 +60,6 @@ export const loadEventById = (id) => async (dispatch) => {
 }
 
 export const createEvent = (event) => async (dispatch) => {
-    console.log(event)
     const response = await fetch('/api/events/new', {
         method: 'POST',
         body: JSON.stringify(event)
@@ -68,7 +67,6 @@ export const createEvent = (event) => async (dispatch) => {
 
     if(response.ok){
         const event = await response.json();
-        console.log("server respone",event)
         dispatch(create(event));
     }
 }
@@ -113,7 +111,6 @@ export const loadEventsByCategory = (category) => async (dispatch) => {
 }
 
 export const loadEventsByCity = (city) => async (dispatch) => {
-    console.log(city)
     const response = await fetch(`/api/events/search/city/${city}`);
 
     if(response.ok){
@@ -128,7 +125,6 @@ export const filterEventsByDate = () => async (dispatch) => {
 
     if(resonse.ok){
         const events = await resonse.json();
-        console.log(events)
         dispatch(load(events));
     }
 }
