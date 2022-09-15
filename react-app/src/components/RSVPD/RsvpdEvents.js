@@ -56,66 +56,32 @@ function RsvpdEvents({event}) {
   }
 
 
-function handleRsvpp(){
-  if(sessionUser.id === event.user_id){
-//     if(rsvpd === false){
-//     return (
-//       <div className='rsvp-button'>
-//         <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
-//         {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
-//         : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-//         : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
-//       </div>
-//     )
-//   } else {
-//     return (
-//       <div className='rsvp-button'>
-//         <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
-//         {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
-//         : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-//         : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
-//       </div>
-//     )
-//   }
-//  }else if (sessionUser.id === parseInt(rsvp.user_id)){
-//   return (
-//     <div className='rsvp-button'>
-//       <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
-//       {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
-//       : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-//       : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>}
-//     </div>
-//   )
-//  }else {
-  return (
-    <div className="rsvp-length">
-      {rsvp.length} <span className="rsvp-span">people are attending your event.</span>
-    </div>
-  )}
-}
-
-
 
   return (
-    <>{sessionUser.id === event.user_id ? <> {rsvp.length} people are atending your event. </>:
+    <>{sessionUser.id === event.user_id ? <>
+    {
+    rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+    : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
+    } </>
+    :
       <>
-      {rsvp && rsvpdEvent ?
-      <div className="rsvp-length">
-        <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
-        {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
-        : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-        : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
+        {rsvp && rsvpdEvent ?
+        <div className="rsvp-length">
+          <button onClick={handleUnRsvp} className='rsvp-button'>Cancel RSVP</button>
+          {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
+          : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+          : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
+          }
+        </div>
+        :
+        <div className='rsvp-button'>
+          <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
+          {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
+          : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
+          : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
+          }
+        </div>
         }
-      </div>
-      :
-      <div className='rsvp-button'>
-        <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
-        {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
-        : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-        : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
-        }
-      </div>
-      }
       </>
 }
     </>
