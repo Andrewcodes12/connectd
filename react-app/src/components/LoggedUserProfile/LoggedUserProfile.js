@@ -27,6 +27,8 @@ function LoggedUserProfile({sessionUser}) {
   }
 
 
+
+
   return (
     <>
       {loading ?
@@ -45,26 +47,36 @@ function LoggedUserProfile({sessionUser}) {
           </div>
         </div>
         <div className='user-profile-events-container'>
-          <h2 className='user-profile-events-header'>Events I'm Hosting</h2>
           <div className='user-profile-events'>
+                  <h2 className='user-profile-events-header'>
+                    Events I'm Hosting
+                  </h2>
               {user.eventsHosting && user.eventsHosting.length > 0 ? user.eventsHosting.map(event => (
-                <><div className='user-profile-event' key={event.id}>
-                  <NavLink to={`/events/${event.id}`} className='user-profile-event-link'>
-                    <div className='user-profile-event-img'>
-                      <img src={event.event_imgs} alt='event-img' className='user-profile-event-img' />
-                    </div>
-                    <div className='user-profile-event-info'>
-                      <h3 className='user-profile-event-title'>{event.title}</h3>
-                      <p className='user-profile-event-description'>{event.event_description}</p>
-                      <p className='user-profile-event-date'>{sliceTimeOffDate}</p>
-                      <p className='user-profile-event-location'>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-                      <p className='user-profile-event-category'>{event.category}</p>
-                    </div>
-                  </NavLink>
-                </div>
+                <>
+                  <div className='user-profile-event' key={event.id}>
+                    <NavLink to={`/events/${event.id}`} className='user-profile-event-link'>
+                      <div className='user-profile-event-img'>
+                        <img src={event.event_imgs} alt='event-img' className='user-profile-event-img' />
+                      </div>
+                      <div className='user-profile-event-info'>
+                        <h3 className='user-profile-event-title'>{event.title}</h3>
+                        <p className='user-profile-event-description'>{event.event_description}</p>
+                        <p className='user-profile-event-date'>{sliceTimeOffDate}</p>
+                        <p className='user-profile-event-location'>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+                        <p className='user-profile-event-category'>{event.category}</p>
+                      </div>
+                    </NavLink>
+                  </div>
+                </>
+                )
+              ) : <h1 className='user-profile-no-events'>You are not hosting any events.</h1>}
+
+                <>
                 <div className="user-rsvp-events-container">
-                    <h2 className="user-rsvp-events-header">Events I'm Attending</h2>
                     <div className="user-rsvp-events">
+                        <h2 className="user-rsvp-events-header">
+                          Events I'm Attending
+                        </h2>
                       {user.eventsAttending && user.eventsAttending.length > 0 ? user.eventsAttending.map(event => (
                         <div className="user-rsvp-event" key={event.id}>
                           <NavLink to={`/events/${event.id}`} className="user-rsvp-event-link">
@@ -84,13 +96,13 @@ function LoggedUserProfile({sessionUser}) {
                         <h1 className="user-rsvp-search-error-message">You have not RSVP'd to any events.</h1>
                       </div>}
                     </div>
-                  </div></>
-            )) : null
-            }
+                  </div>
+                  </>
           </div>
         </div>
       </div>
     }
+
     </>
   )
 }
