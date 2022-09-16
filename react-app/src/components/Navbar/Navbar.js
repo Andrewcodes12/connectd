@@ -57,6 +57,9 @@ const NavBar = () => {
         <NavLink to='/new/events'>
           <i className="fas fa-upload" id="upload"></i>
         </NavLink>
+        <NavLink to='/about'>
+          About
+        </NavLink>
         {/* <NavLink to='/profile' >
           <i className="far fa-user-circle" id="profile" ></i>
         </NavLink> */}
