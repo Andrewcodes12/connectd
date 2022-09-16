@@ -9,7 +9,12 @@ function About() {
       <div className="about">
         <h1>About</h1>
         <p>
-          Connectd is a social media platform designed to connect people through hobbies and interests.
+          My inspiration behind creating this app was to create something that could bring people of similar hobbies and interest together.
+          Whether it be that you just moved to a new city and want to meet new people or you just want to find a new hobby, this app is for you.
+          Lets say you want to play a round of golf, you can create an event and other users can join you. You can also search for other events and
+          try new things.
+          This app is a great way to meet people and find new hobbies.
+          I hope you enjoy using this app as much as I enjoyed creating it.
         </p>
       </div>
       <div className="functionality">
@@ -62,6 +67,16 @@ function About() {
         <p>
           <strong>APIs</strong>
           <div>Google Maps, Cloudinary, and Faker</div>
+        </p>
+      </div>
+      <div className="team">
+        <h1>Developer</h1>
+        <p>
+          <strong>Andrew Fava</strong>
+          <div>LinkedIn: <a href="https://www.linkedin.com/in/andrewfava/">LinkedIn</a></div>
+          <div>GitHub: <a href="https://github.com/Andrewcodes12">GitHub</a></div>
+          <div>Email: AndrewFava@yahoo.com</div>
+          <div>Portfolio: <a href="https://andrewfava.com/">Portfolio</a></div>
         </p>
       </div>
     </>
