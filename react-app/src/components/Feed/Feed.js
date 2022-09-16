@@ -5,6 +5,8 @@ import {NavLink} from 'react-router-dom';
 
 import {loadEvents, filterEventsByDate, sortByRsvpPopular, sortByRsvpLeastPopular} from '../../store/event';
 
+import NavBar from '../Navbar/Navbar';
+import Categories from '../Categories/Categories';
 
 import './feed.css'
 
@@ -50,6 +52,9 @@ function Feed() {
 
 
   return (
+    <>
+
+    <Categories />
     <div className="feed">
                 <div className="event-filter-buttons">
                     {isClicked ? <button className="event-filter-button" onClick={handleRemoveFilterByDate}>Remove Filter</button>
@@ -81,6 +86,7 @@ function Feed() {
                         ))}
                     </div>
         </div>
+    </>
   );
 }
 

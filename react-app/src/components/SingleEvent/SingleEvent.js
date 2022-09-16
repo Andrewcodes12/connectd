@@ -16,7 +16,7 @@ import AddReviews from '../AddReviews/AddReviews';
 import Maps from '../Map/Map';
 import RsvpdEvents from '../RSVPD/RsvpdEvents';
 import EventCity from '../EventCity/EventCity';
-
+import NavBar from '../Navbar/Navbar';
 
 
 function SingleEvent() {
@@ -87,6 +87,7 @@ function goToCityPage(cities){
 
   return (
     <>
+    <NavBar />
     {events && events.map(event => (
       event.id === parseInt(eventsId) ? (
         <>

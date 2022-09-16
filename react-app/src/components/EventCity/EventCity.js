@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import {loadEventsByCity} from '../../store/event';
 
-
+import NavBar from '../Navbar/Navbar';
 
 
 function EventCity() {
@@ -21,6 +21,8 @@ function EventCity() {
       }
 
   return (
+    <>
+    <NavBar />
     <div className="feed">
                     <div className="feed-events-container">
                         {events && events.length > 0 ? events.map(event => (
@@ -45,6 +47,7 @@ function EventCity() {
                         }
                     </div>
         </div>
+    </>
   )
 }
 

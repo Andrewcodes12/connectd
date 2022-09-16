@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from '../../store/user';
 import {deleteRsvp} from '../../store/rsvp';
 
+import NavBar from '../Navbar/Navbar';
 
 function LoggedUserProfile({sessionUser}) {
   const user = useSelector(state => state.users);
@@ -31,6 +32,7 @@ function LoggedUserProfile({sessionUser}) {
 
   return (
     <>
+    <NavBar />
       {loading ?
         <div className='loading'>
           <img src='https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif' alt='loading' />

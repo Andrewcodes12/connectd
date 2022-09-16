@@ -23,6 +23,7 @@ import Feed from './components/Feed/Feed';
 
 
 import { authenticate } from './store/session';
+import Splash from './components/Splash/Splash';
 
 
 function App() {
@@ -45,11 +46,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
 
       <Switch>
-        <Route path='/' exact={true} >
-            <Categories />
+        <Route path='/' exact={true}>
+          <Splash />
+        </Route>
+          <Route path='/feed' exact={true} >
             <Feed />
           </Route>
           <Route path='/login' exact={true}>

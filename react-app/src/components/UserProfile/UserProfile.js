@@ -8,6 +8,8 @@ import { loadUserInfo } from '../../store/user';
 import EdituserProfile from '../EditUserProfile/EdituserProfile';
 
 
+import NavBar from '../Navbar/Navbar';
+
 function UserProfile() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
@@ -29,6 +31,7 @@ function UserProfile() {
 
   return (
     <>
+    <NavBar />
     {users && users.map(user => (
       user.id === parseInt(userId) ? (
         <>

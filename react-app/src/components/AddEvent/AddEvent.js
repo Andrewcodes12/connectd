@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
-
+import NavBar from '../Navbar/Navbar';
 
 const AddEvent = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
@@ -66,6 +66,7 @@ const AddEvent = () => {
 
     return (
       <>
+      <NavBar />
         <h1>Post a new Event</h1>
         <form onSubmit={handleSubmit}>
           <label>Add a photo</label>

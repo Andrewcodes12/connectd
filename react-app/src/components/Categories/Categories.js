@@ -8,7 +8,7 @@ import {FaGamepad, FaChess, FaSchool } from 'react-icons/fa'
 import {MdSportsFootball, MdDirectionsBoatFilled, MdOutlineMoreHoriz} from 'react-icons/md'
 import {GiWineBottle} from 'react-icons/gi'
 
-
+import NavBar from '../Navbar/Navbar';
 
 import './categories.css'
 
@@ -18,6 +18,7 @@ function Categories() {
 
   return (
     <>
+    <NavBar />
         <div className="categories_div">
 
             <div className="categories_div_inner">

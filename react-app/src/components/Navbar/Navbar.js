@@ -41,7 +41,7 @@ const NavBar = () => {
 
       <div className="logo">
         <div>
-          <NavLink to='/'>
+          <NavLink to='/feed'>
             Connectd
           </NavLink>
         </div>
@@ -51,7 +51,7 @@ const NavBar = () => {
           <SearchBar />
       </div>
       <div className="rightNav">
-        <NavLink to='/'>
+        <NavLink to='/feed'>
           <i className="fas fa-home" id="home"></i>
         </NavLink>
         <NavLink to='/new/events'>
