@@ -59,6 +59,37 @@ function Splash() {
                     </a>
                 </div>
             </div>
+                <div className="splash-category-selector">
+                  <h4>Search for events by category</h4>
+                      <a href="/events/search/Sports">
+                        <div className="category-splash-div">
+                          Sports
+                        </div>
+                      </a>
+                      <a href="/events/search/Clubbing">
+                        <div className="category-splash-div">
+                          Clubbing
+                        </div>
+                      </a>
+                      <a href="/events/search/StudyGroups">
+                        <div className="category-splash-div">
+                          Study Groups
+                        </div>
+                      </a>
+                      <a href="/events/search/Boating">
+                        <div className="category-splash-div">
+                          Boating
+                        </div>
+                      </a>
+                      <a href="/events/search/VideoGames">
+                        <div className="category-splash-div">
+                         Video Games
+                        </div>
+                      </a>
+                </div>
+        </div>
+        <div>
+          swdssf
         </div>
     </>
   )
