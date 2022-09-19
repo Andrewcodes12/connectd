@@ -113,29 +113,30 @@ function Splash() {
           </div>
             <div className="splash-connect-with-people">
                 <div className="splash-new-friends">
-                    <a href="/feed"><img src={waving} alt="happy-img" className="waving-img-splash"/>
+                    <a href="/feed"><img src={waving} alt="happy-img" className="img-splash"/>
                       <div className="waving-img-splash-div">
-                        Start New Hobbies
+                        Start New Hobbies <i class="fa-sharp fa-solid fa-arrow-right"></i>
                       </div>
                     </a>
                 </div>
-                <div className="splash-study-group">
-                    <a href="/events/search/StudyGroups"><img src={study} alt="study-group" className="study-group-splash"/>
-                      <div className="study-group-splash-div">
-                        Find A Study Group
+                <div className="splash-new-friends">
+                    <a href="/events/search/StudyGroups"><img src={study} alt="study-group" className="img-splash"/>
+                      <div className="waving-img-splash-div">
+                        Find A Study Group <i class="fa-sharp fa-solid fa-arrow-right"></i>
                       </div>
                     </a>
                 </div>
-                <div className="splash-meet-new-people">
-                    <a href="/feed"><img src={newPeople} alt="meet-new-people" className="meet-new-people-splash"/>
-                      <div className="meet-new-people-splash-div">
-                        Meet New People
+                <div className="splash-new-friends">
+                    <a href="/feed"><img src={newPeople} alt="meet-new-people" className="img-splash"/>
+                      <div className="waving-img-splash-div">
+                        Meet New People <i class="fa-sharp fa-solid fa-arrow-right"></i>
                       </div>
                     </a>
                 </div>
             </div>
                 <div className="splash-category-selector">
                   <h4>Search for events by category</h4>
+                  <div className="splash-category-selector-btns">
                       <button onClick={takeToSports}>
                         <div className="category-splash-div">
                           Sports
@@ -161,6 +162,7 @@ function Splash() {
                          Video Games
                         </div>
                       </button>
+                    </div>
                 </div>
         </div>
         <div className="splash-search-container">
