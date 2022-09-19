@@ -56,7 +56,7 @@ function Feed() {
 
     <Categories />
     <div className="feed">
-                <div className="event-filter-buttons">
+                <div className="event-filter-buttons-container">
                     {isClicked ? <button className="event-filter-button" onClick={handleRemoveFilterByDate}>Remove Filter</button>
                     :
                     <div className='event-filter-buttons'>

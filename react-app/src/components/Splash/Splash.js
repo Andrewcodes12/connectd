@@ -227,7 +227,7 @@ function Splash() {
                       <p>Meet other people while doing what you love.</p>
                 </div>
                 <div className="join-event-splash">
-                  <img src={ticket} alt="high-five" className="high-five-splash"/>
+                  <img src={ticket} alt="high-five" className="high-five-splash-2"/>
                   <a href='/feed'> <h4>Find an Event</h4> </a>
                       <p>Events are happening everyday. From gaming events and sports to boating and study groups.</p>
                 </div>

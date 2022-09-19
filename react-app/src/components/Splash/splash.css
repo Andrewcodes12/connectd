@@ -218,10 +218,9 @@
 
 .splash-about-us-icons a{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     color:rgb(89, 166, 255);
 }
-
 
 
 .splash-about-us-icons a:hover{
@@ -233,6 +232,10 @@
     width: 200px;
     height: 200px;
     object-fit: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 
@@ -256,4 +259,11 @@
 .splash-about-us-btn:hover{
     background-color: rgb(89, 166, 255, 0.8);
     cursor: pointer;
+}
+
+.high-five-splash{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
