@@ -1,13 +1,89 @@
 import React from 'react'
+import { useDispatch} from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
+import { loadEventsByCity } from '../../store/event'
 
 import friends from '../public/friends-splash-page.png'
 import waving from '../public/happy-friends.jpeg'
 import study from '../public/study-group.jpeg'
 import newPeople from '../public/meet-new-ppl.jpeg'
+import highFive from '../public/high-five-splash.png'
+import ticket from '../public/ticket-splash.png'
+
+import SearchBar from '../Searchbar/SearchBar'
 
 import './splash.css'
 
+
+
+
 function Splash() {
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const findMiami = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("miami"))
+    history.push(`/events/search/city/miami/`)
+  }
+
+  const findNewYork = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("new york"))
+    history.push(`/events/search/city/new%20york/`)
+  }
+
+  const findSanFran = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("san francisco"))
+    history.push(`/events/search/city/san%20francisco/`)
+  }
+
+  const findChicago = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("chicago"))
+    history.push(`/events/search/city/chicago/`)
+  }
+
+  const findAtlanta = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("atlanta"))
+    history.push(`/events/search/city/atlanta/`)
+  }
+
+  const takeToSports = async (e) => {
+    e.preventDefault()
+    history.push(`/events/search/Sports`)
+  }
+
+  const takeToClubbing = async (e) => {
+    e.preventDefault()
+    history.push(`/events/search/Clubbing`)
+  }
+
+  const takeToStudygroup = async (e) => {
+    e.preventDefault()
+    history.push(`/events/search/StudyGroups`)
+  }
+
+  const takeToBoating = async (e) => {
+    e.preventDefault()
+    history.push(`/events/search/Boating`)
+  }
+
+  const takeToVideoGames = async (e) => {
+    e.preventDefault()
+    history.push(`/events/search/VideoGames`)
+  }
+
+
+
+  function takeToSignUp(e) {
+    e.preventDefault()
+    window.location.href = '/sign-up'
+  }
+
   return (
     <>
       <div className="splash-container">
@@ -61,35 +137,103 @@ function Splash() {
             </div>
                 <div className="splash-category-selector">
                   <h4>Search for events by category</h4>
-                      <a href="/events/search/Sports">
+                      <button onClick={takeToSports}>
                         <div className="category-splash-div">
                           Sports
                         </div>
-                      </a>
-                      <a href="/events/search/Clubbing">
+                      </button>
+                      <button onClick={takeToClubbing}>
                         <div className="category-splash-div">
                           Clubbing
                         </div>
-                      </a>
-                      <a href="/events/search/StudyGroups">
+                      </button>
+                      <button onClick={takeToStudygroup}>
                         <div className="category-splash-div">
                           Study Groups
                         </div>
-                      </a>
-                      <a href="/events/search/Boating">
+                      </button>
+                      <button onClick={takeToBoating}>
                         <div className="category-splash-div">
                           Boating
                         </div>
-                      </a>
-                      <a href="/events/search/VideoGames">
+                      </button>
+                      <button onClick={takeToVideoGames}>
                         <div className="category-splash-div">
                          Video Games
                         </div>
-                      </a>
+                      </button>
                 </div>
         </div>
-        <div>
-          swdssf
+        <div className="splash-search-container">
+            <h2>Search for Events in your city</h2>
+              <div className="splash-search-bar">
+                <SearchBar />
+              </div>
+              <h2>Check out Events happening in these cities</h2>
+              <div className="splash-search-cities">
+                <div className="miami-splash">
+                  <button onClick={findMiami}>
+                    <div className="splash-search-city">
+                      Miami
+                    </div>
+                  </button>
+                </div>
+                <div className="newyork-splash">
+                  <button onClick={findNewYork}>
+                    <div className="splash-search-city">
+                      New York
+                    </div>
+                  </button>
+                </div>
+                <div className="sanfran-splash">
+                  <button onClick={findSanFran}>
+                    <div className="splash-search-city">
+                      San Francisco
+                    </div>
+                  </button>
+                </div>
+                <div className="atlanta-splash">
+                  <button onClick={findAtlanta}>
+                    <div className="splash-search-city">
+                      Atlanta
+                      </div>
+                  </button>
+                </div>
+                <div className="chicago-splash">
+                  <button onClick={findChicago}>
+                    <div className="splash-search-city">
+                      Chicago
+                      </div>
+                  </button>
+                </div>
+              </div>
+
+        </div>
+        <div className="splash-about-us">
+          <div className="splash-about-us-text">
+            <h2>How Connectd Works</h2>
+              <p>Connect with people who share the same hobbies and interest as you.
+                  Host or attend events. It's free to create an account. Sign up today!
+              </p>
+              <div className="splash-about-us-icons">
+                <div className="join-event-splash">
+                  <img src={highFive} alt="high-five" className="high-five-splash"/>
+                    <h4>Join an Event</h4>
+                      <p>Meet other people while doing what you love.</p>
+                </div>
+                <div className="find-event-splash">
+                  <img src={ticket} alt="high-five" className="high-five-splash"/>
+                    <h4>Find an Event</h4>
+                      <p>Events are happening everyday. From gaming events and sports to boating and study groups.</p>
+                </div>
+                <div className="start-event-splash">
+                  <img src={ticket} alt="high-five" className="high-five-splash"/>
+                    <h4>Start an Event</h4>
+                      <p>Post your event and we'll find the people for you.</p>
+                </div>
+              </div>
+          </div>
+              <button className="splash-about-us-btn" onClick={takeToSignUp}>Join Connectd</button>
         </div>
     </>
   )
