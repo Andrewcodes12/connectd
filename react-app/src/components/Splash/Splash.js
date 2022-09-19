@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { loadEventsByCity } from '../../store/event'
+import { loadEventsByCity, filterEventsByDate } from '../../store/event'
 
 import friends from '../public/friends-splash-page.png'
 import waving from '../public/happy-friends.jpeg'
@@ -77,8 +77,6 @@ function Splash() {
     history.push(`/events/search/VideoGames`)
   }
 
-
-
   function takeToSignUp(e) {
     e.preventDefault()
     window.location.href = '/sign-up'
@@ -95,6 +93,9 @@ function Splash() {
                   <div className='splash-login'>
                     <a href="/login" className="splash-login-btn">Login</a>
                   </div>
+                  <div className='splash-about'>
+                    <a href="/about" className="splash-login-btn">About</a>
+                  </div>
                   <div className='splash-signup'>
                     <a href="/sign-up" className="splash-login-btn">Sign Up</a>
                   </div>
@@ -108,10 +109,8 @@ function Splash() {
                     This is a safe community for people looking to share their hobbies and interests with others or join others in their hobbies and interests.
                   </p>
                 </div>
-                <div className="splash-content-img">
                     <img src={friends} alt="splash-img" className='splash-img'/>
-                </div>
-              </div>
+          </div>
             <div className="splash-connect-with-people">
                 <div className="splash-new-friends">
                     <a href="/feed"><img src={waving} alt="happy-img" className="waving-img-splash"/>

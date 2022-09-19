@@ -158,6 +158,7 @@ def search_events_city(city):
     events = Event.query.filter(Event.event_city.ilike(f'%{city}%')).all()
     return jsonify([event.to_dict() for event in events])
 
+
 # filter all events by date
 @event_routes.route('/filter/date', methods=['GET'])
 def filter_events_date():
