@@ -26,6 +26,7 @@ function SingleEvent() {
 
   const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
   const [isClicked, setIsClicked] = useState(false);
+  const[shareClicked, setShareClicked] = useState(false);
 
   const {eventsId} = useParams();
 
@@ -104,6 +105,7 @@ const getAverageRating = () => {
 }
 
 
+
   return (
     <>
     <NavBar />
@@ -113,7 +115,7 @@ const getAverageRating = () => {
             <>
             <div className="single-event">
               <h1 className="single-event-header">{event.title}</h1>
-              <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> </div>
+              <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> <i className="fa-solid fa-circle"></i>  <div className="share-event-btn" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}> <i className="fas fa-share-alt"></i>Share</div> </div>
               <img src={event.event_imgs} alt="event-img" className="event-img"/>
               <p className="single-event-description">{event.event_description}</p>
               <p className="single-event-date">{event.event_date}</p>
@@ -121,43 +123,46 @@ const getAverageRating = () => {
               <p className="event-category">{event.category}</p>
             </div>
 
-            <div className="Rsvp">
-              <RsvpdEvents event={event}/>
-            </div>
 
-            <div className="share-event">
-              <span> <strong>Share this event with friends!</strong></span>
-              <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
-            </div>
+                <div className="event-creator">
+                </div>
+                <NavLink to={`/users/${event.user_id}`} className="event-link">
+                {users && users.map(user => (
+                  user.id === event.user_id ? (
+                    <div className="user-event-container">
+                    <h4 className='single-event-host'>{event.title} is hosted by {user.username}</h4>
+                    <img src={user.user_image} alt="profile-img" className="single-event-image"/>
+                    </div>
+                  ) : null
+                ))}
+              </NavLink>
 
 
-
-            <div className="edit-delete-container">
-              <div className="edit-event">
-                <EditEvent event={event} />
+              <div className="rsvp">
+                <RsvpdEvents event={event}/>
               </div>
-              <div className="delete-event">
-                <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+
+              <div className="share-event">
+                <span> <strong>Share this event with friends!</strong></span>
+                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
               </div>
-            </div>
+
+
+
+              <div className="edit-delete-container">
+                <div className="edit-event">
+                  <EditEvent event={event} />
+                </div>
+                <div className="delete-event">
+                  <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+                </div>
+              </div>
+
 
             <div className="map">
               <Maps event={event}/>
             </div>
 
-            <NavLink to={`/users/${event.user_id}`} className="event-link">
-              <div className="event-creator">
-                <h4>Event Host</h4>
-              </div>
-              {users && users.map(user => (
-                user.id === event.user_id ? (
-                  <div className="user-event-container">
-                  <h4>{user.username}</h4>
-                  <img src={user.user_image} alt="profile-img" />
-                  </div>
-                ) : null
-              ))}
-            </NavLink>
 
             <div className="add-reviews">
             <AddReviews event={event} />

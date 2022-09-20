@@ -30,7 +30,7 @@ a:active{
     top: 65px;
     padding: 10px 10px;
     background-color: #fff;
-    z-index: 0;
+    z-index: 1;
 }
 
 .categories-border-bottom{

@@ -12,7 +12,7 @@ function Maps({event}) {
 
   return (
     <>
-    <div className="mapouter"><div className="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src={cities} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
+    <div className="mapouter"><div className="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src={cities} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
     </div>
     </div>
     </>

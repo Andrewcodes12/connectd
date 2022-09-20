@@ -2,6 +2,12 @@
     margin-top: 20px;
     margin-left: 70px;
     margin-right: 70px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.single-event{
+    width: 50%;
+    float: left;
 }
 
 .single-event-header{
@@ -16,11 +22,28 @@
     font-size:3px
 }
 
+
+.share-event-btn:hover{
+    cursor: pointer;
+}
+
 .event-reviews{
     display: flex;
     align-items: center;
 }
 
+.share-event-btn{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.fa-share-alt{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
 .review-length{
     margin-left: 10px;
     margin-right: 10px;
@@ -34,6 +57,7 @@
 .single-event-location{
     color: black;
     margin-left: 10px;
+    margin-right: 10px;
     text-decoration: underline;
 }
 
@@ -44,4 +68,24 @@
 .single-event-average-rating{
     margin-left: 5px;
     margin-right: 10px;
+}
+
+.user-event-container{
+    display: flex;
+    align-items: center;
+    margin-top: 110px;
+    width: 50%;
+    float: right;
+}
+
+.single-event-image{
+    float: right;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.rsvp{
+    margin-left: 100px;
 }
