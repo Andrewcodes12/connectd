@@ -32,7 +32,6 @@ const NavBar = () => {
 
 
 
-
   return (
     <>
     <div className="navBar">
@@ -69,7 +68,7 @@ const NavBar = () => {
                 {isLogged ?
                 <>
                   <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen} >My Profile</NavLink></li>
-                  <li><LogoutButton /></li>
+                  <li>logout</li>
                 </>
                 :
                   <>
@@ -81,9 +80,6 @@ const NavBar = () => {
               </div>
             }
         </div>
-
-
-
 
 
             {/* <NavLink to='/logout'>
