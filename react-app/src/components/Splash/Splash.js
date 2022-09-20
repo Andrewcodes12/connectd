@@ -10,6 +10,7 @@ import study from '../public/study-group.jpeg'
 import newPeople from '../public/meet-new-ppl.jpeg'
 import highFive from '../public/high-five-splash.png'
 import ticket from '../public/ticket-splash.png'
+import group from '../public/group-splash.png'
 
 import SearchBar from '../Searchbar/SearchBar'
 
@@ -232,7 +233,7 @@ function Splash() {
                       <p>Events are happening everyday. From gaming events and sports to boating and study groups.</p>
                 </div>
                 <div className="join-event-splash">
-                  <img src={ticket} alt="high-five" className="high-five-splash"/>
+                  <img src={group} alt="high-five" className="high-five-splash"/>
                     <a href='/new/events'>  <h4>Start an Event</h4>   </a>
                       <p>Post your event and we'll find the people for you.</p>
                 </div>
