@@ -85,110 +85,131 @@ function goToCityPage(cities){
 }
 
 
+
+const goToReviews = () => {
+  window.scrollTo(0, 1500);
+}
+
+
+const getAverageRating = () => {
+  let total = 0;
+  let average = 0;
+  if(reviews.length > 0){
+    reviews.forEach(review => {
+      total += review.review_rating;
+    })
+    average = total / reviews.length;
+  }
+  return average.toFixed(2);
+}
+
+
   return (
     <>
     <NavBar />
-    {events && events.map(event => (
-      event.id === parseInt(eventsId) ? (
-        <>
-        <h1>{event.title}</h1>
-        <img src={event.event_imgs} alt="event-img" />
-        <p>{event.event_description}</p>
-        <p>{sliceTimeOffDate}</p>
-        <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-        <button className="events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
-        <p>{event.event_address}</p>
-        <p>{event.category}</p>
+      <div className="single-event-container">
+        {events && events.map(event => (
+          event.id === parseInt(eventsId) ? (
+            <>
+            <div className="single-event">
+              <h1 className="single-event-header">{event.title}</h1>
+              <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> </div>
+              <img src={event.event_imgs} alt="event-img" className="event-img"/>
+              <p className="single-event-description">{event.event_description}</p>
+              <p className="single-event-date">{event.event_date}</p>
+              <button className="single-events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
+              <p className="event-category">{event.category}</p>
+            </div>
 
-        <div className="Rsvp">
-          <RsvpdEvents event={event}/>
-        </div>
+            <div className="Rsvp">
+              <RsvpdEvents event={event}/>
+            </div>
 
-        <div className="share-event">
-          <span> <strong>Share this event with friends!</strong></span>
-          <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
-        </div>
+            <div className="share-event">
+              <span> <strong>Share this event with friends!</strong></span>
+              <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
+            </div>
 
 
 
-        <div className="edit-delete-container">
-          <div className="edit-event">
-            <EditEvent event={event} />
-          </div>
-          <div className="delete-event">
-            <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
-          </div>
-        </div>
-
-        <div className="map">
-          <Maps event={event}/>
-        </div>
-
-        <NavLink to={`/users/${event.user_id}`} className="event-link">
-          <div className="event-creator">
-            <h4>Event Host</h4>
-          </div>
-          {users && users.map(user => (
-            user.id === event.user_id ? (
-              <div className="user-event-container">
-              <h4>{user.username}</h4>
-              <img src={user.user_image} alt="profile-img" />
+            <div className="edit-delete-container">
+              <div className="edit-event">
+                <EditEvent event={event} />
               </div>
-            ) : null
-          ))}
-        </NavLink>
+              <div className="delete-event">
+                <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+              </div>
+            </div>
 
-        <div className="add-reviews">
-        <AddReviews event={event} />
-        </div>
+            <div className="map">
+              <Maps event={event}/>
+            </div>
 
-        <h4>Reviews</h4>
-          <div className="review-sort">
-              {isClicked ? (
-                <button onClick={removeSort}>Remove filter</button>
-              ) : (
-                <div className="single-event-filter-buttons">
-                <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
-                <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
-                <button onClick={sortByDate}>Sort by Date</button>
-                </div>
-              )}
-          </div>
-          {reviews && reviews.map(review => (
-            review.event_id === event.id ? (
-              <div className="review-container">
-                <p>{review.review_body}</p>
-                <p>{review.created_at}</p>
-                <p>{review.review_rating}</p>
-
-                <div className="edit-delete-container">
-                  <div className='edit-reviews'>
-                  {/* <EditReviews review={review} /> */}
+            <NavLink to={`/users/${event.user_id}`} className="event-link">
+              <div className="event-creator">
+                <h4>Event Host</h4>
+              </div>
+              {users && users.map(user => (
+                user.id === event.user_id ? (
+                  <div className="user-event-container">
+                  <h4>{user.username}</h4>
+                  <img src={user.user_image} alt="profile-img" />
                   </div>
-                  <div className="delete-review">
-                    <button onClick={() => deleteReview(review.id)}><i className="fas fa-trash-alt"> </i></button>
-                  </div>
-                </div>
+                ) : null
+              ))}
+            </NavLink>
 
-                {users && users.map(user => (
-                  user.id === review.user_id ? (
-                    <div className="user-review-container">
-                      <NavLink to={`/users/${user.id}`} className="review-link">
-                        <p className="user-review-username">{user.username}</p>
-                        <img src={user.user_image} alt="profile-img" className="user-review-image"/>
-                      </NavLink>
+            <div className="add-reviews">
+            <AddReviews event={event} />
+            </div>
+
+            <h4>Reviews</h4>
+              <div className="review-sort">
+                  {isClicked ? (
+                    <button onClick={removeSort}>Remove filter</button>
+                  ) : (
+                    <div className="single-event-filter-buttons">
+                    <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
+                    <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
+                    <button onClick={sortByDate}>Sort by Date</button>
                     </div>
-                  ) : null
-                  ))}
+                  )}
               </div>
-            ) : null
-          ))}
-      </>
-      ) :
-      <>
-      </>
-  ))}
+              {reviews && reviews.map(review => (
+                review.event_id === event.id ? (
+                  <div className="review-container">
+                    <p>{review.review_body}</p>
+                    <p>{review.created_at}</p>
+                    <p>{review.review_rating}</p>
 
+                    <div className="edit-delete-container">
+                      <div className='edit-reviews'>
+                      {/* <EditReviews review={review} /> */}
+                      </div>
+                      <div className="delete-review">
+                        <button onClick={() => deleteReview(review.id)}><i className="fas fa-trash-alt"> </i></button>
+                      </div>
+                    </div>
+
+                    {users && users.map(user => (
+                      user.id === review.user_id ? (
+                        <div className="user-review-container">
+                          <NavLink to={`/users/${user.id}`} className="review-link">
+                            <p className="user-review-username">{user.username}</p>
+                            <img src={user.user_image} alt="profile-img" className="user-review-image"/>
+                          </NavLink>
+                        </div>
+                      ) : null
+                      ))}
+                  </div>
+                ) : null
+              ))}
+          </>
+          ) :
+          <>
+          </>
+      ))}
+  </div>
     </>
   )
 }

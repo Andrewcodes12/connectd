@@ -1,0 +1,47 @@
+.single-event-container{
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.single-event-header{
+    margin-bottom: 0;
+}
+
+.fa-star{
+    font-size:10px
+}
+
+.fa-circle{
+    font-size:3px
+}
+
+.event-reviews{
+    display: flex;
+    align-items: center;
+}
+
+.review-length{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.review-length:hover{
+    cursor: pointer;
+}
+
+.single-event-location{
+    color: black;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.single-event-location:hover{
+    cursor: pointer;
+}
+
+.single-event-average-rating{
+    margin-left: 5px;
+    margin-right: 10px;
+}
