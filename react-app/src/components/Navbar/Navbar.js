@@ -33,8 +33,6 @@ const NavBar = () => {
 
 
 
-
-
   return (
     <>
     <div className="navBar">
@@ -57,7 +55,7 @@ const NavBar = () => {
         <NavLink to='/new/events'>
           <i className="fas fa-upload" id="upload"></i>
         </NavLink>
-        <NavLink to='/about'>
+        <NavLink to='/about' className="about-nav">
           About
         </NavLink>
         {/* <NavLink to='/profile' >
@@ -88,9 +86,9 @@ const NavBar = () => {
 
 
 
-            <NavLink to='/logout'>
+            {/* <NavLink to='/logout'>
               <LogoutButton />
-            </NavLink>
+            </NavLink> */}
       </div>
     </div>
     </>

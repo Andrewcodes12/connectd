@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('//fonts.cdnfonts.com/css/billabong');
+
 
 .background-img {
     position: relative;
@@ -42,11 +44,12 @@
 }
 
 .splash-logo{
-    font-family: 'Cedarville Cursive', cursive;
+    font-family: "billabong", sans-serif;
     font-size:35px;
     font-weight: bold;
     color: #fb3f3f;
     margin-left: 30px;
+    margin-top: 10px;
 }
 
 .splash-nav-links{
@@ -287,8 +290,8 @@
 }
 
 .high-five-splash{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-left: 75px;
+}
+.high-five-splash-2{
+    margin-left: 250px;
 }

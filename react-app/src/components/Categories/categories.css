@@ -20,28 +20,40 @@ a:active{
 
 }
 
-.categories_div{
+.categories-div{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: sticky;
     margin-top: 10px;
     margin-bottom: 20px;
+    top: 65px;
+    padding: 10px 10px;
+    background-color: #fff;
+    z-index: 1;
 }
 
-.categories_div_inner{
+.categories-border-bottom{
+    padding: 10px 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+}
+
+
+.categories-div-inner{
   text-align: center;
   color: #717171;
 }
 
 
-.categories_text{
+.categories-text{
     display: block;
     position: relative;
     margin-top: 3px;
     color: #000000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a .categories_text:hover{
+a .categories-text:hover{
     color: rgb(0, 0, 0);
     text-decoration: underline;
     cursor: pointer;
