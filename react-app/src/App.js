@@ -48,9 +48,9 @@ function App() {
     <BrowserRouter>
 
       <Switch>
-        <Route path='/' exact={true}>
-          <Splash />
-        </Route>
+          <Route path='/' exact={true}>
+            <Splash />
+          </Route>
           <Route path='/feed' exact={true} >
             <Feed />
           </Route>

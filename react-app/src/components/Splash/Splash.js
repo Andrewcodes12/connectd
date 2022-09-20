@@ -85,6 +85,7 @@ function Splash() {
 
   return (
     <>
+    <div className="background-img">
       <div className="splash-container">
           <div className="splash-nav">
               <div className="splash-logo">
@@ -242,6 +243,7 @@ function Splash() {
             <div className="splash-sign-up">
                 <button className="splash-about-us-btn" onClick={takeToSignUp}>Join Connectd</button>
           </div>
+        </div>
         </div>
     </>
   )
