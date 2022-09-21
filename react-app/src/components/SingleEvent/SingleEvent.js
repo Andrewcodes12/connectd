@@ -44,7 +44,7 @@ function SingleEvent() {
 
   const deleteEvent = (id) => {
     dispatch(deleteEventById(id));
-    history.push('/');
+    history.push('/feed');
   }
 
   const deleteReview = (id) => {
@@ -115,7 +115,7 @@ const getAverageRating = () => {
             <>
             <div className="single-event">
               <h1 className="single-event-header">{event.title}</h1>
-              <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> <i className="fa-solid fa-circle"></i>  <div className="share-event-btn" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}> <i className="fas fa-share-alt"></i>Share</div> </div>
+              <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> <i className="fa-solid fa-circle"></i>  <div className="share-event-btn" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}> <i className="fas fa-share-alt share"></i><span>Share</span></div> </div>
               <img src={event.event_imgs} alt="event-img" className="event-img"/>
               <p className="single-event-description">{event.event_description}</p>
               <p className="single-event-date">{event.event_date}</p>
@@ -153,6 +153,7 @@ const getAverageRating = () => {
                 <div className="edit-event">
                   <EditEvent event={event} />
                 </div>
+
                 <div className="delete-event">
                   <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
                 </div>

@@ -10,6 +10,8 @@
     float: left;
 }
 
+
+
 .single-event-header{
     margin-bottom: 0;
 }
@@ -25,6 +27,10 @@
 
 .share-event-btn:hover{
     cursor: pointer;
+}
+
+.share-event-btn span{
+    margin-left: 5px;
 }
 
 .event-reviews{
@@ -86,10 +92,18 @@
     margin-left: 10px;
 }
 
+.single-events-in-city:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
 .rsvp{
     margin-left: 100px;
 }
 
+.share-event-container span{
+    margin-right:10px
+}
 
 .share-event span{
     margin-right: 10px;
@@ -97,6 +111,11 @@
 
 
 .share-event:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+.delete-event button:hover{
     background-color: rgb(89, 166, 255, 0.8);
     cursor: pointer;
 }
