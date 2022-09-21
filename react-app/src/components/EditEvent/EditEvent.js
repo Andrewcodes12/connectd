@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useDispatch} from 'react-redux';
 
 
+import './editEvent.css';
+
 import { updateEvent } from '../../store/event';
 
 
@@ -48,7 +50,7 @@ function EditEvent({event}) {
 
   return (
     <>
-    <button onClick={() => setIsClicked(true)}>Edit Event</button>
+    <button onClick={() => setIsClicked(true)} className="edit-event-btn">Edit Event</button>
     {isClicked ? (
       <form onSubmit={handleSubmit}>
         <input

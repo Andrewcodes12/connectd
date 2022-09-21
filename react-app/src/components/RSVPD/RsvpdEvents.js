@@ -74,13 +74,13 @@ function RsvpdEvents({event}) {
           }
         </div>
         :
-        <div className='rsvp-button'>
+          <div className="rsvp-button-container">
           <button onClick={handleRsvp} className='rsvp-button'>RSVP</button>
           {rsvp.length === 0 ? <span className="rsvp-span">Be the first to RSVP!</span>
           : rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
           : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
           }
-        </div>
+          </div>
         }
       </>
 }

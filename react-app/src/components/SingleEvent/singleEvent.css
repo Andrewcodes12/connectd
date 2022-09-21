@@ -89,3 +89,14 @@
 .rsvp{
     margin-left: 100px;
 }
+
+
+.share-event span{
+    margin-right: 10px;
+}
+
+
+.share-event:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}

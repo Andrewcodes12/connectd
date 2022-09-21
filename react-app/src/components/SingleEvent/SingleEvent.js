@@ -142,9 +142,9 @@ const getAverageRating = () => {
                 <RsvpdEvents event={event}/>
               </div>
 
-              <div className="share-event">
+              <div className="share-event-container">
                 <span> <strong>Share this event with friends!</strong></span>
-                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt"></i></button>
+                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
               </div>
 
 

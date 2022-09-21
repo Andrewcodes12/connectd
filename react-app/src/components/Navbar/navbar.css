@@ -91,6 +91,7 @@
     padding-left: 25px;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 22px 43px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
@@ -102,7 +103,6 @@
     left: 10px;
     font-size: 11px;
     color: rgba(0, 0, 0, 0.5);
-
 }
 
 
