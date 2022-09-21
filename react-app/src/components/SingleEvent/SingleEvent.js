@@ -23,6 +23,7 @@ function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
+  const sessionUser = useSelector(state => state.session);
 
   const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
   const [isClicked, setIsClicked] = useState(false);
@@ -127,7 +128,7 @@ const goToCategoryPage = (category) => {
               <p className="single-event-description">{event.event_description}</p>
               <p className="single-event-date">{event.event_date}</p>
               <button className="single-events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
-              <p className="event-category" onClick={() => goToCategoryPage(event.category)}>{event.category}</p>
+              <p className="single-event-category" onClick={() => goToCategoryPage(event.category)}>{event.category}</p>
             </div>
 
             {/* <div className="single-event-right"> */}
@@ -155,7 +156,7 @@ const goToCategoryPage = (category) => {
               </div>
 
 
-
+            {sessionUser.id === event.user_id ? (
               <div className="edit-delete-container">
                 <div className="edit-event">
                   <EditEvent event={event} />
@@ -165,7 +166,8 @@ const goToCategoryPage = (category) => {
                   <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
                 </div>
               </div>
-            {/* </div> */}
+
+            ) : null}
 
             <div className="map">
               <Maps event={event}/>

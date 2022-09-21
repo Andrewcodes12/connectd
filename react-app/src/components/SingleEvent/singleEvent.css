@@ -2,12 +2,13 @@
     margin-top: 20px;
     margin-left: 70px;
     margin-right: 70px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .single-event{
     width: 50%;
     float: left;
+    margin-bottom: 50px;
 }
 
 /* .single-event-right{
@@ -109,13 +110,47 @@
     cursor: pointer;
 }
 
-
-.single-event-description{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.single-events-in-city{
+    position: absolute;
+    top: 210px;
+    left: 380px;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.event-category:hover{
+
+.single-event-description{
+    width: 25%;
+    position: absolute;
+    top: 250px;
+    left: 380px;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
+    height: 175px;
+}
+
+.single-event-date{
+    position: absolute;
+    top: 450px;
+    left: 380px;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+
+.single-event-category{
+    position: absolute;
+    top: 470px;
+    left: 380px;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.single-event-category:hover{
     cursor: pointer;
 }
 

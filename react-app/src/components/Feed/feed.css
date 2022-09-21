@@ -114,6 +114,10 @@ a:hover {
 .event-description{
     margin-top: -15px;
     color: #717171;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .event-date{
