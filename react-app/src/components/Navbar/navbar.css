@@ -21,7 +21,11 @@
 #home{
     font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: #000;
+}
+
+#home:hover{
+    color: #fb3f3f;
 }
 
 
@@ -29,7 +33,11 @@
     margin-left: 30px;
     font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: #000;
+}
+
+#upload:hover{
+  color: #fb3f3f;
 }
 
 
@@ -38,19 +46,30 @@
     margin-right: 50px;
     font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: #000;
     overflow: visible;
 }
 
+#profile:hover{
+    color: #fb3f3f;
+    cursor: pointer;
+}
+
 .about-nav{
+    font-size: 20px;
     margin-left: 30px;
+    color:#000;
+}
+
+.about-nav:hover{
+    color: #fb3f3f;
 }
 
 #logout{
     margin-left: 30px;
     font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: #fb3f3f;
     border: none;
 }
 
@@ -90,7 +109,7 @@
 .navBar .logo a {
   font-family: "billabong", sans-serif;
   position: relative;
-  font-size: 27px;
+  font-size: 35px;
   color: #fb3f3f;
   text-decoration: none;
   margin-left: 50px;
