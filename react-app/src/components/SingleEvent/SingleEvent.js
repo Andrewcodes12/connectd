@@ -127,7 +127,7 @@ const goToCategoryPage = (category) => {
               <p className="event-category" onClick={() => goToCategoryPage(event.category)}>{event.category}</p>
             </div>
 
-
+            {/* <div className="single-event-right"> */}
                 <div className="event-creator">
                 </div>
                 <NavLink to={`/users/${event.user_id}`} className="event-link">
@@ -162,7 +162,7 @@ const goToCategoryPage = (category) => {
                   <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
                 </div>
               </div>
-
+            {/* </div> */}
 
             <div className="map">
               <Maps event={event}/>
