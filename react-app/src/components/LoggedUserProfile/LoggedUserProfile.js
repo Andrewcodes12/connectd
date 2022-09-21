@@ -6,6 +6,7 @@ import { userProfile } from '../../store/user';
 import {deleteRsvp} from '../../store/rsvp';
 
 import NavBar from '../Navbar/Navbar';
+import './loggedInUserProfile.css';
 
 function LoggedUserProfile({sessionUser}) {
   const user = useSelector(state => state.users);

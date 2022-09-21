@@ -1,0 +1,15 @@
+.user-profile-event-description{
+    height: 25px;
+    width: 275px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.user-rsvp-event-description{
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

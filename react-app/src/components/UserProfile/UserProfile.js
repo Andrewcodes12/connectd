@@ -3,6 +3,8 @@ import {NavLink, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
+import './userProfile.css'
+
 import { loadEvents, filterEventsByDate } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import EdituserProfile from '../EditUserProfile/EdituserProfile';
@@ -51,7 +53,7 @@ function UserProfile() {
                 <div className="user-event-container">
                 <h4>{event.title}</h4>
                 <img src={event.event_imgs} alt="profile-img" />
-                <p>{event.event_description}</p>
+                <p className="user-event-description">{event.event_description}</p>
                 <p>{event.event_date}</p>
                 <p>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
                 <p>{event.category}</p>
