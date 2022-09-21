@@ -96,7 +96,12 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.single-event-image:hover{
+    cursor: pointer;
 }
 
 .single-events-in-city:hover{
@@ -104,6 +109,11 @@
     cursor: pointer;
 }
 
+
+.single-event-description{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .event-category:hover{
     cursor: pointer;
@@ -127,7 +137,15 @@
     cursor: pointer;
 }
 
+.delete-event{
+    margin-left: 10px;
+}
+
 .delete-event button:hover{
     background-color: rgb(89, 166, 255, 0.8);
     cursor: pointer;
+}
+
+.edit-delete-container{
+    display: flex;
 }

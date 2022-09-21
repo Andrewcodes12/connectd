@@ -85,6 +85,9 @@ function goToCityPage(cities){
   history.push(`/events/search/city/${cities}`);
 }
 
+function goToUserPage(userId){
+  history.push(`/users/${userId}`);
+}
 
 
 const goToReviews = () => {
@@ -130,16 +133,16 @@ const goToCategoryPage = (category) => {
             {/* <div className="single-event-right"> */}
                 <div className="event-creator">
                 </div>
-                <NavLink to={`/users/${event.user_id}`} className="event-link">
+
                 {users && users.map(user => (
                   user.id === event.user_id ? (
                     <div className="user-event-container">
+                    <img src={user.user_image} alt="profile-img" className="single-event-image" onClick={() => goToUserPage(event.user_id)}/>
                     <h4 className='single-event-host'>{event.title} is hosted by {user.username}</h4>
-                    <img src={user.user_image} alt="profile-img" className="single-event-image"/>
                     </div>
                   ) : null
                 ))}
-              </NavLink>
+
 
 
               <div className="rsvp">
@@ -147,8 +150,8 @@ const goToCategoryPage = (category) => {
               </div>
 
               <div className="share-event-container">
-                <span> <strong>Share this event with friends!</strong></span>
                 <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
+                <span> <strong>Share this event with friends!</strong></span>
               </div>
 
 
