@@ -78,10 +78,23 @@ function Splash() {
     history.push(`/events/search/VideoGames`)
   }
 
-  function takeToSignUp(e) {
+  const takeToLogin = async (e) => {
     e.preventDefault()
-    window.location.href = '/sign-up'
+    history.push(`/login`)
   }
+
+  const takeToAbout = async (e) => {
+    e.preventDefault()
+    history.push(`/about`)
+  }
+
+  const takeToSignUp = async (e) => {
+    e.preventDefault()
+    history.push(`/sign-up`)
+  }
+
+
+
 
   return (
     <>
@@ -91,15 +104,29 @@ function Splash() {
               <div className="splash-logo">
                   <span>Connectd</span>
               </div>
+
+            <div className="splash-left-container">
+              <h3>Search for Events in your city</h3>
+                <div className="splash-search-bar">
+                  <SearchBar />
+                </div>
+              </div>
+
               <div className="splash-nav-links">
                   <div className='splash-login'>
-                    <a href="/login" className="splash-login-btn">Login</a>
+                    <button onClick={takeToLogin}>
+                      Login
+                    </button>
                   </div>
                   <div className='splash-login'>
-                    <a href="/about" className="splash-login-btn">About</a>
+                    <button onClick={takeToAbout}>
+                      About
+                    </button>
                   </div>
                   <div className='splash-login'>
-                    <a href="/sign-up" className="splash-login-btn">Sign Up</a>
+                    <button onClick={takeToSignUp}>
+                      Sign Up
+                    </button>
                   </div>
               </div>
           </div>
@@ -168,53 +195,34 @@ function Splash() {
                 </div>
         </div>
         <div className="splash-search-container">
-          <div className="splash-left-container">
-            <h2>Search for Events in your city</h2>
-              <div className="splash-search-bar">
-                <SearchBar />
-              </div>
-              </div>
-              <div className="splash-right-container">
-                <h2>Check out Events happening in these cities</h2>
-                <div className="splash-search-cities">
-                  <div className="miami-splash">
+                <h4>Check out Events happening in these cities</h4>
+                <div className="splash-search-cities-btns">
                     <button onClick={findMiami}>
                       <div className="splash-search-city">
                         Miami
                       </div>
                     </button>
-                  </div>
-                  <div className="newyork-splash">
                     <button onClick={findNewYork}>
                       <div className="splash-search-city">
                         New York
                       </div>
                     </button>
-                  </div>
-                  <div className="sanfran-splash">
                     <button onClick={findSanFran}>
                       <div className="splash-search-city">
                         San Francisco
                       </div>
                     </button>
-                  </div>
-                  <div className="atlanta-splash">
                     <button onClick={findAtlanta}>
                       <div className="splash-search-city">
                         Atlanta
                         </div>
                     </button>
-                  </div>
-                  <div className="chicago-splash">
                     <button onClick={findChicago}>
                       <div className="splash-search-city">
                         Chicago
                         </div>
                     </button>
-                    </div>
                 </div>
-              </div>
-
         </div>
         <div className="splash-about-us">
           <div className="splash-about-us-text">

@@ -104,6 +104,10 @@ const getAverageRating = () => {
   return average.toFixed(2);
 }
 
+const goToCategoryPage = (category) => {
+  history.push(`/events/search/${category}`);
+}
+
 
 
   return (
@@ -120,7 +124,7 @@ const getAverageRating = () => {
               <p className="single-event-description">{event.event_description}</p>
               <p className="single-event-date">{event.event_date}</p>
               <button className="single-events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
-              <p className="event-category">{event.category}</p>
+              <p className="event-category" onClick={() => goToCategoryPage(event.category)}>{event.category}</p>
             </div>
 
 

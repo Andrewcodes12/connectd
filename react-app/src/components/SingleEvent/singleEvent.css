@@ -60,6 +60,8 @@
     cursor: pointer;
 }
 
+
+
 .single-event-location{
     color: black;
     margin-left: 10px;
@@ -94,6 +96,11 @@
 
 .single-events-in-city:hover{
     background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+
+.event-category:hover{
     cursor: pointer;
 }
 

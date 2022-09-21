@@ -1,11 +1,13 @@
 import React, { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './addReviews.css'
 
 import { AddReview } from '../../store/review';
 
 
 function AddReviews({event}) {
+    const reviews = useSelector(state => state.reviews);
     let now = new Date().toISOString().slice(0, 10);
 
     const [created_at, setCreatedAt] = useState(now)
@@ -53,18 +55,30 @@ function AddReviews({event}) {
         }
     }
 
+    const getAverageRating = () => {
+        let total = 0;
+        let average = 0;
+        if(reviews.length > 0){
+          reviews.forEach(review => {
+            total += review.review_rating;
+          })
+          average = total / reviews.length;
+        }
+        return average.toFixed(2);
+      }
+
+
   return (
     <div className='add-review'>
+    <div className="event-reviews-review" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle"></i> <span className="review-length-review"> {reviews.length} review(s)</span></div>
     <div className='add-review-container'>
-      <div className='add-review-header'>
-        <h4>Leave A Review</h4>
-      </div>
+
       <div className='add-review-form'>
           <form onSubmit={handleSubmit}>
               <div className='add-review-body'>
                   <textarea
                       type='text'
-                      placeholder='Write a review'
+                      placeholder='Tell us about your experience.'
                       value={review_body}
                       onChange={(e) => setReviewBody(e.target.value)}
                   />
