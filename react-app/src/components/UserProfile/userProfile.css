@@ -1,0 +1,49 @@
+.user-profile-container{
+    position: relative;
+    margin-left: 0%;
+    margin-right:0%;
+    font-family: 'Noto Sans', sans-serif;
+    margin:70px 100px;
+    word-break: break-all;
+
+}
+
+.user-profile-info{
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(208, 208, 208, 0.5);
+    margin-left: 10px;
+
+}
+
+
+.user-profile-img{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 70%;
+    right:100px;
+    top:0px;
+}
+
+.user-profile-bio{
+    width: 25%;
+}
+
+button:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+.user-profile-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-profile-btns h3{
+    margin-top: -5px;
+    margin-left: 15px;
+    font-weight: 1000;
+}
