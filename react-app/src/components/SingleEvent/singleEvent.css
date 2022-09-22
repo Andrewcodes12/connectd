@@ -180,7 +180,7 @@
 }
 
 .edit-event{
-   
+
     margin-left: 50px;
 }
 
@@ -196,4 +196,12 @@
 .edit-delete-container{
     display: flex;
 
+}
+
+
+.event-img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 16px;
 }

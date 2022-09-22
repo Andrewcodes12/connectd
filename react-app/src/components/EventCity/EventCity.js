@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 import {loadEventsByCity} from '../../store/event';
 
@@ -10,6 +10,8 @@ import NavBar from '../Navbar/Navbar';
 function EventCity() {
 
     const events = useSelector(state => state.events);
+
+    const {city} = useParams();
 
     // useEffect(() => {
     //     dispatch(loadEventsByCity());
@@ -42,7 +44,7 @@ function EventCity() {
                             </div>
                         )) :
                         <div className="search-error">
-                            <h1 className="search-error-message">Please try searching by city.</h1>
+                            <h1 className="search-error-message">No Events found in {city}. Please try another city.</h1>
                         </div>
                         }
                     </div>

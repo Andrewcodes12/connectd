@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Roboto&family=Yanone+Kaffeesatz:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Noto+Sans&family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat&family=Noto+Sans&family=Work+Sans:wght@300&display=swap');
+
+img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+
+.feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: inherit;
+}
+
+
+
+
+
+.feed-events-container{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(4, minmax(100px,1fr));
+    grid-gap: 20px;
+}
+
+
+
+.feed-event {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    padding:0;
+    margin:0
+}
+
+.feed-event:hover{
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    box-shadow: 0 22px 43px rgba(0, 0, 0, 0.32);
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 16px;
+}
+
+.feed-event-info{
+    display:block;
+    margin-top: 50px;
+    margin-left: 5px;
+    font-family: 'Noto Sans', sans-serif;
+    word-break: break-word;
+}
+
+
+.event-title{
+    margin-top: -40px;
+}
+
+.event-description{
+    margin-top: -15px;
+    color: #717171;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.event-date{
+    margin-top: -10px;
+    color: #717171;
+}
+
+.event-location{
+    margin-top: -10px;
+    color: #717171;
+
+}
+
+.event-category{
+    margin-top: -5px;
+    font-weight: bold;
+
+}
+
+.feed-event-img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .feed-events-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1450px) {
+    .feed-events-container{
+        grid-template-columns: repeat(3, minmax(100px,1fr));
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .feed-events-container{
+        grid-template-columns: repeat(2, minmax(100px,1fr));
+    }
+}
