@@ -1,6 +1,13 @@
 .rsvp-span{
-    margin-left: 10px;
+    margin-left: 15px;
     padding-top: 50px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.rsvp-span-my-event{
+    margin-left: 65px;
+    padding-top: 50px;
+    margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -8,4 +15,8 @@
 .rsvp-button:hover{
     background-color: rgb(89, 166, 255, 0.8);
     cursor: pointer;
+}
+
+.rsvp-button{
+    margin-left: 50px;
 }

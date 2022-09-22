@@ -17,23 +17,7 @@ a:hover {
     text-decoration: none;
 }
 
-@media screen and (max-width: 800px) {
-    .feed-events-container{
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-@media screen and (max-width: 1450px) {
-    .feed-events-container{
-        grid-template-columns: repeat(3, minmax(100px,1fr));
-    }
-}
 
-@media screen and (max-width: 1150px) {
-    .feed-events-container{
-        grid-template-columns: repeat(2, minmax(100px,1fr));
-    }
-}
 
 .feed{
     display: flex;
@@ -147,4 +131,23 @@ a:hover {
 
 .feed{
     margin: 30px 50px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .feed-events-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1450px) {
+    .feed-events-container{
+        grid-template-columns: repeat(3, minmax(100px,1fr));
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .feed-events-container{
+        grid-template-columns: repeat(2, minmax(100px,1fr));
+    }
 }

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEvents,deleteEventById,loadEventsByCity } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
-import { deleteReviewById, sortReviewsByRating, sortReviewsByRatingAsc,sortReviewsByDate  } from '../../store/review';
+
 
 
 import './singleEvent.css';
@@ -48,33 +48,7 @@ function SingleEvent() {
     history.push('/feed');
   }
 
-  const deleteReview = (id) => {
-    dispatch(deleteReviewById(id));
-  }
 
-  const sortByHigestRating = async (e) => {
-    e.preventDefault();
-    dispatch(sortReviewsByRating(eventsId));
-    setIsClicked(true);
-}
-
-const sortByLowestRating = async (e) => {
-    e.preventDefault();
-    dispatch(sortReviewsByRatingAsc(eventsId));
-    setIsClicked(true);
-}
-
-const sortByDate = async (e) => {
-    e.preventDefault();
-    dispatch(sortReviewsByDate(eventsId));
-    setIsClicked(true);
-}
-
-const removeSort = async (e) => {
-    e.preventDefault();
-    dispatch(loadReviewsByEvent(eventsId));
-    setIsClicked(false);
-}
 
 function sliceTimeOffDate(){
   let slicedDate = events.event_date.slice(0,10);
@@ -152,7 +126,7 @@ const goToCategoryPage = (category) => {
 
               <div className="share-event-container">
                 <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
-                <span> <strong>Share this event with friends!</strong></span>
+                <span> Share this event with friends!</span>
               </div>
 
 
@@ -163,7 +137,7 @@ const goToCategoryPage = (category) => {
                 </div>
 
                 <div className="delete-event">
-                  <button onClick={() => deleteEvent(event.id)}><i className="fas fa-trash-alt"> </i></button>
+                  <button onClick={() => deleteEvent(event.id)}>Delete Event</button>
                 </div>
               </div>
 
@@ -175,50 +149,10 @@ const goToCategoryPage = (category) => {
 
 
             <div className="add-reviews">
-            <AddReviews event={event} />
+            <AddReviews event={event} users={users}/>
             </div>
 
-            <h4>Reviews</h4>
-              <div className="review-sort">
-                  {isClicked ? (
-                    <button onClick={removeSort}>Remove filter</button>
-                  ) : (
-                    <div className="single-event-filter-buttons">
-                    <button onClick={sortByHigestRating}>Sort by Highest Rating</button>
-                    <button onClick={sortByLowestRating}>Sort by Lowest Rating</button>
-                    <button onClick={sortByDate}>Sort by Date</button>
-                    </div>
-                  )}
-              </div>
-              {reviews && reviews.map(review => (
-                review.event_id === event.id ? (
-                  <div className="review-container">
-                    <p>{review.review_body}</p>
-                    <p>{review.created_at}</p>
-                    <p>{review.review_rating}</p>
 
-                    <div className="edit-delete-container">
-                      <div className='edit-reviews'>
-                      {/* <EditReviews review={review} /> */}
-                      </div>
-                      <div className="delete-review">
-                        <button onClick={() => deleteReview(review.id)}><i className="fas fa-trash-alt"> </i></button>
-                      </div>
-                    </div>
-
-                    {users && users.map(user => (
-                      user.id === review.user_id ? (
-                        <div className="user-review-container">
-                          <NavLink to={`/users/${user.id}`} className="review-link">
-                            <p className="user-review-username">{user.username}</p>
-                            <img src={user.user_image} alt="profile-img" className="user-review-image"/>
-                          </NavLink>
-                        </div>
-                      ) : null
-                      ))}
-                  </div>
-                ) : null
-              ))}
           </>
           ) :
           <>

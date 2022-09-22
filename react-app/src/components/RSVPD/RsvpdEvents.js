@@ -61,7 +61,7 @@ function RsvpdEvents({event}) {
     <>{sessionUser.id === event.user_id ? <>
     {
     rsvp.length === 1 ? <span className="rsvp-span">{rsvp.length} person is attending this event.</span>
-    : <span className="rsvp-span">{rsvp.length} people are attending this event.</span>
+    : <span className="rsvp-span-my-event">{rsvp.length} people are attending this event.</span>
     } </>
     :
       <>

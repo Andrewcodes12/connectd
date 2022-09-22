@@ -1,7 +1,8 @@
 .add-review{
     margin-top: 20px;
     border-top: 1px solid rgba(208, 208, 208, 0.5);
-    border-bottom: 1px solid rgba(208, 208, 208, 0.5);
+    width: 100%;
+    position: relative;
 }
 
 .event-reviews-review{
@@ -20,8 +21,9 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    width: 50%;
+    float: left;
 }
-
 
 .add-review-form textarea{
     min-width: 450px;
@@ -33,4 +35,95 @@
 	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
 	border-radius: 10px;
 	border: 6px solid rgb(89, 166, 255);
+}
+
+
+.review-container{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+}
+
+.review-body{
+    margin-right: 10px;
+    word-break: break-all;
+    width: 70%;
+    border-bottom: 1px solid rgba(208, 208, 208, 0.5);
+}
+
+
+.user-review-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.user-review-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.user-review-image:hover{
+    cursor: pointer;
+}
+
+.user-review-username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    overflow-y: scroll;
+    position: relative;
+
+
+}
+
+.single-event-filter-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.single-event-filter-buttons button:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+
+.delete-review-container{
+    position: relative;
+}
+
+.delete-review-btn{
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.delete-review-btn:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+.review-sort button:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
+.add-review-submit button:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
 }
