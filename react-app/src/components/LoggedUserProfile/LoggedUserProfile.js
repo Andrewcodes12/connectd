@@ -54,52 +54,56 @@ function LoggedUserProfile({sessionUser}) {
                   <h2 className='user-profile-events-header'>
                     Events I'm Hosting
                   </h2>
+              <div className="feed-events-container">
               {user.eventsHosting && user.eventsHosting.length > 0 ? user.eventsHosting.map(event => (
                 <>
-                  <div className='user-profile-event' key={event.id}>
-                    <NavLink to={`/events/${event.id}`} className='user-profile-event-link'>
-                      <div className='user-profile-event-img'>
-                        <img src={event.event_imgs} alt='event-img' className='user-profile-event-img' />
+                  <div className='feed-event' key={event.id}>
+                    <NavLink to={`/events/${event.id}`} className='event-link'>
+                      <div className='feed-event-img'>
+                        <img src={event.event_imgs} alt='event-img' className='feed-event-img' />
                       </div>
-                      <div className='user-profile-event-info'>
-                        <h3 className='user-profile-event-title'>{event.title}</h3>
-                        <p className='user-profile-event-description'>{event.event_description}</p>
-                        <p className='user-profile-event-date'>{sliceTimeOffDate}</p>
-                        <p className='user-profile-event-location'>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-                        <p className='user-profile-event-category'>{event.category}</p>
+                      <div className='feed-event-info'>
+                        <h3 className='event-title'>{event.title}</h3>
+                        <p className='event-description'>{event.event_description}</p>
+                        <p className='event-date'>{sliceTimeOffDate}</p>
+                        <p className='event-location'>{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+                        <p className='event-category'>{event.category}</p>
                       </div>
                     </NavLink>
                   </div>
                 </>
                 )
               ) : <h1 className='user-profile-no-events'>You are not hosting any events.</h1>}
-
+              </div>
                 <>
                 <div className="user-rsvp-events-container">
                     <div className="user-rsvp-events">
                         <h2 className="user-rsvp-events-header">
                           Events I'm Attending
                         </h2>
+                      <div className="feed-events-container">
                       {user.eventsAttending && user.eventsAttending.length > 0 ? user.eventsAttending.map(event => (
-                        <div className="user-rsvp-event" key={event.id}>
-                          <NavLink to={`/events/${event.id}`} className="user-rsvp-event-link">
-                            <div className="user-rsvp-event-img">
-                              <img src={event.event_imgs} alt="event-img" className="user-rsvp-event-img" />
+                        <div className="feed-event" key={event.id}>
+                          <NavLink to={`/events/${event.id}`} className="event-link">
+                            <div className="feed-event-img">
+                              <img src={event.event_imgs} alt="event-img" className="feed-event-img" />
                             </div>
-                            <div className="user-rsvp-event-info">
-                              <h3 className="user-rsvp-event-title">{event.title}</h3>
-                              <p className="user-rsvp-event-description">{event.event_description}</p>
-                              <p className="user-rsvp-event-date">{sliceTimeOffDate}</p>
-                              <p className="user-rsvp-event-location">{event.event_city}, {event.event_state} {event.event_zipcode}</p>
-                              <p className="user-rsvp-event-category">{event.category}</p>
+                            <div className="feed-event-info">
+                              <h3 className="event-title">{event.title}</h3>
+                              <p className="event-description">{event.event_description}</p>
+                              <p className="event-date">{sliceTimeOffDate}</p>
+                              <p className="event-location">{event.event_city}, {event.event_state} {event.event_zipcode}</p>
+                              <p className="event-category">{event.category}</p>
                             </div>
                           </NavLink>
                         </div>
+
                       )) : <div className="user-rsvp-search-error">
                         <h1 className="user-rsvp-search-error-message">You have not RSVP'd to any events.</h1>
                       </div>}
                     </div>
                   </div>
+                </div>
                   </>
           </div>
         </div>
