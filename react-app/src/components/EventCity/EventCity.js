@@ -1,15 +1,19 @@
-import React from 'react'
-import {useSelector} from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import React, {useEffect} from 'react'
+import {useSelector,useDispatch} from 'react-redux';
+import { NavLink, useParams,useHistory } from 'react-router-dom';
 
 import {loadEventsByCity} from '../../store/event';
 
 import NavBar from '../Navbar/Navbar';
 
+import './eventCity.css';
 
 function EventCity() {
 
     const events = useSelector(state => state.events);
+
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const {city} = useParams();
 
@@ -20,8 +24,37 @@ function EventCity() {
     function sliceTimeOffDate(){
         let slicedDate = events.event_date.slice(0,10);
         return slicedDate;
-      }
+    }
 
+    const findMiami = async (e) => {
+        e.preventDefault()
+        dispatch(loadEventsByCity("miami"))
+        history.push(`/events/search/city/miami/`)
+    }
+
+    const findNewYork = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("new york"))
+    history.push(`/events/search/city/new%20york/`)
+    }
+
+    const findSanFran = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("san francisco"))
+    history.push(`/events/search/city/san%20francisco/`)
+    }
+
+    const findChicago = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("chicago"))
+    history.push(`/events/search/city/chicago/`)
+    }
+
+    const findAtlanta = async (e) => {
+    e.preventDefault()
+    dispatch(loadEventsByCity("atlanta"))
+    history.push(`/events/search/city/atlanta/`)
+    }
 
 
   return (
@@ -29,7 +62,19 @@ function EventCity() {
     <NavBar />
     <div className="feed">
 
-        {events.length > 0 ? <h3 className="single-event-header">Heres whats happening in {city}</h3> : null}
+        {events.length > 0 ? <h3 className="single-event-header">Heres whats happening in {city}</h3> :
+        <>
+            <h1 className="single-event-header">No Events found in {city}.</h1>
+            <h3 className="single-event-header">Check out some events happening in these cities</h3>
+            <div className="city-btns">
+                <button className="city-btn" onClick={findMiami}>Miami</button>
+                <button className="city-btn" onClick={findNewYork}>New York</button>
+                <button className="city-btn" onClick={findSanFran}>San francisco</button>
+                <button className="city-btn" onClick={findAtlanta}>Atlanta</button>
+                <button className="city-btn" onClick={findChicago}>Chicago</button>
+            </div>
+        </>
+        }
 
                     <div className="feed-events-container">
                         {events && events.length > 0 ? events.map(event => (
@@ -48,9 +93,7 @@ function EventCity() {
                                 </NavLink>
                             </div>
                         )) :
-                        <div className="search-error">
-                            <h1 className="search-error-message">No Events found in {city}. Please try another city.</h1>
-                        </div>
+                            <></>
                         }
                     </div>
         </div>

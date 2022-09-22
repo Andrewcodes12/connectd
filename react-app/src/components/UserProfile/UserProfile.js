@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import {NavLink, useParams, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,8 +13,11 @@ import EdituserProfile from '../EditUserProfile/EdituserProfile';
 import NavBar from '../Navbar/Navbar';
 
 function UserProfile() {
+  const [isClicked, setIsClicked] = useState(false);
+
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
+  const sessionUser = useSelector(state => state.session);
 
   const history = useHistory();
 
@@ -28,10 +31,6 @@ function UserProfile() {
   } , []);
 
 
-  const handleFilterByDate = async (e) => {
-    e.preventDefault();
-    dispatch(filterEventsByDate());
-}
 
 function goToEvent(eventId) {
   history.push(`/events/${eventId}`);
@@ -47,7 +46,9 @@ function goToEvent(eventId) {
           <>
           <div className='user-profile-info'>
           <h1 className="user-profile-name">Hi, I'm {user.username}</h1>
-            <EdituserProfile user={user} className="user-profile-edit"/>
+
+          {sessionUser.id === user.id ? <EdituserProfile user={user} className="user-profile-edit"/> : null}
+          
             <img src={user.user_image} alt="user-img" className="user-profile-img"/>
             <p className="user-profile-bio">{user.user_bio}</p>
             <p className="user-profile-location">Lives in {user.city}, {user.state}</p>
@@ -57,7 +58,6 @@ function goToEvent(eventId) {
 
           <div className="user-profile-btns">
             <h3>Events I'm Hosting</h3>
-            <button onClick={handleFilterByDate}>Filter by Date</button>
           </div>
 
           <div className="feed-events-container">

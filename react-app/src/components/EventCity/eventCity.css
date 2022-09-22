@@ -101,6 +101,9 @@ a:hover {
     border-radius: 16px;
 }
 
+.city-btn{
+    margin-left: 10px;
+}
 
 
 @media screen and (max-width: 800px) {
