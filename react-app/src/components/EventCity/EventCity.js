@@ -22,10 +22,15 @@ function EventCity() {
         return slicedDate;
       }
 
+
+
   return (
     <>
     <NavBar />
     <div className="feed">
+
+        {events.length > 0 ? <h3 className="single-event-header">Heres whats happening in {city}</h3> : null}
+
                     <div className="feed-events-container">
                         {events && events.length > 0 ? events.map(event => (
                             <div className="feed-event" key={event.id}>
