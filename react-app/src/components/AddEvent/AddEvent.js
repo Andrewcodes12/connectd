@@ -48,7 +48,7 @@ const AddEvent = () => {
       if (res.ok) {
           await res.json();
           setImageLoading(false);
-          history.push("/");
+          history.push("/feed");
       }
       else {
           setImageLoading(false);

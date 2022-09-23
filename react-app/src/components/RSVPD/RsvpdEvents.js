@@ -52,6 +52,7 @@ function RsvpdEvents({event}) {
     e.preventDefault();
     dispatch(deleteRsvp(event.id));
     setRsvpd(false)
+    window.location.reload()
     rsvp.length--
   }
 
