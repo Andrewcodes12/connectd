@@ -48,13 +48,13 @@ const NavBar = () => {
           <SearchBar />
       </div>
       <div className="rightNav">
-        <NavLink to='/feed'>
-          <i className="fas fa-home" id="home"></i>
+        <NavLink to='/feed' className="home-nav" activeClassName='active'>
+          <i className="fas fa-home"  ></i>
         </NavLink>
-        <NavLink to='/new/events'>
-          <i className="fas fa-upload" id="upload"></i>
+        <NavLink to='/new/events' className="upload-nav" activeClassName='active'>
+          <i className="fas fa-upload"  ></i>
         </NavLink>
-        <NavLink to='/about' className="about-nav">
+        <NavLink to='/about' className="about-nav" activeClassName='active'>
         <i class="fa-solid fa-question"></i>
         </NavLink>
         {/* <NavLink to='/profile' >
@@ -67,7 +67,7 @@ const NavBar = () => {
               <div className="user-menu-items">
                 {isLogged ?
                 <>
-                  <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen} >My Profile</NavLink></li>
+                  <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen} >My Profile</NavLink></li >
                   <li>logout</li>
                 </>
                 :

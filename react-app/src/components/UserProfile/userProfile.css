@@ -5,16 +5,15 @@
     font-family: 'Noto Sans', sans-serif;
     margin:70px 100px;
     word-break: break-all;
-
 }
 
 .user-profile-info{
-    width: 100%;
     position: relative;
+    width: 100%;
+    height: 300px;
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(208, 208, 208, 0.5);
     margin-left: 10px;
-
 }
 
 
@@ -29,7 +28,13 @@
 }
 
 .user-profile-bio{
-    width: 25%;
+    position: absolute;
+    width: 40%;
+    word-break: keep-all;
+    overflow: scroll;
+    height: 150px;
+    top:50%;
+    left: 0%;
 }
 
 button:hover{

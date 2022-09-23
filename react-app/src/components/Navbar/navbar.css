@@ -18,25 +18,25 @@
 
 
 
-#home{
+.home-nav{
     font-size: 20px;
     text-decoration: none;
     color: #000;
 }
 
-#home:hover{
+.home-nav:hover{
     color: #fb3f3f;
 }
 
 
-#upload{
+.upload-nav{
     margin-left: 30px;
     font-size: 20px;
     text-decoration: none;
     color: #000;
 }
 
-#upload:hover{
+.upload-nav:hover{
   color: #fb3f3f;
 }
 
@@ -149,4 +149,9 @@
 .user-menu-items li:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+
+.active{
+    color: #fb3f3f;
 }
