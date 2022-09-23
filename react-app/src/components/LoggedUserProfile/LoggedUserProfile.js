@@ -6,10 +6,13 @@ import { userProfile } from '../../store/user';
 import {deleteRsvp} from '../../store/rsvp';
 
 import NavBar from '../Navbar/Navbar';
+import EdituserProfile from '../EditUserProfile/EdituserProfile';
+
 import './loggedInUserProfile.css';
 
 function LoggedUserProfile({sessionUser}) {
   const user = useSelector(state => state.users);
+  const reviews = useSelector(state => state.reviews);
 
 
   const [loading , setLoading] = useState(false);
@@ -47,6 +50,7 @@ function LoggedUserProfile({sessionUser}) {
           <div className='user-profile-info'>
             <h1 className='user-profile-username'>{sessionUser.username}</h1>
             <h3 className='user-profile-bio'>{sessionUser.user_bio}</h3>
+            <EdituserProfile user={sessionUser} className='user-profile-edit'/>
           </div>
         </div>
         <div className='user-profile-events-container'>
