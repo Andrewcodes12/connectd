@@ -3,7 +3,7 @@ import {NavLink, useParams,useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { loadEvents,deleteEventById,loadEventsByCity } from '../../store/event';
+import { loadEvents,deleteEventById,loadEventsByCity,loadUserEvents } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
 

@@ -19,7 +19,7 @@ function Feed() {
 
     useEffect(() => {
         dispatch(loadEvents());
-    } , []);
+    }  , [dispatch]);
 
     const handleFilterByDate = async (e) => {
         e.preventDefault();

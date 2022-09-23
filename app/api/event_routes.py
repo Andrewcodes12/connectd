@@ -188,3 +188,17 @@ def sort_events_least_popular():
     """
     events = Event.query.join(Rsvp).group_by(Event.id).order_by(db.func.count(Rsvp.event_id).asc())
     return jsonify([event.to_dict() for event in events])
+
+
+# load a users events
+@event_routes.route('/user/<int:id>', methods=['GET'])
+def load_user_events(id):
+    """
+    Load a users events
+    """
+    events = Event.query.filter_by(user_id=id)
+    return jsonify([event.to_dict() for event in events])
+
+
+
+

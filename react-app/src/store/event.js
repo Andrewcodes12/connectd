@@ -147,6 +147,17 @@ export const sortByRsvpLeastPopular = () => async (dispatch) => {
     }
 }
 
+// load a users events
+export const loadUserEvents = (id) => async (dispatch) => {
+    const response = await fetch(`/api/events/user/${id}`);
+
+    if(response.ok){
+        const events = await response.json();
+        dispatch(load(events));
+    }
+}
+
+
 
 
 const EventReducer = (state = [], action) => {

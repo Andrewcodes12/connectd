@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './userProfile.css'
 
-import { loadEvents, filterEventsByDate } from '../../store/event';
+import { loadEvents, loadUserEvents, filterEventsByDate } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import EdituserProfile from '../EditUserProfile/EdituserProfile';
 
@@ -25,10 +25,13 @@ function UserProfile() {
   const dispatch = useDispatch();
   const {userId} = useParams();
 
+
+
   useEffect(() => {
-    dispatch(loadEvents());
-    dispatch(loadUserInfo());
-  } , []);
+    dispatch(loadUserInfo(userId));
+    dispatch(loadUserEvents(userId));
+  }, []);
+
 
 
 
@@ -44,11 +47,11 @@ function goToEvent(eventId) {
       {users && users.map(user => (
         user.id === parseInt(userId) ? (
           <>
-          <div className='user-profile-info'>
+          <div className='user-profile-info' key={user.id}>
           <h1 className="user-profile-name">Hi, I'm {user.username}</h1>
 
           {sessionUser.id === user.id ? <EdituserProfile user={user} className="user-profile-edit"/> : null}
-          
+
             <img src={user.user_image} alt="user-img" className="user-profile-img"/>
             <p className="user-profile-bio">{user.user_bio}</p>
             <p className="user-profile-location">Lives in {user.city}, {user.state}</p>
@@ -57,12 +60,11 @@ function goToEvent(eventId) {
           </div>
 
           <div className="user-profile-btns">
-            <h3>Events I'm Hosting</h3>
+            <h3>Events {user.username} is Hosting.</h3>
           </div>
 
           <div className="feed-events-container">
             {events && events.map(event => (
-              user.id === event.user_id ? (
                 <div className="feed-event" key={user.id}>
                   <NavLink to={`/events/${event.id}`} className="event-link" key={event.id} onClick={() => goToEvent(event.id)}>
                     <div className="feed-event-img">
@@ -77,7 +79,6 @@ function goToEvent(eventId) {
                   </div>
                   </NavLink>
                 </div>
-              ) : null
             ))}
           </div>
         </>
