@@ -60,6 +60,7 @@ const LoginForm = () => {
         ))}
       </div>
 
+
           <button type="button" onClick={demoLogin}>Demo Login</button>
       <div>
         <label htmlFor='email'>Email</label>
