@@ -22,3 +22,11 @@
 .modal-submit{
     margin-top: 10px;
 }
+
+.modal-label{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}

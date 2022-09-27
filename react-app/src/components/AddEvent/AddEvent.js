@@ -193,7 +193,7 @@ export default function AddEvent() {
             </div>
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-            <InputLabel variant="standard" htmlFor="uncontrolled-native" className="modal-labell">
+            <InputLabel variant="standard" htmlFor="uncontrolled-native" >
               Select a category
             </InputLabel>
             <NativeSelect

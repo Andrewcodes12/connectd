@@ -2,11 +2,26 @@ import React, {useState} from 'react';
 import { useDispatch} from 'react-redux';
 
 
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 import './editEvent.css';
 
 import { updateEvent } from '../../store/event';
 
-
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 function EditEvent({event}) {
   const [eventID] = useState(event.id);
@@ -20,6 +35,9 @@ function EditEvent({event}) {
   const [category, setEventCategory] = useState(event.category);
   const [user_id] = useState(event.user_id);
   const [isClicked, setIsClicked] = useState(false);
+  const [open, setOpen] = useState(false);
+
+
 
   const dispatch = useDispatch();
 
@@ -45,67 +63,97 @@ function EditEvent({event}) {
   }
 
 
-
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
   return (
-    <>
-    <button onClick={() => setIsClicked(true)} className="edit-event-btn">Edit Event</button>
-    {isClicked ? (
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={event_imgs}
-          onChange={(e) => setEventImgs(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={event_description}
-          onChange={(e) => setEventDescription(e.target.value)}
-          required
-        />
-        <input
-          type="date"
-          format="YYYY-MM-DD"
-          value={event_date}
-          onChange={(e) => setEventDate(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={event_city}
-          onChange={(e) => setEventCity(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={event_state}
-          onChange={(e) => setEventState(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={event_zipcode}
-          onChange={(e) => setEventZip(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setEventCategory(e.target.value)}
-          required
-        />
-        <button type="submit">Submit</button>
-      </form>
-    ) : null}
-    </>
+<div>
+      <button onClick={handleOpen}>Edit Event</button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2" className="modal-title">
+            Edit this event
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title" className="modal-label">Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_imgs" className="modal-label">Event Images</label>
+            <input
+              type="text"
+              value={event_imgs}
+              onChange={(e) => setEventImgs(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_description" className="modal-label">Event Description</label>
+            <input
+              type="text"
+              value={event_description}
+              onChange={(e) => setEventDescription(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_date" className="modal-label">Event Date</label>
+            <input
+              type="date"
+              format="YYYY-MM-DD"
+              value={event_date}
+              onChange={(e) => setEventDate(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_city" className="modal-label">Event City</label>
+            <input
+              type="text"
+              value={event_city}
+              onChange={(e) => setEventCity(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_state" className="modal-label">Event State</label>
+            <input
+              type="text"
+              value={event_state}
+              onChange={(e) => setEventState(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="event_zipcode" className="modal-label">Event Zipcode</label>
+            <input
+              type="text"
+              value={event_zipcode}
+              onChange={(e) => setEventZip(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <label htmlFor="category" className="modal-label">Category</label>
+            <input
+              type="text"
+              value={category}
+              onChange={(e) => setEventCategory(e.target.value)}
+              className="edit-event-input"
+              required
+            />
+            <button type="submit" className="modal-submit">Submit</button>
+          </form>
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
   )
 }
 

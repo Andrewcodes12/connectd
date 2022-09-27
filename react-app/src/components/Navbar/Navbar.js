@@ -52,12 +52,12 @@ const NavBar = () => {
         <NavLink to='/feed' className="home-nav" activeClassName='active'>
           <i className="fas fa-home"  ></i>
         </NavLink>
-        <div className="upload-nav">
-          <AddEvent />
-        </div>
         <NavLink to='/about' className="about-nav" activeClassName='active'>
         <i class="fa-solid fa-question"></i>
         </NavLink>
+        <div className="upload-nav">
+          <AddEvent />
+        </div>
         {/* <NavLink to='/profile' >
           <i className="far fa-user-circle" id="profile" ></i>
         </NavLink> */}
