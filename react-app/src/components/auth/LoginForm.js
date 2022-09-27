@@ -5,11 +5,14 @@ import { login } from '../../store/session';
 
 
 
+import './loginForm.css';
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState(null);
   const user = useSelector(state => state.session.user);
+
 
   const dispatch = useDispatch();
 
@@ -21,8 +24,18 @@ const LoginForm = () => {
       setErrors(data);
     }
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setErrors([]);
+  //   return dispatch(sessionActions.login({ email, password }))
+  //     .catch(async (res) => {
+  //       const data = await res.json();
+  //       if (data && data.errors) setErrors(data.errors);
+  //     });
+  // }
+
     if(!errors.length){
-      return <Redirect to='/' />
+      return <Redirect to='/feed' />
     }
 
   };
@@ -36,7 +49,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/feed' />;
   }
 
 
@@ -47,44 +60,48 @@ const LoginForm = () => {
     setPassword(demoPassword);
 
     return dispatch(
-      login('andrew@demo.com','password')
+      <>
+        {login(demoEmail,demoPassword)}
+        <Redirect to='/feed' />
+      </>
     );
   }
 
 
   return (
-    <form onSubmit={onLogin}>
+    <div className='login-form-container'>
+    <form className='login-form' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-
-
-          <button type="button" onClick={demoLogin}>Demo Login</button>
-      <div>
+      <div className='login-form-input'>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
           type='text'
-          placeholder='Email'
+          placeholder='Enter your Email'
           value={email}
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
-      <div>
+      <div className='login-form-input'>
         <label htmlFor='password'>Password</label>
         <input
           name='password'
           type='password'
-          placeholder='Password'
+          placeholder='Enter your Password'
           value={password}
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <button type='submit'>Login</button>
       </div>
-    </form>
+        <button type='submit'>Login</button>
+        <button className='demo-login' onClick={demoLogin}>Demo Login</button>
 
+    </form>
+  </div>
   );
 };
 

@@ -28,6 +28,6 @@ class SignUpForm(FlaskForm):
     last_name = StringField('last_name', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
-    zipcode = IntegerField('zipcode', validators=[DataRequired()])
+    zipcode = StringField('zipcode', validators=[DataRequired()])
     user_image = StringField('user_image', validators=[DataRequired()])
     user_bio = TextAreaField('user_bio', validators=[DataRequired()])
