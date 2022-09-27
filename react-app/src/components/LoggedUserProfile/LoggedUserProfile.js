@@ -16,6 +16,16 @@ function LoggedUserProfile({sessionUser}) {
 
 
   const [loading , setLoading] = useState(false);
+  const [username, setUsername] = useState(sessionUser.username);
+  const [email, setEmail] = useState(sessionUser.email);
+  const [first_name, setFirstName] = useState(sessionUser.first_name);
+  const [last_name, setLastName] = useState(sessionUser.last_name);
+  const [city, setCity] = useState(sessionUser.city);
+  const [state, setState] = useState(sessionUser.state);
+  const [zipcode, setZipcode] = useState(sessionUser.zipcode);
+  const [user_image, setUserImage] = useState(sessionUser.user_image);
+  const [user_bio, setUserBio] = useState(sessionUser.user_bio);
+  const [isClicked, setIsClicked] = useState(false);
 
   const dispatch = useDispatch();
 

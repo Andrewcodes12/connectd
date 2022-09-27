@@ -47,6 +47,7 @@ const style = {
 
 }
 
+
 export default function AddEvent() {
   let today = new Date().toISOString().substring(0, 10);
 
@@ -112,6 +113,41 @@ export default function AddEvent() {
       setImage(file);
   }
 
+  // function that takes in the inputted zipcode and changes the value of the event_state and event_city to the corresponding values
+  const updateZip = async  (e) =>  {
+
+    const zip = e.target.value
+    setZip(zip)
+
+    if(zip.length === 5){
+    const res = await fetch(`https://api.zippopotam.us/us/${zip}`)
+    const data = await res.json()
+
+    if(Object.keys(data).length === 0){
+      setErrors(["Invalid Zipcode"])
+      setZip("")
+    } else {
+    const city = data.places[0]['place name']
+    const state = data.places[0]["state abbreviation"]
+
+    setState(state)
+    setCity(city)
+    setErrors([])
+    }
+
+
+    } else if(zip.length === 0){
+      setState("")
+      setCity("")
+    } else {
+      setState("")
+      setCity("")
+    }
+
+  }
+
+
+
   return (
     <div>
       <i className="fas fa-upload"  onClick={handleOpen}></i>
@@ -127,7 +163,11 @@ export default function AddEvent() {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id="event-form">
+            {errors.map((error) => (
+              <div>{error}</div>
+            ))}
+
           <label className="modal-label">Add a photo</label>
             <input
               type="file"
@@ -165,11 +205,21 @@ export default function AddEvent() {
               />
             </div>
             <div>
+              <label className="modal-label">Zip Code</label>
+              <input
+                type='text'
+                value={event_zipcode}
+                onChange={(e) => updateZip(e)}
+                name="zipcode"
+                required
+              />
+            </div>
+            <div>
               <label className="modal-label">City</label>
               <input
                 type='text'
                 value={event_city}
-                onChange={(e) => setCity(e.target.value)}
+                id="auto_event_city"
                 required
               />
             </div>
@@ -178,16 +228,7 @@ export default function AddEvent() {
               <input
                 type='text'
                 value={event_state}
-                onChange={(e) => setState(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="modal-label">Zip Code</label>
-              <input
-                type='text'
-                value={event_zipcode}
-                onChange={(e) => setZip(e.target.value)}
+                id="auto_event_state"
                 required
               />
             </div>
