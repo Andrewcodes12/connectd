@@ -84,9 +84,9 @@ function App() {
           <ProtectedRoute path='/my-events' exact={true}>
             <RSVPD />
           </ProtectedRoute>
-          <ProtectedRoute path='/messages' exact={true}>
+          {/* <ProtectedRoute path='/messages' exact={true}>
             <DirectMessage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
       </Switch>
 
     </BrowserRouter>

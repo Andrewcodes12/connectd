@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from '../Searchbar/SearchBar';
+import AddEvent from '../AddEvent/AddEvent';
 
 
 const NavBar = () => {
@@ -51,9 +52,9 @@ const NavBar = () => {
         <NavLink to='/feed' className="home-nav" activeClassName='active'>
           <i className="fas fa-home"  ></i>
         </NavLink>
-        <NavLink to='/new/events' className="upload-nav" activeClassName='active'>
-          <i className="fas fa-upload"  ></i>
-        </NavLink>
+        <div className="upload-nav">
+          <AddEvent />
+        </div>
         <NavLink to='/about' className="about-nav" activeClassName='active'>
         <i class="fa-solid fa-question"></i>
         </NavLink>
