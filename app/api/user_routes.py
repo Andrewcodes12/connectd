@@ -38,7 +38,6 @@ def edit_user(id):
         user = User.query.get(id)
         user.username = form.data['username']
         user.email = form.data['email']
-        user.password = form.data['password']
         user.first_name = form.data['first_name']
         user.last_name = form.data['last_name']
         user.city = form.data['city']

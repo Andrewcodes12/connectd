@@ -38,6 +38,8 @@ function EditEvent({event}) {
   const [open, setOpen] = useState(false);
 
 
+  let today = new Date().toISOString().substring(0, 10);
+
 
   const dispatch = useDispatch();
 
@@ -68,7 +70,7 @@ function EditEvent({event}) {
 
 
   return (
-<div>
+  <div>
       <button onClick={handleOpen}>Edit Event</button>
       <Modal
         open={open}
@@ -81,7 +83,7 @@ function EditEvent({event}) {
             Edit this event
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-
+        <>
           <form onSubmit={handleSubmit}>
             <label htmlFor="title" className="modal-label">Title</label>
             <input
@@ -110,8 +112,8 @@ function EditEvent({event}) {
             <label htmlFor="event_date" className="modal-label">Event Date</label>
             <input
               type="date"
-              format="YYYY-MM-DD"
               value={event_date}
+              min={today}
               onChange={(e) => setEventDate(e.target.value)}
               className="edit-event-input"
               required
@@ -150,6 +152,7 @@ function EditEvent({event}) {
             />
             <button type="submit" className="modal-submit">Submit</button>
           </form>
+          </>
           </Typography>
         </Box>
       </Modal>
