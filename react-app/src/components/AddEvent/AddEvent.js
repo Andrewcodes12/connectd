@@ -3,10 +3,18 @@ import { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
-import Box from '@mui/material/Box';
+
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import NativeSelect from '@mui/material/NativeSelect';
+
+
+import './addEvent.css'
 
 const style = {
   position: 'absolute',
@@ -15,10 +23,29 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: '2px solid black',
   boxShadow: 24,
   p: 4,
-};
+
+  input:{
+    width: '100%',
+    height: '30px',
+    marginBottom: '10px',
+    borderRadius: '5px',
+    border: '1px solid black',
+    padding: '5px',
+},
+  label:{
+    display: 'flex',
+    marginBottom: '5px',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: 'Roboto',
+},
+
+}
 
 export default function AddEvent() {
   let today = new Date().toISOString().substring(0, 10);
@@ -99,15 +126,17 @@ export default function AddEvent() {
             Create an Event
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
           <form onSubmit={handleSubmit}>
-          <label>Add a photo</label>
+          <label className="modal-label">Add a photo</label>
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
+              required
             />
             <div>
-              <label>Title</label>
+              <label className="modal-label">Title</label>
               <input
                 type='text'
                 value={title}
@@ -116,7 +145,7 @@ export default function AddEvent() {
               />
             </div>
             <div>
-              <label>Description</label>
+              <label className="modal-label">Description</label>
               <input
                 type='text'
                 value={event_description}
@@ -125,7 +154,7 @@ export default function AddEvent() {
               />
             </div>
             <div>
-              <label>Date</label>
+              <label className="modal-label">Date</label>
               <input
                 type="date"
                 format="YYYY-MM-DD"
@@ -136,7 +165,7 @@ export default function AddEvent() {
               />
             </div>
             <div>
-              <label>City</label>
+              <label className="modal-label">City</label>
               <input
                 type='text'
                 value={event_city}
@@ -145,7 +174,7 @@ export default function AddEvent() {
               />
             </div>
             <div>
-              <label>State</label>
+              <label className="modal-label">State</label>
               <input
                 type='text'
                 value={event_state}
@@ -154,7 +183,7 @@ export default function AddEvent() {
               />
             </div>
             <div>
-              <label>Zip Code</label>
+              <label className="modal-label">Zip Code</label>
               <input
                 type='text'
                 value={event_zipcode}
@@ -162,24 +191,29 @@ export default function AddEvent() {
                 required
               />
             </div>
-            <div>
-              <label>Category</label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                required
-              >
-                <option value=''>--Please choose an option--</option>
-                <option value='Sports'>Sports</option>
-                <option value='VideoGames'>Video Games</option>
-                <option value='Clubbing'>Clubbing</option>
-                <option value='Boating'>Boating</option>
-                <option value='BoardGames'>Board Games</option>
-                <option value='StudyGroups'>Study Groups</option>
-                <option value='Other'>Other</option>
-              </select>
-            </div>
-            <button type="submit">Submit</button>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+            <InputLabel variant="standard" htmlFor="uncontrolled-native" className="modal-labell">
+              Select a category
+            </InputLabel>
+            <NativeSelect
+              defaultValue={'Sports'}
+              inputProps={{
+                name: 'category',
+                id: 'uncontrolled-native',
+              }}
+            >
+              <option value={'Sports'}>Sports</option>
+              <option value={'VideoGames'}>Video games</option>
+              <option value={'Clubbing'}>Clubbing</option>
+              <option value={'Boating'}>Boating</option>
+              <option value={'BoardGames'}>Board Games</option>
+              <option value={'StudyGroups'}>Study Groups</option>
+              <option value={'Other'}>Other</option>
+            </NativeSelect>
+        </FormControl>
+    </Box>
+            <button type="submit" className="modal-submit">Submit</button>
             {(imageLoading)&& <p>Loading...</p>}
         </form>
           </Typography>

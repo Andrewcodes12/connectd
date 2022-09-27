@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat&family=Noto+Sans&family=Work+Sans:wght@300&display=swap');
+
+
+#modal-modal-title{
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.00938em;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-family:'Montserrat', sans-serif;
+}
+
+#modal-modal-description{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.modal-submit{
+    margin-top: 10px;
+}
