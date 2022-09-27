@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(null);
-  const user = useSelector(state => state.session.user);
+  const user = useSelector(state => state.session);
 
 
   const dispatch = useDispatch();
@@ -48,22 +48,19 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (user) {
+  if (user.user !== null) {
     return <Redirect to='/feed' />;
   }
 
 
   const demoLogin = async () => {
-    const demoEmail = 'andrew@demo.com'
+    const demoEmail = 'asd@aol.com'
     const demoPassword = 'password'
     setEmail(demoEmail);
     setPassword(demoPassword);
 
     return dispatch(
-      <>
-        {login(demoEmail,demoPassword)}
-        <Redirect to='/feed' />
-      </>
+        login('andrew@demo.com', 'password')
     );
   }
 
@@ -90,7 +87,7 @@ const LoginForm = () => {
       <div className='login-form-input'>
         <label htmlFor='password'>Password</label>
         <input
-          name='password'
+          name='passWord'
           type='password'
           placeholder='Enter your Password'
           value={password}
