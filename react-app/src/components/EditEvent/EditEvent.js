@@ -36,6 +36,7 @@ function EditEvent({event}) {
   const [user_id] = useState(event.user_id);
   const [isClicked, setIsClicked] = useState(false);
   const [open, setOpen] = useState(false);
+  const [errors, setErrors] = useState([]);
 
 
   let today = new Date().toISOString().substring(0, 10);
@@ -69,6 +70,39 @@ function EditEvent({event}) {
   const handleClose = () => setOpen(false);
 
 
+  const updateZip = async  (e) =>  {
+
+    const zip = e.target.value
+    setEventZip(zip)
+
+    if(zip.length === 5){
+    const res = await fetch(`https://api.zippopotam.us/us/${zip}`)
+    const data = await res.json()
+
+    if(Object.keys(data).length === 0){
+      setErrors(["Invalid Zipcode"])
+      setEventZip("")
+    } else {
+    const city = data.places[0]['place name']
+    const state = data.places[0]["state abbreviation"]
+
+    setEventState(state)
+    setEventCity(city)
+    setErrors([])
+    }
+
+
+    } else if(zip.length === 0){
+      setEventState("")
+      setEventCity("")
+    } else {
+      setEventState("")
+      setEventCity("")
+      setErrors(["Zipcode must be at least 5 digits"])
+    }
+
+  }
+
   return (
   <div>
       <button onClick={handleOpen}>Edit Event</button>
@@ -85,6 +119,11 @@ function EditEvent({event}) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
         <>
           <form onSubmit={handleSubmit}>
+
+            {errors.map((error) => (
+              <div>{error}</div>
+
+            ))}
             <label htmlFor="title" className="modal-label">Title</label>
             <input
               type="text"
@@ -118,11 +157,19 @@ function EditEvent({event}) {
               className="edit-event-input"
               required
             />
+            <label htmlFor="event_zipcode" className="modal-label">Event Zipcode</label>
+            <input
+              type="text"
+              value={event_zipcode}
+              onChange={(e) => updateZip(e)}
+              className="edit-event-input"
+              required
+            />
             <label htmlFor="event_city" className="modal-label">Event City</label>
             <input
               type="text"
               value={event_city}
-              onChange={(e) => setEventCity(e.target.value)}
+              onChange={event_city}
               className="edit-event-input"
               required
             />
@@ -130,15 +177,7 @@ function EditEvent({event}) {
             <input
               type="text"
               value={event_state}
-              onChange={(e) => setEventState(e.target.value)}
-              className="edit-event-input"
-              required
-            />
-            <label htmlFor="event_zipcode" className="modal-label">Event Zipcode</label>
-            <input
-              type="text"
-              value={event_zipcode}
-              onChange={(e) => setEventZip(e.target.value)}
+              onChange={event_state}
               className="edit-event-input"
               required
             />
@@ -150,7 +189,7 @@ function EditEvent({event}) {
               className="edit-event-input"
               required
             />
-            <button type="submit" className="modal-submit">Submit</button>
+            <button type="submit" className="modal-submit" >Submit</button>
           </form>
           </>
           </Typography>

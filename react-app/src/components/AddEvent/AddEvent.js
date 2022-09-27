@@ -113,7 +113,7 @@ export default function AddEvent() {
       setImage(file);
   }
 
-  // function that takes in the inputted zipcode and changes the value of the event_state and event_city to the corresponding values
+
   const updateZip = async  (e) =>  {
 
     const zip = e.target.value
@@ -142,6 +142,7 @@ export default function AddEvent() {
     } else {
       setState("")
       setCity("")
+      setErrors(["Zipcode must be at least 5 digits"])
     }
 
   }
@@ -165,7 +166,7 @@ export default function AddEvent() {
 
           <form onSubmit={handleSubmit} id="event-form">
             {errors.map((error) => (
-              <div>{error}</div>
+              <div className="event-errors">{error}</div>
             ))}
 
           <label className="modal-label">Add a photo</label>

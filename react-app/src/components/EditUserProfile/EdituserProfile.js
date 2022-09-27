@@ -36,6 +36,7 @@ function EdituserProfile({user}) {
     const [user_image, setUserImage] = useState(user.user_image);
     const [user_bio, setUserBio] = useState(user.user_bio);
     const [isClicked, setIsClicked] = useState(false);
+    const [errors, setErrors] = useState([]);
     const [open, setOpen] = useState(false);
 
 
@@ -68,6 +69,39 @@ function EdituserProfile({user}) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const updateZip = async  (e) =>  {
+
+      const zip = e.target.value
+      setZipcode(zip)
+
+      if(zip.length === 5){
+      const res = await fetch(`https://api.zippopotam.us/us/${zip}`)
+      const data = await res.json()
+
+      if(Object.keys(data).length === 0){
+        setErrors(["Invalid Zipcode"])
+        setZipcode("")
+      } else {
+      const city = data.places[0]['place name']
+      const state = data.places[0]["state abbreviation"]
+
+      setState(state)
+      setCity(city)
+      setErrors([])
+      }
+
+
+      } else if(zip.length === 0){
+        setState("")
+        setCity("")
+      } else {
+        setState("")
+        setCity("")
+        setErrors(["Zipcode must be at least 5 digits"])
+      }
+
+    }
+
   return (
     <div>
       <button onClick={handleOpen}>Edit Profile</button>
@@ -84,6 +118,10 @@ function EdituserProfile({user}) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
 
         <form onSubmit={handleSubmit}>
+          {errors.map((error) => (
+            <div>{error}</div>
+          ))}
+
             <label htmlFor="username" className="modal-label">Username</label>
             <input
                 type="text"
@@ -116,11 +154,19 @@ function EdituserProfile({user}) {
                 className="edit-event-input"
                 required
             />
+            <label htmlFor="zipcode" className="modal-label">Zipcode</label>
+            <input
+                type="text"
+                value={zipcode}
+                onChange={(e) => updateZip(e)}
+                className="edit-event-input"
+                required
+            />
             <label htmlFor="city" className="modal-label">City</label>
             <input
                 type="text"
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={city}
                 className="edit-event-input"
                 required
             />
@@ -128,15 +174,7 @@ function EdituserProfile({user}) {
             <input
                 type="text"
                 value={state}
-                onChange={(e) => setState(e.target.value)}
-                className="edit-event-input"
-                required
-            />
-            <label htmlFor="zipcode" className="modal-label">Zipcode</label>
-            <input
-                type="text"
-                value={zipcode}
-                onChange={(e) => setZipcode(e.target.value)}
+                onChange={state}
                 className="edit-event-input"
                 required
             />
