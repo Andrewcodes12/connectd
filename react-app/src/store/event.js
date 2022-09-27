@@ -72,6 +72,7 @@ export const createEvent = (event) => async (dispatch) => {
 }
 
 export const updateEvent = (event) => async (dispatch) => {
+    console.log(event)
     const response = await fetch(`/api/events/${event.id}/edit`, {
         method: 'PUT',
         headers: {
@@ -82,6 +83,7 @@ export const updateEvent = (event) => async (dispatch) => {
     });
 
     if(response.ok){
+        console.log("response", response)
         const event = await response.json();
         dispatch(update(event));
     }

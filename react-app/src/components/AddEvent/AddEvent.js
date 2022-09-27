@@ -233,28 +233,24 @@ export default function AddEvent() {
                 required
               />
             </div>
-      <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-            <InputLabel variant="standard" htmlFor="uncontrolled-native" >
-              Select a category
-            </InputLabel>
-            <NativeSelect
-              defaultValue={'Sports'}
-              inputProps={{
-                name: 'category',
-                id: 'uncontrolled-native',
-              }}
-            >
-              <option value={'Sports'}>Sports</option>
-              <option value={'VideoGames'}>Video games</option>
-              <option value={'Clubbing'}>Clubbing</option>
-              <option value={'Boating'}>Boating</option>
-              <option value={'BoardGames'}>Board Games</option>
-              <option value={'StudyGroups'}>Study Groups</option>
-              <option value={'Other'}>Other</option>
-            </NativeSelect>
-        </FormControl>
-    </Box>
+            <div>
+             <label>Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="modal-select"
+                required
+              >
+                <option value='' className="select-options">--Please choose an option--</option>
+                <option value='Sports' className="select-options">Sports</option>
+                <option value='VideoGames' className="select-options">Video Games</option>
+                <option value='Clubbing' className="select-options">Clubbing</option>
+                <option value='Boating' className="select-options">Boating</option>
+                <option value='BoardGames' className="select-options">Board Games</option>
+                <option value='StudyGroups' className="select-options">Study Groups</option>
+                <option value='Other' className="select-options">Other</option>
+              </select>
+          </div>
             <button type="submit" className="modal-submit">Submit</button>
             {(imageLoading)&& <p>Loading...</p>}
         </form>

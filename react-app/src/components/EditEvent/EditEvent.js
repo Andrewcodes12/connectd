@@ -6,6 +6,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import NativeSelect from '@mui/material/NativeSelect';
 
 import './editEvent.css';
 
@@ -181,14 +185,24 @@ function EditEvent({event}) {
               className="edit-event-input"
               required
             />
-            <label htmlFor="category" className="modal-label">Category</label>
-            <input
-              type="text"
-              value={category}
-              onChange={(e) => setEventCategory(e.target.value)}
-              className="edit-event-input"
-              required
-            />
+         <div>
+           <label>Category</label>
+           <select
+             value={category}
+             onChange={(e) => setEventCategory(e.target.value)}
+             className="modal-select"
+             required
+           >
+             <option value=''>--Please choose an option--</option>
+             <option value='Sports'>Sports</option>
+             <option value='VideoGames'>Video Games</option>
+             <option value='Clubbing'>Clubbing</option>
+             <option value='Boating'>Boating</option>
+             <option value='BoardGames'>Board Games</option>
+             <option value='StudyGroups'>Study Groups</option>
+             <option value='Other'>Other</option>
+           </select>
+         </div>
             <button type="submit" className="modal-submit" >Submit</button>
           </form>
           </>
