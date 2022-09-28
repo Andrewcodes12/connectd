@@ -29,7 +29,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (errors.length === 0) {
       const data = await dispatch(signUp(username, email, password, user_image, first_name, last_name, city, state, zipcode, user_bio));
       if (data) {
         setErrors(data)
@@ -127,6 +127,78 @@ const SignUpForm = () => {
   }
 
 
+  function emailErrorHandling(){
+    if(email.length < 5){
+      setErrors(["Email must be at least 5 characters"])
+    } else if(!email.includes("@")){
+      setErrors(["Email must include @"])
+    } else if(!email.includes(".")){
+      setErrors(["Email must include ."])
+    } else {
+      setErrors([])
+    }
+
+  }
+
+  function passwordErrorHandling(){
+    if(password.length < 6){
+      setErrors(["Password must be at least 6 characters"])
+    } else if(password === username){
+      setErrors(["Password cannot be the same as username"])
+    } else if(password === email){
+      setErrors(["Password cannot be the same as email"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function usernameErrorHandling(){
+    if(username.length < 4){
+      setErrors(["Username must be at least 4 characters"])
+    } else if(username === email){
+      setErrors(["Username cannot be the same as email"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function repeatPasswordErrorHandling(){
+    if(repeatPassword !== password){
+      setErrors(["Passwords must match"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function firstNameErrorHandling(){
+    if(first_name.length < 2){
+      setErrors(["First name must be at least 2 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function lastNameErrorHandling(){
+    if(last_name.length < 2){
+      setErrors(["Last name must be at least 2 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function bioErrorHandling(){
+    if(user_bio.length < 10){
+      setErrors(["Bio must be at least 10 characters"])
+    } else if(user_bio.length > 250){
+      setErrors(["Bio cannot be more than 250 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+
+
+
   return (
     <div className='signUp-form-container'>
     <form className="signUp-form" onSubmit={onSignUp}>
@@ -140,6 +212,7 @@ const SignUpForm = () => {
         type='text'
         name='username'
         onChange={updateUsername}
+        onBlur={() => usernameErrorHandling()}
         placeholder="Enter a username"
         value={username}
       ></input>
@@ -149,6 +222,7 @@ const SignUpForm = () => {
         type='text'
         name='email'
         onChange={updateEmail}
+        onBlur={() => emailErrorHandling()}
         placeholder="Enter an email"
         value={email}
       ></input>
@@ -158,6 +232,7 @@ const SignUpForm = () => {
         type='password'
         name='password'
         onChange={updatePassword}
+        onBlur={() => passwordErrorHandling()}
         placeholder="Enter a password"
         value={password}
       ></input>
@@ -167,6 +242,7 @@ const SignUpForm = () => {
         type='password'
         name='repeat_password'
         onChange={updateRepeatPassword}
+        onBlur={() => repeatPasswordErrorHandling()}
         placeholder="Confirm password"
         value={repeatPassword}
         required={true}
@@ -177,6 +253,7 @@ const SignUpForm = () => {
         type='text'
         name='first_name'
         onChange={updateFirstName}
+        onBlur={() => firstNameErrorHandling()}
         placeholder="Enter your first name"
         value={first_name}
         required={true}
@@ -187,6 +264,7 @@ const SignUpForm = () => {
         type='text'
         name='last_name'
         onChange={updateLastName}
+        onBlur={() => lastNameErrorHandling()}
         placeholder="Enter your last name"
         value={last_name}
         required={true}
@@ -235,6 +313,7 @@ const SignUpForm = () => {
         type='text'
         name='user_bio'
         onChange={updateUserBio}
+        onBlur={() => bioErrorHandling()}
         placeholder="Enter a short bio"
         value={user_bio}
         required={true}
