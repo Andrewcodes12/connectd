@@ -15,14 +15,17 @@ function About() {
     <div className="about">
         <div className="split-left">
 
-          <h1>About The dev</h1>
+          <div className="typewriter">
+            <h1>Hi, I'm Andrew Fava a Full-Stack Developer</h1>
+          </div>
+
             <div className="about-img">
               <img src={Me} alt="me" />
             </div>
+
         <div className="about-me">
           <p>Hi, I'm a full stack web developer with a passion for creating beautiful and functional websites. I have a background in graphic design and a love for all things creative. I'm a self-taught developer who is always looking to learn new things and improve my skills. I'm currently looking for a full-time position as a web developer.</p>
         </div>
-
 
         <div className="about-text">
           <p>
@@ -34,6 +37,16 @@ function About() {
             I hope you enjoy using this app as much as I enjoyed creating it.
           </p>
         </div>
+
+      <div className="social-links">
+        <p>
+          <h3>You can reach me at:</h3>
+          <div>LinkedIn: <a href="https://www.linkedin.com/in/andrewfava/">LinkedIn</a></div>
+          <div>GitHub: <a href="https://github.com/Andrewcodes12">GitHub</a></div>
+          <div>Email: AndrewFava@yahoo.com</div>
+          <div>Portfolio: <a href="https://andrewfava.com/">Portfolio</a></div>
+        </p>
+      </div>
       </div>
 
         <div className="split-right">
@@ -94,14 +107,7 @@ function About() {
 
 
 
-        <h1>Developer</h1>
-        <p>
-          <strong>Andrew Fava</strong>
-          <div>LinkedIn: <a href="https://www.linkedin.com/in/andrewfava/">LinkedIn</a></div>
-          <div>GitHub: <a href="https://github.com/Andrewcodes12">GitHub</a></div>
-          <div>Email: AndrewFava@yahoo.com</div>
-          <div>Portfolio: <a href="https://andrewfava.com/">Portfolio</a></div>
-        </p>
+
       </div>
     </div>
     </>
