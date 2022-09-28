@@ -23,6 +23,8 @@ const style = {
 
 
 
+
+
 function EdituserProfile({user}) {
     const [userId] = useState(user.id);
     const [username, setUsername] = useState(user.username);
@@ -101,6 +103,62 @@ function EdituserProfile({user}) {
       }
 
     }
+
+
+
+  function emailErrorHandling(){
+    if(email.length < 5){
+      setErrors(["Email must be at least 5 characters"])
+    } else if(!email.includes("@")){
+      setErrors(["Email must include @"])
+    } else if(!email.includes(".")){
+      setErrors(["Email must include ."])
+    } else {
+      setErrors([])
+    }
+
+  }
+
+  function usernameErrorHandling(){
+    if(username.length < 4){
+      setErrors(["Username must be at least 4 characters"])
+    } else if(username === email){
+      setErrors(["Username cannot be the same as email"])
+    } else {
+      setErrors([])
+    }
+  }
+
+
+
+  function firstNameErrorHandling(){
+    if(first_name.length < 2){
+      setErrors(["First name must be at least 2 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function lastNameErrorHandling(){
+    if(last_name.length < 2){
+      setErrors(["Last name must be at least 2 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+  function bioErrorHandling(){
+    if(user_bio.length < 10){
+      setErrors(["Bio must be at least 10 characters"])
+    } else if(user_bio.length > 250){
+      setErrors(["Bio cannot be more than 250 characters"])
+    } else {
+      setErrors([])
+    }
+  }
+
+
+
 
   return (
     <div>
@@ -194,7 +252,7 @@ function EdituserProfile({user}) {
                 className="edit-event-input"
                 required
             />
-            <button type="submit" className="modal-submit">Submit</button>
+            {errors.length > 0 ? null : <button className="modal-button">Submit</button>}
         </form>
 
           </Typography>
