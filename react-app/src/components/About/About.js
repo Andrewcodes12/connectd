@@ -3,6 +3,8 @@ import './about.css'
 
 
 import NavBar from '../Navbar/Navbar';
+import Me from '../public/me.png';
+
 
 function About() {
 
@@ -10,18 +12,34 @@ function About() {
   return (
     <>
     <NavBar />
-      <div className="about">
-        <h1>About</h1>
-        <p>
-          My inspiration behind creating this app was to create something that could bring people of similar hobbies and interest together.
-          Whether it be that you just moved to a new city and want to meet new people or you just want to find a new hobby, this app is for you.
-          Lets say you want to play a round of golf, you can create an event and other users can join you. You can also search for other events and
-          try new things.
-          This app is a great way to meet people and find new hobbies.
-          I hope you enjoy using this app as much as I enjoyed creating it.
-        </p>
+    <div className="about">
+        <div className="split-left">
+
+          <h1>About The dev</h1>
+            <div className="about-img">
+              <img src={Me} alt="me" />
+            </div>
+        <div className="about-me">
+          <p>Hi, I'm a full stack web developer with a passion for creating beautiful and functional websites. I have a background in graphic design and a love for all things creative. I'm a self-taught developer who is always looking to learn new things and improve my skills. I'm currently looking for a full-time position as a web developer.</p>
+        </div>
+
+
+        <div className="about-text">
+          <p>
+            My inspiration behind creating this app was to create something that could bring people of similar hobbies and interest together.
+            Whether it be that you just moved to a new city and want to meet new people or you just want to find a new hobby, this app is for you.
+            Lets say you want to play a round of golf, you can create an event and other users can join you. You can also search for other events and
+            try new things.
+            This app is a great way to meet people and find new hobbies.
+            I hope you enjoy using this app as much as I enjoyed creating it.
+          </p>
+        </div>
       </div>
-      <div className="functionality">
+
+        <div className="split-right">
+
+
+
         <h1>Functionality</h1>
         <p>
           <strong>Events</strong>
@@ -57,8 +75,9 @@ function About() {
           <strong>Google Maps</strong>
           <div>Users can get directions to an event instantly by clicking the Directions button on the map located on the events page.</div>
         </p>
-      </div>
-      <div className="technologies">
+
+
+
         <h1>Technologies Used</h1>
         <p>
           <strong>Frontend</strong>
@@ -72,8 +91,9 @@ function About() {
           <strong>APIs</strong>
           <div>Google Maps, Cloudinary, and Faker</div>
         </p>
-      </div>
-      <div className="team">
+
+
+
         <h1>Developer</h1>
         <p>
           <strong>Andrew Fava</strong>
@@ -83,7 +103,9 @@ function About() {
           <div>Portfolio: <a href="https://andrewfava.com/">Portfolio</a></div>
         </p>
       </div>
+    </div>
     </>
+
   )
 }
 

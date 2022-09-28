@@ -1,0 +1,51 @@
+.about{
+    display: flex;
+    position: relative;
+}
+
+.split-left{
+    position: absolute;
+
+    left: 0;
+    flex: 1;
+    width: 50%;
+    height: 100vh;
+}
+
+.split-right{
+    position: absolute;
+
+    right: 0;
+    flex: 1;
+    width: 50%;
+    height: 100vh;
+}
+
+
+.about img{
+    position: absolute;
+    width: 270px;
+    border-radius: 50%;
+    right: 50px;
+}
+
+.about h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me{
+    display: flex;
+    margin-left: 25px;
+    word-break: keep-all;
+    width: 50%;
+}
+
+
+.about-text{
+    display: flex;
+    margin-left: 25px;
+    word-break: keep-all;
+    width: 50%;
+}
