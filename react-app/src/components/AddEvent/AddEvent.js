@@ -70,6 +70,7 @@ export default function AddEvent() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -132,7 +133,6 @@ export default function AddEvent() {
 
     setState(state)
     setCity(city)
-    setErrors([])
     }
 
 
@@ -147,6 +147,25 @@ export default function AddEvent() {
 
   }
 
+  function handleTitleErrors(){
+      if(title.length <= 5){
+          setErrors(["Title must be at least 5 characters"])
+      } else if(title.length > 50){
+          setErrors(["Title must be less than 50 characters"])
+      } else if(title.length > 5 && title.length < 50 && event_description.length > 15 && event_description.length < 500){
+          setErrors([])
+      }
+  }
+
+  function handleDescriptionErrors(){
+      if(event_description.length <= 15){
+          setErrors(["Description must be at least 15 characters"])
+      } else if(event_description.length > 500){
+          setErrors(["Description must be less than 500 characters"])
+      } else if(title.length > 5 && title.length < 50 && event_description.length > 15 && event_description.length < 500){
+          setErrors([])
+      }
+  }
 
 
   return (
@@ -181,6 +200,7 @@ export default function AddEvent() {
               <input
                 type='text'
                 value={title}
+                onBlur={handleTitleErrors}
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
@@ -190,6 +210,7 @@ export default function AddEvent() {
               <input
                 type='text'
                 value={event_description}
+                onBlur={handleDescriptionErrors}
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
@@ -251,7 +272,7 @@ export default function AddEvent() {
                 <option value='Other' className="select-options">Other</option>
               </select>
           </div>
-            <button type="submit" className="modal-submit">Submit</button>
+          {errors.length > 0 ? null : <button className="modal-button">Create Event</button>}
             {(imageLoading)&& <p>Loading...</p>}
         </form>
           </Typography>
