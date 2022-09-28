@@ -107,6 +107,28 @@ function EditEvent({event}) {
 
   }
 
+  function handleTitleErrors(){
+    if(title.length <= 5){
+        setErrors(["Title must be at least 5 characters"])
+    } else if(title.length > 50){
+        setErrors(["Title must be less than 50 characters"])
+    } else if(title.length > 5 && title.length < 50 && event_description.length > 15 && event_description.length < 500){
+        setErrors([])
+    }
+}
+
+function handleDescriptionErrors(){
+    if(event_description.length <= 15){
+        setErrors(["Description must be at least 15 characters"])
+    } else if(event_description.length > 500){
+        setErrors(["Description must be less than 500 characters"])
+    } else if(title.length > 5 && title.length < 50 && event_description.length > 15 && event_description.length < 500){
+        setErrors([])
+    }
+}
+
+
+
   return (
   <div>
       <button onClick={handleOpen}>Edit Event</button>
@@ -133,6 +155,7 @@ function EditEvent({event}) {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              onBlur={handleTitleErrors}
               className="edit-event-input"
               required
             />
@@ -149,6 +172,7 @@ function EditEvent({event}) {
               type="text"
               value={event_description}
               onChange={(e) => setEventDescription(e.target.value)}
+              onBlur={handleDescriptionErrors}
               className="edit-event-input"
               required
             />
@@ -203,7 +227,7 @@ function EditEvent({event}) {
              <option value='Other'>Other</option>
            </select>
          </div>
-            <button type="submit" className="modal-submit" >Submit</button>
+         {errors.length > 0 ? null : <button className="modal-submit">Create Event</button>}
           </form>
           </>
           </Typography>
