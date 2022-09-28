@@ -29,7 +29,7 @@ def user_events(id):
 
 # edit user profile
 @user_routes.route('/<int:id>/edit', methods=['PUT'])
-# @login_required
+@login_required
 def edit_user(id):
     form = edit_user_form.EditUserForm()
     form['csrf_token'].data = request.cookies['csrf_token']

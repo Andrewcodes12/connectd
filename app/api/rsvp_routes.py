@@ -30,7 +30,7 @@ def get_rsvps(id):
 
 # create rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['POST'])
-# @login_required
+@login_required
 def create_rsvp(id):
     """
     Create rsvp on an event
@@ -48,7 +48,7 @@ def create_rsvp(id):
 
 # delete rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_rsvp(id):
     """
     Delete rsvp on an event
@@ -65,7 +65,7 @@ def delete_rsvp(id):
 
 # update rsvp on an event
 @rsvp_routes.route('/<int:id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_rsvp(id):
     """
     Update rsvp on an event

@@ -62,7 +62,7 @@ def get_event(id):
 #     return jsonify(form.errors)
 
 @event_routes.route("/new", methods=["POST"])
-# @login_required
+@login_required
 def create_event():
     if "event_imgs" not in request.files:
         return {"errors": "image required"}, 400
@@ -198,7 +198,3 @@ def load_user_events(id):
     """
     events = Event.query.filter_by(user_id=id)
     return jsonify([event.to_dict() for event in events])
-
-
-
-

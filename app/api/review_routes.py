@@ -26,7 +26,7 @@ def get_reviews(id):
 
 # Create a review
 @review_routes.route('/<int:id>/', methods=['POST'])
-# @login_required
+@login_required
 def create_review(id):
     """
     Create a review
