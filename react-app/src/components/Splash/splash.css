@@ -5,6 +5,7 @@
 
 .background-img {
     position: relative;
+    padding-bottom: 30px;
 }
 
 .background-img::before {
@@ -327,4 +328,10 @@
 }
 .high-five-splash-2{
     margin-left: 250px;
+}
+
+
+.splash-about-us-icons p{
+    margin-right: 5px;
+    margin-left: 25px;;
 }

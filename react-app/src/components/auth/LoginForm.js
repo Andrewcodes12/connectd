@@ -11,6 +11,8 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(null);
+
+
   const user = useSelector(state => state.session);
 
 
@@ -70,7 +72,7 @@ const LoginForm = () => {
     <form className='login-form' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className="form-errors">{error}</div>
         ))}
       </div>
       <div className='login-form-input'>

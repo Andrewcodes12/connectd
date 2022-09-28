@@ -94,8 +94,6 @@ function Splash() {
   }
 
 
-
-
   return (
     <>
     <div className="background-img">
@@ -243,7 +241,7 @@ function Splash() {
                 </div>
                 <div className="join-event-splash">
                   <img src={group} alt="high-five" className="high-five-splash"/>
-                    <a href='/new/events'>  <h4>Start an Event</h4>   </a>
+                    <a href='/feed'>  <h4>Start an Event</h4>   </a>
                       <p>Post your event and we'll find the people for you.</p>
                 </div>
               </div>
