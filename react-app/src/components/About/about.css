@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat&family=Noto+Sans&family=Work+Sans:wght@300&display=swap');
 
 
+
 .about{
     display: flex;
     position: relative;
@@ -12,16 +13,16 @@
     left: 0;
     flex: 1;
     width: 50%;
-    height: 75vh;
+    height: 100%;
+
 }
 
 .split-right{
     position: absolute;
-
     right: 0;
     flex: 1;
     width: 50%;
-    height: 75vh;
+    height: 100%;
 }
 
 

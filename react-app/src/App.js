@@ -88,7 +88,7 @@ function App() {
             <DirectMessage />
           </ProtectedRoute> */}
       </Switch>
-
+          <Footer />
     </BrowserRouter>
   );
 }

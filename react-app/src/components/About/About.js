@@ -24,7 +24,19 @@ function About() {
             </div>
 
         <div className="about-me">
-          <p>Hi, I'm a full stack web developer with a passion for creating beautiful and functional websites. I have a background in graphic design and a love for all things creative. I'm a self-taught developer who is always looking to learn new things and improve my skills. I'm currently looking for a full-time position as a web developer.</p>
+          <p>
+          I’m a passionate software developer with the innovative and creative mindset of an entrepreneur. I have experience building dynamic web applications with React, Javascript, Express, Python, Redux, Flask, Docker, PostgreSQL, SQLAlchemy, and CSS.
+          I love the battle of developing an idea into existence and forging the bridge between conceptualization and a tangible, impactful product.
+          Programming has been my outlet for problem-solving and creative expression.
+          </p>
+        </div>
+
+        <div className="about-me">
+          <p>
+          Apart from coding, I enjoy playing golf, boxing, spending time with my dog and my family.
+          My background in Business and Account Management has given me a unique perspective on the importance of a strong brand and the value of a great user experience.
+          I'm able to combine my passion for programming with my business background to create a product that is both functional and beautiful.
+          </p>
         </div>
 
         <div className="about-text">
