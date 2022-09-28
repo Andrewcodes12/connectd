@@ -4,6 +4,7 @@ import './about.css'
 
 import NavBar from '../Navbar/Navbar';
 import Me from '../public/me.png';
+import Footer from '../Footer/Footer';
 
 
 function About() {
@@ -100,23 +101,31 @@ function About() {
           <strong>Google Maps</strong>
           <div>Users can get directions to an event instantly by clicking the Directions button on the map located on the events page.</div>
         </p>
-
-
-
-        <h1>Technologies Used</h1>
         <p>
-          <strong>Frontend</strong>
-          <div>React, Redux, JavaScript, CSS, HTML</div>
+          <strong>City and State auto-fill</strong>
+          <div>Using an API we are able to auto-complete a users city and state when they create/edit an event or edit their profile.</div>
         </p>
         <p>
-          <strong>Backend</strong>
-          <div>Python, Flask, SQLAlchemy, PostgreSQL</div>
-        </p>
-        <p>
-          <strong>APIs</strong>
-          <div>Google Maps, Cloudinary, and Faker</div>
+          <strong>AWS S3 Buckets</strong>
+          <div>I have integrated AWS S3 Buckets to allow users to upload photos directly from their computers.</div>
         </p>
 
+
+        <div className="tech-stack">
+          <h1>Technologies Used</h1>
+          <p>
+            <strong>Frontend</strong>
+            <div>React, Redux, JavaScript, CSS, and MaterialUI</div>
+          </p>
+          <p>
+            <strong>Backend</strong>
+            <div>Python, Flask, SQLAlchemy(ORM), and PostgreSQL</div>
+          </p>
+          <p>
+            <strong>APIs</strong>
+            <div>Google Maps, Cloudinary, Faker, and Zippopotam</div>
+          </p>
+        </div>
 
 
 
