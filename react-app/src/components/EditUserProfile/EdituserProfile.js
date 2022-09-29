@@ -9,6 +9,10 @@ import Modal from '@mui/material/Modal';
 
 import { editUserInfo } from '../../store/user';
 
+
+import './editUserProfile.css'
+
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -180,76 +184,83 @@ function EdituserProfile({user}) {
             <div>{error}</div>
           ))}
 
-            <label htmlFor="username" className="modal-label">Username</label>
             <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Username'
                 required
             />
-            <label htmlFor="email" className="modal-label">Email</label>
             <input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Email'
                 required
             />
-            <label htmlFor="first_name" className="modal-label">FirstName</label>
+
             <input
                 type="text"
                 value={first_name}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='First Name'
                 required
             />
-            <label htmlFor="last_name" className="modal-label">LastName</label>
+
             <input
                 type="text"
                 value={last_name}
                 onChange={(e) => setLastName(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Last Name'
                 required
             />
-            <label htmlFor="zipcode" className="modal-label">Zipcode</label>
+
             <input
                 type="text"
                 value={zipcode}
                 onChange={(e) => updateZip(e)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Zipcode'
                 required
             />
-            <label htmlFor="city" className="modal-label">City</label>
+
             <input
                 type="text"
                 value={city}
                 onChange={city}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='City is Automatically Filled based on Zipcode'
                 required
             />
-            <label htmlFor="state" className="modal-label">State</label>
+
             <input
                 type="text"
                 value={state}
                 onChange={state}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='State is Automatically Filled based on Zipcode'
                 required
             />
-            <label htmlFor="user_image" className="modal-label">ProfileImage</label>
+
             <input
                 type="text"
                 value={user_image}
                 onChange={(e) => setUserImage(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Image URL'
                 required
             />
-            <label htmlFor="user_bio" className="modal-label">Bio</label>
+
             <input
                 type="text"
                 value={user_bio}
                 onChange={(e) => setUserBio(e.target.value)}
-                className="edit-event-input"
+                className="edit-user-input"
+                placeholder='Bio'
                 required
             />
             {errors.length > 0 ? null : <button className="modal-button">Submit</button>}
