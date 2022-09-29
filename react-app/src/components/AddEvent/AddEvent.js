@@ -85,8 +85,6 @@ export default function AddEvent() {
     formData.append("user_id", user.id);
 
 
-    // aws uploads can be a bit slow—displaying
-    // some sort of loading message is a good idea
 
     setImageLoading(true);
     const res = await fetch('/api/events/new', {
@@ -107,11 +105,10 @@ export default function AddEvent() {
 }
 
 
-
-
   const updateImage = (e) => {
       const file = e.target.files[0];
       setImage(file);
+      console.log("clicked")
   }
 
 
@@ -193,6 +190,7 @@ export default function AddEvent() {
               type="file"
               accept="image/*"
               onChange={updateImage}
+              onClick={() => console.log("clicked")}
               required
             />
             <div>

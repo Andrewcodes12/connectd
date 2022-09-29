@@ -188,6 +188,7 @@ function EdituserProfile({user}) {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                onBlur={usernameErrorHandling}
                 className="edit-user-input"
                 placeholder='Username'
                 required
@@ -196,6 +197,7 @@ function EdituserProfile({user}) {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onBlur={emailErrorHandling}
                 className="edit-user-input"
                 placeholder='Email'
                 required
@@ -205,6 +207,7 @@ function EdituserProfile({user}) {
                 type="text"
                 value={first_name}
                 onChange={(e) => setFirstName(e.target.value)}
+                onBlur={firstNameErrorHandling}
                 className="edit-user-input"
                 placeholder='First Name'
                 required
@@ -214,6 +217,7 @@ function EdituserProfile({user}) {
                 type="text"
                 value={last_name}
                 onChange={(e) => setLastName(e.target.value)}
+                onBlur={lastNameErrorHandling}
                 className="edit-user-input"
                 placeholder='Last Name'
                 required
@@ -259,6 +263,7 @@ function EdituserProfile({user}) {
                 type="text"
                 value={user_bio}
                 onChange={(e) => setUserBio(e.target.value)}
+                onBlur={bioErrorHandling}
                 className="edit-user-input"
                 placeholder='Bio'
                 required
