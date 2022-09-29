@@ -127,3 +127,156 @@
     background-color: rgb(89, 166, 255, 0.8);
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .single-event{
+        width: 100%;
+        float: none;
+    }
+
+    .user-event-container{
+        width: 100%;
+        float: none;
+    }
+
+    .single-event-description{
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+        overflow-y: scroll;
+    }
+
+    .add-review-form textarea{
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 150px;
+        background: #FAFAFA;
+        padding: 30px;
+        margin: 20px auto;
+        box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+        border-radius: 10px;
+        border: 6px solid rgb(89, 166, 255);
+    }
+
+    .add-review-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        width: 50%;
+        float: left;
+    }
+
+    .add-review{
+        margin-top: 20px;
+        border-top: 1px solid rgba(208, 208, 208, 0.5);
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-reviews-review{
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .review-length-review {
+        margin-left: 5px;
+    }
+
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        position: relative;
+        font-size: 16px;
+    }
+
+    .review-body{
+        margin-right: 10px;
+        word-break: break-all;
+        width: 70%;
+        border-bottom: 1px solid rgba(208, 208, 208, 0.5);
+    }
+
+    .user-review-container{
+        display: flex;
+        align-items: center;
+        position: relative;
+
+    }
+
+    .user-review-image{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+    .user-review-image:hover{
+        cursor: pointer;
+    }
+
+    .user-review-username{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        overflow-y: scroll;
+        position: relative;
+    }
+
+    .single-event-filter-buttons{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .single-event-filter-buttons button:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+    .delete-review-container{
+        position: relative;
+    }
+
+    .delete-review-btn{
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .delete-review-btn:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+    .review-sort button:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+    .add-review-submit button:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+
+}

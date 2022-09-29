@@ -204,3 +204,134 @@
     object-fit: cover;
     border-radius: 16px;
 }
+
+
+/* media queries to make page responsive and reviews responsive for all different widths */
+
+@media screen and (max-width: 1200px) {
+    .single-event{
+        width: 100%;
+        float: none;
+    }
+
+    .user-event-container{
+        width: 100%;
+        float: none;
+    }
+
+    .single-event-description{
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+        overflow-y: scroll;
+        height: 170px;
+        word-break: break-all;
+    }
+
+    .single-event-date{
+        position: relative;
+        top: 0;
+        left: 0;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    .single-event-category{
+        position: relative;
+        top: 0;
+        left: 0;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .single-events-in-city{
+        position: relative;
+        top: 0;
+        left: 0;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .single-event-image{
+        float: none;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .edit-delete-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit-event{
+        margin-left: 0;
+    }
+
+    .delete-event{
+        margin-left: 0;
+    }
+
+    .delete-event button:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+    .share-event-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .share-event{
+        margin-top: 10px;
+        margin-left: 0;
+        width: 5%;
+    }
+
+    .share-event:hover{
+        background-color: rgb(89, 166, 255, 0.8);
+        cursor: pointer;
+    }
+
+    .share-event-container span{
+        margin-right:0px
+    }
+
+    .event-img{
+        height: 300px
+    }
+
+    .single-event-location{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .single-event-average-rating{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .review-length{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .review-length span{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .review-length span:hover{
+        cursor: pointer;
+    }
+
+}
