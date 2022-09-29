@@ -78,6 +78,10 @@
 }
 
 
+
+
+
+
 .splash-content{
     display: flex;
     position: relative;
@@ -85,8 +89,8 @@
 }
 
 .splash-img{
-    width: 400px;
-    height: 300px;
+    width: 30%;
+    height: auto;
     object-fit: contain;
 
 }
@@ -103,6 +107,7 @@
     margin: 0 70px;
     margin-top: 20px;
     font-size: 20px;
+    margin-bottom: 25px;
 }
 
 .splash-img{
@@ -121,6 +126,10 @@
     height: 250px;
     width: 350px;
 }
+
+
+
+
 
 .waving-img-splash-div{
     color: rgb(89, 166, 255);
@@ -334,4 +343,290 @@
 .splash-about-us-icons p{
     margin-right: 5px;
     margin-left: 25px;;
+}
+
+/* media query for logo links and nav*/
+@media screen and (max-width: 600px) {
+    .splash-nav-links{
+        display: block;
+    }
+    .splash-logo{
+        margin-left: 0px;
+    }
+    .splash-login{
+        margin-right: 0px;
+    }
+    .splash-about{
+        margin-right:0px
+    }
+    .splash-signup{
+        margin-right:0px
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .splash-content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .splash-content-title{
+        margin: 0 20px;
+        margin-top: 70px;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .splash-content-description{
+        margin: 0 20px;
+        margin-top: 20px;
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .splash-img{
+        margin: 0 20px;
+        margin-top: 30px;
+    }
+
+    .img-splash{
+        height: 200px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .splash-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-left-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-right-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-img{
+        display: none;
+    }
+
+    .splash-search-cities{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-search-cities button{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-about-us-icons img{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons p{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-btn{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us{
+        margin-bottom: 10px;
+    }
+
+    .splash-category-selector{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-container{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-bar{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-cities-btns{
+        margin-bottom: 10px;
+    }
+
+    .splash-category-selector-btns{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons a{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons a:hover{
+        text-decoration: none;
+    }
+
+    .splash-connect-with-people{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .high-five-splash-2{
+        margin-left:160px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .splash-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-left-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-right-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-img{
+        display: none;
+    }
+
+    .splash-search-cities{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-search-cities button{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splash-about-us-icons img{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons p{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-btn{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us{
+        margin-bottom: 10px;
+    }
+
+    .splash-category-selector{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-container{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-bar{
+        margin-bottom: 10px;
+    }
+
+    .splash-search-cities-btns{
+        margin-bottom: 10px;
+    }
+
+    .splash-category-selector-btns{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons a{
+        margin-bottom: 10px;
+    }
+
+    .splash-about-us-icons a:hover{
+        text-decoration: none;
+    }
 }
