@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 
 import { signUp } from '../../store/session';
-
+import { login } from '../../store/session';
 
 import './signUpForm.css'
 
@@ -64,12 +64,14 @@ const SignUpForm = () => {
     if (res.ok) {
         await res.json();
         setImageLoading(false);
+        dispatch(login(email, password))
         history.push("/feed");
     }
     else {
         setImageLoading(false);
         console.log("error")
     }
+
 
 }
 
