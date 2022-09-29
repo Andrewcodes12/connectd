@@ -1,8 +1,10 @@
 import './navbar.css';
 
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+
+import { logout } from '../../store/session';
 
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from '../Searchbar/SearchBar';
@@ -11,6 +13,9 @@ import AddEvent from '../AddEvent/AddEvent';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session);
+
+  const history = useHistory();
+  const dispatch = useDispatch();
 
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,6 +35,14 @@ const NavBar = () => {
       setMenuOpen(!menuOpen);
     }
   }
+
+  const handleLogout = async () => {
+    setIsLogged(false);
+    setMenuOpen(!menuOpen);
+    await dispatch(logout());
+    history.push('/');
+  }
+
 
 
 
@@ -69,7 +82,7 @@ const NavBar = () => {
                 {isLogged ?
                 <>
                   <li><NavLink to={`/users/${sessionUser.id}/profile`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleMenuOpen} >My Profile</NavLink></li >
-                  <li>logout</li>
+                  <li onClick={handleLogout}>Log Out</li>
                 </>
                 :
                   <>

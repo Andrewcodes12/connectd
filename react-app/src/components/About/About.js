@@ -115,7 +115,7 @@ function About() {
           <h1>Technologies Used</h1>
           <p>
             <strong>Frontend</strong>
-            <div>React, Redux, JavaScript, CSS, and MaterialUI</div>
+            <div>React, Redux, JavaScript, CSS, and MaterialUI(Modals)</div>
           </p>
           <p>
             <strong>Backend</strong>
