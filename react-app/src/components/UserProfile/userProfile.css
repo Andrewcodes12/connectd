@@ -52,3 +52,30 @@ button:hover{
     margin-left: 15px;
     font-weight: 1000;
 }
+
+
+@media screen and (max-width: 768px) {
+    .user-profile-container{
+        margin: 70px 0px;
+    }
+    .user-profile-info{
+        height: 200px;
+    }
+    .user-profile-img{
+        height: 100px;
+        width: 100px;
+        right: 50px;
+    }
+    .user-profile-bio{
+        width: 80%;
+        height: 40%;
+        top: 50%;
+        left: 0%;
+    }
+    .user-profile-btns h3{
+        margin-left: 0px;
+    }
+
+
+
+}
