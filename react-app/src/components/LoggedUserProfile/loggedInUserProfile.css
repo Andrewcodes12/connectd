@@ -19,3 +19,18 @@
     border-top: 1px solid rgba(208, 208, 208, 0.5);
 }
 
+
+.user-rsvp-search-error{
+    margin-bottom:25px;
+}
+
+.user-rsvp-search-error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-family: 'Notosans', sans-serif;
+
+}
