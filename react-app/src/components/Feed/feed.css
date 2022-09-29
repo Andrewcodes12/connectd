@@ -145,7 +145,7 @@ a:hover {
         flex-wrap: wrap;
     }
 }
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1512px) {
     .feed-events-container{
         grid-template-columns: repeat(3, minmax(100px,1fr));
     }
