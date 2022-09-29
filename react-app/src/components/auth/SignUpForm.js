@@ -14,29 +14,70 @@ const SignUpForm = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [repeatPassword, setRepeatPassword] = useState(null);
-  const [user_image, setUserImage] = useState(null);
+  const [user_image, setImage] = useState(null);
   const [first_name, setFirstName] = useState(null);
   const [last_name, setLastName] = useState(null);
   const [city, setCity] = useState(null);
   const [state, setState] = useState(null);
   const [zipcode, setZipcode] = useState(null);
   const [user_bio, setUserBio] = useState(null);
+  const [imageLoading, setImageLoading] = useState(false);
 
   const user = useSelector(state => state.session);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const onSignUp = async (e) => {
+  // const onSignUp = async (e) => {
+  //   e.preventDefault();
+  //   if (errors.length === 0) {
+  //     const data = await dispatch(signUp(username, email, password, user_image, first_name, last_name, city, state, zipcode, user_bio));
+  //     if (data) {
+  //       setErrors(data)
+  //     }
+  //   }
+
+  // };
+
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
-    if (errors.length === 0) {
-      const data = await dispatch(signUp(username, email, password, user_image, first_name, last_name, city, state, zipcode, user_bio));
-      if (data) {
-        setErrors(data)
-      }
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("user_image", user_image);
+    formData.append("first_name", first_name);
+    formData.append("last_name", last_name);
+    formData.append("city", city);
+    formData.append("state", state);
+    formData.append("zipcode", zipcode);
+    formData.append("user_bio", user_bio);
+
+
+
+
+    setImageLoading(true);
+    const res = await fetch('/api/auth/signup', {
+        method: "POST",
+        body: formData,
+    });
+    if (res.ok) {
+        await res.json();
+        setImageLoading(false);
+        history.push("/feed");
+    }
+    else {
+        setImageLoading(false);
+        console.log("error")
     }
 
-  };
+}
+
+
+  const updateImage = (e) => {
+      const file = e.target.files[0];
+      setImage(file);
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -54,9 +95,9 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  const updateUserImage = (e) => {
-    setUserImage(e.target.value);
-  };
+  // const updateUserImage = (e) => {
+  //   setUserImage(e.target.value);
+  // };
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
@@ -201,7 +242,7 @@ const SignUpForm = () => {
 
   return (
     <div className='signUp-form-container'>
-    <form className="signUp-form" onSubmit={onSignUp}>
+    <form className="signUp-form" onSubmit={handleSignUpSubmit}>
     <div>
       {errors.map((error, ind) => (
         <div key={ind} className="form-errors">{error}</div>
@@ -298,13 +339,14 @@ const SignUpForm = () => {
         required={true}
       ></input>
     </div>
+    <label className="signUp-form-label" htmlFor="user_bio">Upload profile picture</label>
     <div className="signUp-form-input">
       <input
-        type='text'
+        type='file'
         name='user_image'
-        onChange={updateUserImage}
+        accept='image/*'
+        onChange={updateImage}
         placeholder="Enter a link to your profile image"
-        value={user_image}
         required={true}
       ></input>
     </div>

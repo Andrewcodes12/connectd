@@ -63,3 +63,11 @@
     width: 300px;
     margin-top: 10px;
 }
+
+
+.signUp-form-label{
+    display: 'flex';
+    margin-top: 5px;
+    justify-content: 'center';
+    align-items: 'center';
+}

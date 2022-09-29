@@ -108,7 +108,6 @@ export default function AddEvent() {
   const updateImage = (e) => {
       const file = e.target.files[0];
       setImage(file);
-      console.log("clicked")
   }
 
 
@@ -190,7 +189,6 @@ export default function AddEvent() {
               type="file"
               accept="image/*"
               onChange={updateImage}
-              onClick={() => console.log("clicked")}
               required
             />
             <div>
