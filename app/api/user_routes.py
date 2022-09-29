@@ -58,4 +58,4 @@ def user_profile(id):
     rsvps = Rsvp.query.filter(Rsvp.user_id == id).all()
     eventsAttending = [Event.query.get(rsvp.event_id) for rsvp in rsvps]
     eventsHosting = Event.query.filter(Event.user_id == id).all()
-    return {'eventsAttending': [event.to_dict() for event in eventsAttending], 'eventsHosting': [event.to_dict() for event in eventsHosting]}
+    return {'user': user.to_dict(), 'eventsAttending': [event.to_dict() for event in eventsAttending], 'eventsHosting': [event.to_dict() for event in eventsHosting]}

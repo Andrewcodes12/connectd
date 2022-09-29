@@ -29,8 +29,10 @@ const style = {
 
 
 
-function EdituserProfile({user}) {
+function EdituserProfile({user, loggedUser}) {
     const [userId] = useState(user.id);
+
+
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [hashedPassword, setHashedPassword] = useState(user.hashedPassword);
@@ -235,7 +237,7 @@ function EdituserProfile({user}) {
             <input
                 type="text"
                 value={city}
-                onChange={city}
+                onChange={() => city}
                 className="edit-user-input"
                 placeholder='City is Automatically Filled based on Zipcode'
                 required
@@ -244,7 +246,7 @@ function EdituserProfile({user}) {
             <input
                 type="text"
                 value={state}
-                onChange={state}
+                onChange={() => state}
                 className="edit-user-input"
                 placeholder='State is Automatically Filled based on Zipcode'
                 required

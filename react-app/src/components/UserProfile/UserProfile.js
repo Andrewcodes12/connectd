@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './userProfile.css'
 
 import { loadEvents, loadUserEvents, filterEventsByDate } from '../../store/event';
-import { loadUserInfo } from '../../store/user';
+import { loadUserInfo,userProfile } from '../../store/user';
 import EdituserProfile from '../EditUserProfile/EdituserProfile';
 
 
