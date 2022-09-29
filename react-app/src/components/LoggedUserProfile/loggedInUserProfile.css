@@ -34,3 +34,14 @@
     font-family: 'Notosans', sans-serif;
 
 }
+
+
+.user-profile-no-events{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-family: 'Notosans', sans-serif;
+}

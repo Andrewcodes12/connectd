@@ -349,7 +349,6 @@ const SignUpForm = () => {
         accept='image/*'
         onChange={updateImage}
         placeholder="Enter a link to your profile image"
-        required={true}
       ></input>
     </div>
     <div className="signUp-form-input">
