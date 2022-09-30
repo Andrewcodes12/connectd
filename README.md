@@ -1,9 +1,9 @@
-Connectd
+# Connectd
 Connectd is a fullstack application designed for users to find people to join them in their interest or for users to take on new hobbies. 
 
-Live link: https://get-connectd.herokuapp.com/ Please refer to Wiki pages for documentation.
+### Live link: https://get-connectd.herokuapp.com/ 
 
-Technologies used:
+## Technologies used:
 
 Front-End:
 - React
@@ -20,8 +20,8 @@ Back-End:
 
 This app is deployed using Heroku & Docker.
 
-Site Features:
-Events
+## Site Features:
+### Events
 - Users have full CRUD capabilities on Events. Meaning, a user can Create an event, Update their events, and Delete their events.
 
 RSVP
@@ -54,6 +54,31 @@ AWS S3 Buckets
 - I have integrated AWS S3 Buckets to allow users to upload photos directly from their computers.
 
 
-Features to be implemented:
+## Features to be implemented:
 - WebScockets for a user to Message another user
+- full responsivness across all devices
+
+
+## Search By Category
+https://user-images.githubusercontent.com/84250366/193354767-f60d594f-d3fe-4d7f-8b94-c9e82d33ec19.mov
+
+## Search By City
+https://user-images.githubusercontent.com/84250366/193354873-5378682b-96b3-420c-a332-a605df03fa07.mov
+
+## Single Event Page
+https://user-images.githubusercontent.com/84250366/193354977-2af01979-bec7-429c-9791-3b5755aec601.mov
+
+## User Profile Page
+https://user-images.githubusercontent.com/84250366/193355220-d8479336-73fd-4b25-9ed0-64a8d4fc0efc.mov
+
+## Logged In User Profile Page
+https://user-images.githubusercontent.com/84250366/193355317-9215883f-a8d4-4e64-bbe6-6046fb0f83d9.mov
+
+## Main Feed
+https://user-images.githubusercontent.com/84250366/193355404-aaab8499-25ca-4d9d-abba-2cc3377e53b2.mov
+
+
+
+
+
 
