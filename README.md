@@ -18,6 +18,12 @@ Back-End:
 - SQLAlchemy(ORM)
 - PostgreSQL
 
+APIs
+- Google Maps
+- Cloudinary
+- Faker
+- Zippopotam
+
 This app is deployed using Heroku & Docker.
 
 ## Site Features:
