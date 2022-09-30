@@ -18,7 +18,7 @@ Back-End:
 - SQLAlchemy(ORM)
 - PostgreSQL
 
-APIs
+APIs:
 - Google Maps
 - Cloudinary
 - Faker
