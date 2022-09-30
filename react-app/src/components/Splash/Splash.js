@@ -16,6 +16,9 @@ import SearchBar from '../Searchbar/SearchBar'
 
 import './splash.css'
 
+import {FaGamepad, FaChess, FaSchool, FaCity,FaUmbrellaBeach } from 'react-icons/fa'
+import {MdSportsFootball, MdDirectionsBoatFilled, MdLocationCity} from 'react-icons/md'
+import {GiWineBottle, GiArchBridge, GiModernCity} from 'react-icons/gi'
 
 
 
@@ -165,26 +168,31 @@ function Splash() {
                   <h4>Search for events by category</h4>
                   <div className="splash-category-selector-btns">
                       <button onClick={takeToSports}>
+                      <MdSportsFootball className="categories-icon" />
                         <div className="category-splash-div">
                           Sports
                         </div>
                       </button>
                       <button onClick={takeToClubbing}>
+                      <GiWineBottle className="categories-icon" />
                         <div className="category-splash-div">
                           Clubbing
                         </div>
                       </button>
                       <button onClick={takeToStudygroup}>
+                      <FaSchool className="categories-icon" />
                         <div className="category-splash-div">
                           Study Groups
                         </div>
                       </button>
                       <button onClick={takeToBoating}>
+                      <MdDirectionsBoatFilled className="categories-icon" />
                         <div className="category-splash-div">
                           Boating
                         </div>
                       </button>
                       <button onClick={takeToVideoGames}>
+                        <FaGamepad className="categories-icon" />
                         <div className="category-splash-div">
                          Video Games
                         </div>
@@ -196,26 +204,31 @@ function Splash() {
                 <h4>Check out Events happening in these cities</h4>
                 <div className="splash-search-cities-btns">
                     <button onClick={findMiami}>
+                      <FaUmbrellaBeach className="categories-icon" />
                       <div className="splash-search-city">
                         Miami
                       </div>
                     </button>
                     <button onClick={findNewYork}>
+                      <MdLocationCity className="categories-icon" />
                       <div className="splash-search-city">
                         New York
                       </div>
                     </button>
                     <button onClick={findSanFran}>
+                      <GiArchBridge className="categories-icon" />
                       <div className="splash-search-city">
                         San Francisco
                       </div>
                     </button>
                     <button onClick={findAtlanta}>
+                      <FaCity className="categories-icon" />
                       <div className="splash-search-city">
                         Atlanta
                         </div>
                     </button>
                     <button onClick={findChicago}>
+                      <GiModernCity className="categories-icon" />
                       <div className="splash-search-city">
                         Chicago
                         </div>
