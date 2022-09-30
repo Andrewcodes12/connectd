@@ -125,7 +125,7 @@ const goToCategoryPage = (category) => {
               </div>
 
               <div className="share-event-container">
-                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`http://get-connctd.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
+                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`https://get-connectd.herokuapp.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
                 <span> Share this event with friends!</span>
               </div>
 
