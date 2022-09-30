@@ -22,7 +22,7 @@ export const loadUserInfo = () => async (dispatch) => {
 }
 
 export const editUserInfo = (user) => async (dispatch) => {
-    console.log(user)
+
     const response = await fetch(`/api/users/${user.id}/edit`, {
         method: 'PUT',
         headers: {
