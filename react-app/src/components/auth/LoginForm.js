@@ -56,20 +56,16 @@ const LoginForm = () => {
   }
 
 
+
   const demoLogin = async () => {
-    const demoEmail = 'asd@aol.com'
+    const demoEmail = 'hire@me.com'
     const demoPassword = 'password'
     setEmail(demoEmail);
     setPassword(demoPassword);
-
     return dispatch(
-        login('andrew@demo.com', 'password')
+      login('hire@me.com', 'password')
     );
   }
-
-
-
-
 
 
 

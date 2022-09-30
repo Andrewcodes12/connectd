@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
     city = db.Column(db.String(255), nullable=False)
     state = db.Column(db.String(255), nullable=False)
     zipcode = db.Column(db.String(10), nullable=False)
-    user_image = db.Column(db.String(255), nullable=False, default='https://i.imgur.com/6hEbAJv.jpeg')
-    user_bio = db.Column(db.Text(), nullable=False, default='Here to meet like minded people and create memories.')
+    user_image = db.Column(db.String(255),  default='https://i.imgur.com/6hEbAJv.jpeg')
+    user_bio = db.Column(db.String(255), nullable=False, default='Here to meet like minded people and create memories.')
 
     # one to many relatiopnship with events
     events = db.relationship('Event', backref='user', lazy=True)

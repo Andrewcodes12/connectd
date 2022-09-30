@@ -100,7 +100,7 @@ const goToCategoryPage = (category) => {
               <div className="event-reviews" ><i className="fa-solid fa-star review-star" ></i> <span className="single-event-average-rating">{getAverageRating()}</span> <i className="fa-solid fa-circle"></i> <span className="review-length" onClick={goToReviews}> {reviews.length} review(s)</span> <i className="fa-solid fa-circle"></i> <p className="single-event-location"> <span onClick={() => goToCityPage(event.event_city)}>{event.event_city}, {event.event_state} {event.event_zipcode}</span></p> <i className="fa-solid fa-circle"></i>  <div className="share-event-btn" onClick={() => {navigator.clipboard.writeText(`http://stay-connctd.com/events/${event.id}`)}}> <i className="fas fa-share-alt share"></i><span>Share</span></div> </div>
               <img src={event.event_imgs} alt="event-img" className="event-img"/>
               <p className="single-event-description">{event.event_description}</p>
-              <p className="single-event-date">{event.event_date}</p>
+              <p className="single-event-date">{event.event_date.slice(0,16)}</p>
               <button className="single-events-in-city"onClick={() => goToCityPage(event.event_city)}>See other events in {event.event_city}</button>
               <p className="single-event-category" onClick={() => goToCategoryPage(event.category)}>{event.category}</p>
             </div>

@@ -45,10 +45,11 @@ function Feed() {
         setIsClicked(false);
     }
 
-    function sliceTimeOffDate(){
-        let slicedDate = events.event_date.slice(0,10);
-        return slicedDate;
-    }
+    // function sliceTimeOffDate(){
+    //     let slicedDate = events.event_date.slice(0,15);
+    //     console.log(slicedDate);
+    //     return slicedDate;
+    // }
 
 
   return (
@@ -77,7 +78,7 @@ function Feed() {
                                     <div className="feed-event-info">
                                         <h3 className="event-title">{event.title}</h3>
                                         <p className="event-description">{event.event_description}</p>
-                                        <p className="event-date">{event.event_date}</p>
+                                        <p className="event-date">{event.event_date.slice(0,16)}</p>
                                         <p className="event-location">{event.event_city}, {event.event_state} {event.event_zipcode}</p>
                                         <p className="event-category">{event.category}</p>
                                     </div>

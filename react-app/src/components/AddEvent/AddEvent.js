@@ -129,6 +129,7 @@ export default function AddEvent() {
 
     setState(state)
     setCity(city)
+    setErrors([])
     }
 
 

@@ -32,6 +32,7 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const login = (email, password) => async (dispatch) => {
+  console.log(email, password)
   const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {
@@ -107,6 +108,7 @@ export const signUp = (username, email, password, first_name,last_name, city,sta
     return ['An error occurred. Please try again.']
   }
 }
+
 
 const initialState = {user: null};
 
