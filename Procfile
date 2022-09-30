@@ -1,1 +1,1 @@
-web: gunicorn -b :$PORT app:__init__
+web: gunicorn -b :$PORT __init__:app
