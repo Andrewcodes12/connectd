@@ -59,6 +59,9 @@ This app is deployed using Heroku & Docker.
 - full responsivness across all devices
 
 
+## Main Feed
+https://user-images.githubusercontent.com/84250366/193355404-aaab8499-25ca-4d9d-abba-2cc3377e53b2.mov
+
 ## Search By Category
 https://user-images.githubusercontent.com/84250366/193354767-f60d594f-d3fe-4d7f-8b94-c9e82d33ec19.mov
 
@@ -74,8 +77,7 @@ https://user-images.githubusercontent.com/84250366/193355220-d8479336-73fd-4b25-
 ## Logged In User Profile Page
 https://user-images.githubusercontent.com/84250366/193355317-9215883f-a8d4-4e64-bbe6-6046fb0f83d9.mov
 
-## Main Feed
-https://user-images.githubusercontent.com/84250366/193355404-aaab8499-25ca-4d9d-abba-2cc3377e53b2.mov
+
 
 
 
