@@ -25,7 +25,7 @@ function SingleEvent() {
   const reviews = useSelector(state => state.reviews);
   const sessionUser = useSelector(state => state.session);
 
-  const [copyURL, setCopyURL] = useState(`http://stay-connctd.com/events/${events.id}`);
+  const [copyURL, setCopyURL] = useState(`http://get-connctd.com/events/${events.id}`);
   const [isClicked, setIsClicked] = useState(false);
   const[shareClicked, setShareClicked] = useState(false);
 
