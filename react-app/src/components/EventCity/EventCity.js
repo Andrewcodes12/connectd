@@ -4,6 +4,10 @@ import { NavLink, useParams,useHistory } from 'react-router-dom';
 
 import {loadEventsByCity} from '../../store/event';
 
+import {FaGamepad, FaChess, FaSchool, FaCity,FaUmbrellaBeach } from 'react-icons/fa'
+import {MdSportsFootball, MdDirectionsBoatFilled, MdLocationCity} from 'react-icons/md'
+import {GiWineBottle, GiArchBridge, GiModernCity} from 'react-icons/gi'
+
 import NavBar from '../Navbar/Navbar';
 
 import './eventCity.css';
