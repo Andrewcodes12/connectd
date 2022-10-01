@@ -24,7 +24,7 @@ def seed_events():
         user_id= 4
     )
     event5 = Event(
-        title= 'Come enjoy the Miami weather with me', event_description= 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80', event_imgs= 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1688&q=80',
+        title= 'Come enjoy the Miami weather with me', event_description= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod volutpat turpis, et congue eros gravida vitae. Sed vel nisl vitae magna interdum molestie at quis diam. Vestibulum sit amet tortor eget nunc luctus venenatis. Sed mattis sit amet sapien eu fringilla. Vivamus commodo eget neque ac imperdiet. Donec porttitor euismod nisl. Suspendisse ac lobortis orci, eget tempus nisl. Morbi tristique, diam eget egestas tempus, mi velit condimentum risus, quis commodo leo magna nec mi. Nullam porta odio ut lacus faucibus, sed facilisis est ullamcorper.', event_imgs= 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1688&q=80',
         event_date= '2022-12-24', event_city= 'Miami', event_state= 'FL', event_zipcode= '33140', category= 'Boating',
         user_id= 2
     )
