@@ -39,7 +39,7 @@ function SearchBar() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Try searching for Miami"
+          placeholder="Search By City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
