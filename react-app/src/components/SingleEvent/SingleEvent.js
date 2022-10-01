@@ -109,14 +109,13 @@ const copyToClipboard = () => {
   el.style.padding = "10px"
   el.style.zIndex = "1000"
   document.body.appendChild(el)
-  
+
   {navigator.clipboard.writeText(`https://get-connectd.herokuapp.com/events/${eventsId}`)}
 
   setTimeout(() => {
     document.body.removeChild(el)
     setShareClicked(false)
   }, 2000)
-
 }
 
 

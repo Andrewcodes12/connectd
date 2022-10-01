@@ -107,18 +107,21 @@
     cursor: pointer;
 }
 
-.single-events-in-city:hover{
-    background-color: rgb(89, 166, 255, 0.8);
-    cursor: pointer;
-}
-
 .single-events-in-city{
     position: absolute;
     top: 210px;
     left: 380px;
     word-wrap: break-word;
     font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    margin-top: 10px;
 }
+
+.single-events-in-city:hover{
+    background-color: rgb(89, 166, 255, 0.8);
+    cursor: pointer;
+}
+
 
 
 .single-event-description{
@@ -126,11 +129,11 @@
     position: absolute;
     top: 250px;
     left: 380px;
-    word-wrap: break-word;
+    word-wrap: keep-all;
     font-family: 'Montserrat', sans-serif;
     overflow-y: scroll;
     height: 170px;
-    word-break: break-all;
+    word-break: keep-all;
 }
 
 .single-event-date{
