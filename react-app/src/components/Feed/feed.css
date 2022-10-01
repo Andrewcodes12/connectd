@@ -69,11 +69,13 @@ a:hover {
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     padding:0;
-    margin:0
+    margin:0;
+    -webkit-transition: all 0.5s ease-out;
 }
 
 .feed-event:hover{
     -webkit-transform: translateY(-20px);
+    -webkit-transition: all 0.5s ease-in-out;
     -ms-transform: translateY(-20px);
     transform: translateY(-20px);
     box-shadow: 0 22px 43px rgba(0, 0, 0, 0.32);
