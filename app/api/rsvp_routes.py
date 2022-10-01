@@ -46,21 +46,32 @@ def create_rsvp(id):
     return rsvp.to_dict()
 
 
-# delete rsvp on an event
+# delete rsvp on an event 
 @rsvp_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_rsvp(id):
     """
     Delete rsvp on an event
     """
-    # rsvp = Rsvp.query.get(id)
-    # db.session.delete(rsvp)
-    # db.session.commit()
-
-    rsvp = Rsvp.query.filter_by(event_id=id).first()
+    rsvp = Rsvp.query.filter_by(user_id=current_user.id, event_id=id).first()
     db.session.delete(rsvp)
     db.session.commit()
     return rsvp.to_dict()
+
+# @rsvp_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
+# def delete_rsvp(id):
+#     """
+#     Delete rsvp on an event
+#     """
+#     # rsvp = Rsvp.query.get(id)
+#     # db.session.delete(rsvp)
+#     # db.session.commit()
+
+#     rsvp = Rsvp.query.filter_by(event_id=id).first()
+#     db.session.delete(rsvp)
+#     db.session.commit()
+#     return rsvp.to_dict()
 
 
 # update rsvp on an event

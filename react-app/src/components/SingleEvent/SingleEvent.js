@@ -17,12 +17,15 @@ import Maps from '../Map/Map';
 import RsvpdEvents from '../RSVPD/RsvpdEvents';
 import EventCity from '../EventCity/EventCity';
 import NavBar from '../Navbar/Navbar';
+import { useMemo } from 'react';
+import { loadRsvpsOnEvent } from '../../store/rsvp';
 
 
 function SingleEvent() {
   const events = useSelector(state => state.events);
   const users = useSelector(state => state.users.users);
   const reviews = useSelector(state => state.reviews);
+  const rsvp = useSelector(state => state.rsvp);
   const sessionUser = useSelector(state => state.session);
 
   const [copyURL, setCopyURL] = useState(`http://get-connctd.com/events/${events.id}`);
@@ -42,6 +45,7 @@ function SingleEvent() {
     dispatch(loadUserInfo());
     dispatch(loadReviewsByEvent(eventsId));
   } , []);
+
 
   const deleteEvent = (id) => {
     dispatch(deleteEventById(id));
