@@ -24,6 +24,7 @@ import Feed from './components/Feed/Feed';
 
 import { authenticate } from './store/session';
 import Splash from './components/Splash/Splash';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
     <BrowserRouter>
 
       <Switch>
+        <ScrollToTop>
           <Route path='/' exact={true}>
             <Splash />
           </Route>
@@ -87,6 +89,7 @@ function App() {
           {/* <ProtectedRoute path='/messages' exact={true}>
             <DirectMessage />
           </ProtectedRoute> */}
+        </ScrollToTop>
       </Switch>
           <Footer />
     </BrowserRouter>
