@@ -3,6 +3,7 @@ import {NavLink, useParams,useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
+
 import { loadEvents,deleteEventById,loadEventsByCity,loadUserEvents } from '../../store/event';
 import { loadUserInfo } from '../../store/user';
 import { loadReviewsByEvent } from '../../store/review';
@@ -10,6 +11,8 @@ import { loadReviewsByEvent } from '../../store/review';
 
 
 import './singleEvent.css';
+
+
 import EditEvent from '../EditEvent/EditEvent';
 // import EditReviews from '../EditReviews/EditReviews';
 import AddReviews from '../AddReviews/AddReviews';
@@ -91,6 +94,34 @@ const goToCategoryPage = (category) => {
 }
 
 
+const copyToClipboard = () => {
+  setShareClicked(true)
+
+  const el = document.createElement('div')
+
+  el.innerText = "Copied to clipboard"
+  el.style.position = "absolute"
+  el.style.top = "50%"
+  el.style.left = "50%"
+  el.style.transform = "translate(-50%, -50%)"
+  el.style.backgroundColor = "white"
+  el.style.border = "1px solid black"
+  el.style.padding = "10px"
+  el.style.zIndex = "1000"
+  document.body.appendChild(el)
+  
+  {navigator.clipboard.writeText(`https://get-connectd.herokuapp.com/events/${eventsId}`)}
+
+  setTimeout(() => {
+    document.body.removeChild(el)
+    setShareClicked(false)
+  }, 2000)
+
+}
+
+
+
+
 
   return (
     <>
@@ -129,7 +160,7 @@ const goToCategoryPage = (category) => {
               </div>
 
               <div className="share-event-container">
-                <button className="share-event" onClick={() => {navigator.clipboard.writeText(`https://get-connectd.herokuapp.com/events/${event.id}`)}}><i className="fas fa-share-alt share-this-event"></i></button>
+                <button className="share-event" onClick={() => copyToClipboard()}><i className="fas fa-share-alt share-this-event"></i></button>
                 <span> Share this event with friends!</span>
               </div>
 
